@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -32,7 +31,7 @@ export default function Home() {
             <span className="text-neutral-500 mb-4 block">PWM Group Presents</span>
             <h1 className="text-6xl font-bold mb-6 leading-tight">
               Innovation for
-              <span className="text-indigo-600"> Tomorrow's India</span>
+              <span className="text-indigo-600"> Tomorrow&apos;s India</span>
             </h1>
             <p className="text-xl text-neutral-600 mb-8 leading-relaxed max-w-2xl">
               A technology conglomerate building AI-powered solutions across government services, 
@@ -107,9 +106,9 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-neutral-500 mb-4 block">Join PWM Group</span>
-            <h2 className="text-4xl font-bold mb-6">Let's Build Together</h2>
+            <h2 className="text-4xl font-bold mb-6">Let&apos;s Build Together</h2>
             <p className="text-xl text-neutral-600 mb-8">
-              Whether you're a business looking to innovate, or an individual seeking growth,
+              Whether you&apos;re a business looking to innovate, or an individual seeking growth,
               PWM Group has the right solution for you.
             </p>
             <Link

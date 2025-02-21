@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ['placehold.co'],
   },
   experimental: {
-    appDir: true,
+    // Remove appDir option as it's no longer needed
   }
 }
 
