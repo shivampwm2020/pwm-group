@@ -12,6 +12,29 @@ export default function Journey() {
         </p>
       </div>
       
+      {/* Previous Site Links */}
+      <div className="max-w-3xl mx-auto mb-20">
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Previous Site Archives</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a href="https://shivam21maurya.wixsite.com/website-1" className="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+            <h3 className="text-xl font-semibold text-blue-800 mb-2">Previous Site v1</h3>
+            <p className="text-gray-600">Visit our first version of the website</p>
+          </a>
+          <a href="https://shivam21maurya.wixsite.com/my-site-3" className="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+            <h3 className="text-xl font-semibold text-blue-800 mb-2">Previous Site v2</h3>
+            <p className="text-gray-600">Explore our second iteration</p>
+          </a>
+          <a href="https://shivam21maurya.wixsite.com/programming-with-mau" className="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+            <h3 className="text-xl font-semibold text-blue-800 mb-2">Previous Site v3</h3>
+            <p className="text-gray-600">Check out our third version</p>
+          </a>
+          <a href="https://shivam21maurya.wixsite.com/website" className="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+            <h3 className="text-xl font-semibold text-blue-800 mb-2">Previous Site v4</h3>
+            <p className="text-gray-600">Browse through our fourth version</p>
+          </a>
+        </div>
+      </div>
+      
       <div className="max-w-3xl mx-auto space-y-20">
         {/* 2025 AI Era */}
         <div className="relative">
