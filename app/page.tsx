@@ -28,7 +28,7 @@ export default function Home() {
       <section className="min-h-[80vh] flex items-center border-b">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <img src="/pwm_logo_no_bg.png" alt="PWM Logo" className="mx-auto mb-4 w-24 h-auto" />
+            <img src="/pwm_logo_no_bg.png" alt="PWM Logo" className="mb-4 w-24 h-auto" />
             <span className="text-neutral-500 mb-4 block">PWM Group Presents</span>
             <h1 className="text-6xl font-bold mb-6 leading-tight">
               Innovation for

@@ -77,6 +77,7 @@ export default function RootLayout({
         {/* Footer */}
         <footer className="border-t py-12">
           <div className="container mx-auto px-4">
+            <img src="/pwm_logo_no_bg.png" alt="PWM Logo" className="mb-4 w-24 h-auto" />
             <div className="grid md:grid-cols-4 gap-8">
               <div>
                 <h3 className="font-bold text-lg mb-4">Programming with Maurya</h3>
