@@ -3,6 +3,7 @@ export default function Journey() {
     <main className="container mx-auto px-4 py-16 bg-gradient-to-b from-gray-50 to-white">
       {/* Header Section */}
       <div className="text-center mb-16">
+        <img src="/pwm_logo_no_bg.png" alt="PWM Logo" className="mx-auto mb-4 w-24 h-auto" />
         <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
           Our Evolution
         </h1>
