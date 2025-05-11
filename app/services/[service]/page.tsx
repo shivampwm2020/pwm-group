@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { ArrowRight, Check } from 'lucide-react';
 import Link from 'next/link';
+import { PageProps } from '@/app/types';
 
 const services = {
   aiution: {
@@ -33,7 +34,11 @@ const services = {
   },
 };
 
-export default function ServicePage({ params }: { params: { service: string } }) {
+type ServicePageProps = PageProps<{
+  service: string;
+}>;
+
+export default function ServicePage({ params }: ServicePageProps) {
   const service = services[params.service as keyof typeof services];
 
   if (!service) {

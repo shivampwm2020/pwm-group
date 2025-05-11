@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { ArrowRight, Check, Calendar, Users, Award } from 'lucide-react';
 import Link from 'next/link';
+import { PageProps } from '@/app/types';
 
 const initiatives = {
   'production-gurus': {
@@ -40,7 +41,11 @@ const initiatives = {
   },
 };
 
-export default function CommunityInitiativePage({ params }: { params: { initiative: string } }) {
+type InitiativePageProps = PageProps<{
+  initiative: string;
+}>;
+
+export default function CommunityInitiativePage({ params }: InitiativePageProps) {
   const initiative = initiatives[params.initiative as keyof typeof initiatives];
 
   if (!initiative) {

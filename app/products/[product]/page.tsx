@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { ArrowRight, Check } from 'lucide-react';
 import Link from 'next/link';
+import { PageProps } from '@/app/types';
 
 const products = {
   explaingithub: {
@@ -59,7 +60,11 @@ const products = {
   },
 };
 
-export default function ProductPage({ params }: { params: { product: string } }) {
+type ProductPageProps = PageProps<{
+  product: string;
+}>;
+
+export default function ProductPage({ params }: ProductPageProps) {
   const product = products[params.product as keyof typeof products];
 
   if (!product) {
