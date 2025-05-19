@@ -1,5 +1,10 @@
 import type { Config } from "tailwindcss";
-import { colors, typography, borderRadius, animations } from "./app/styles/design-system";
+import {
+  colors,
+  typography,
+  borderRadius,
+  animations,
+} from "./app/styles/design-system";
 
 export default {
   content: [
