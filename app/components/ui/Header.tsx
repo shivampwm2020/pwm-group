@@ -26,6 +26,8 @@ export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [isCondensedVisible, setIsCondensedVisible] = useState(false);
+  const [isFullNavVisible, setIsFullNavVisible] = useState(false);
 
   const active = navItems.find((item) => item.path === pathname) || navItems[0];
 
@@ -33,35 +35,40 @@ export default function Navbar() {
   const fullNavRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => {
-      if (!hasScrolled) setHasScrolled(true);
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 0);
     };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [hasScrolled]);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!condensedRef.current) return;
-    if (direction === "down" && !isHovered) {
+
+    if (direction === "down" && !isHovered && !isCondensedVisible) {
       gsap.to(condensedRef.current, {
         autoAlpha: 1,
         x: 0,
         duration: 0.5,
         ease: "power3.out",
       });
-    } else {
+      setIsCondensedVisible(true);
+    } else if ((direction === "up" || isHovered) && isCondensedVisible) {
       gsap.to(condensedRef.current, {
         autoAlpha: 0,
         x: 20,
         duration: 0.5,
         ease: "power3.in",
       });
+      setIsCondensedVisible(false);
     }
-  }, [direction, isHovered]);
+  }, [direction, isHovered, isCondensedVisible]);
 
   useEffect(() => {
     if (!fullNavRef.current) return;
-    if (isHovered) {
+
+    if (isHovered && !isFullNavVisible) {
       gsap.to(fullNavRef.current, {
         autoAlpha: 1,
         x: 0,
@@ -69,7 +76,8 @@ export default function Navbar() {
         ease: "power2.out",
         pointerEvents: "auto",
       });
-    } else {
+      setIsFullNavVisible(true);
+    } else if (!isHovered && isFullNavVisible) {
       gsap.to(fullNavRef.current, {
         autoAlpha: 0,
         x: 20,
@@ -77,22 +85,24 @@ export default function Navbar() {
         ease: "power2.in",
         pointerEvents: "none",
       });
+      setIsFullNavVisible(false);
     }
-  }, [isHovered]);
+  }, [isHovered, isFullNavVisible]);
 
   return (
     <>
       {/* DESKTOP NAVBAR */}
       <div className="hidden lg:block">
-        <div className="container mx-auto px-4">
-          <div className="fixed top-4 left-4 z-50">
-            <Link href="/" aria-label="Logo">
-              <Image src={logo} alt="Logo" width={60} height={60} priority />
-            </Link>
-          </div>
+        {/* Full navbar only at top */}
+        {!hasScrolled && (
+          <div className="fixed top-4 left-0 right-0 z-40">
+            <div className="container mx-auto px-8 py-4 flex items-center justify-between">
+              {/* Logo */}
+              <Link href="/" aria-label="Logo">
+                <Image src={logo} alt="Logo" width={75} height={75} priority />
+              </Link>
 
-          {!hasScrolled && (
-            <header className="fixed top-4 right-4 z-40">
+              {/* Nav links */}
               <div className="bg-white bg-opacity-90 backdrop-blur-md px-2 py-1 rounded-[10px] shadow-lg flex gap-4 border border-gray-200">
                 {navItems.map((item) => (
                   <Link
@@ -109,53 +119,63 @@ export default function Navbar() {
                   </Link>
                 ))}
               </div>
-            </header>
-          )}
-
-          <div
-            ref={condensedRef}
-            className="fixed top-4 right-4 z-50 opacity-0 pointer-events-auto"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-[10px] shadow-md cursor-pointer hover:bg-gray-200 transition-all">
-              <span className="font-mono text-sm font-bold text-blue-700">
-                ||
-              </span>
-              <span className="uppercase font-bold text-[1rem] text-blue-700">
-                {active.name}
-              </span>
             </div>
           </div>
+        )}
 
-          <nav
-            ref={fullNavRef}
-            className="fixed top-4 right-4 z-40 opacity-0 pointer-events-none"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <div className="bg-white bg-opacity-90 backdrop-blur-md px-6 py-3 rounded-full shadow-lg flex gap-4 transition-all duration-300 border border-gray-200">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className={clsx(
-                    "uppercase font-semibold px-3 py-1 rounded-full text-sm transition-colors",
-                    item.path === pathname
-                      ? "bg-blue-700 text-white"
-                      : "text-blue-700 hover:bg-blue-200"
-                  )}
-                >
-                  {item.name}
-                </Link>
-              ))}
+        {/* Condensed || Active text */}
+        <div className="fixed top-4 left-0 right-0 z-40 pointer-events-none">
+          <div className="container mx-auto px-8 py-4 flex justify-end">
+            <div
+              ref={condensedRef}
+              className="opacity-0 pointer-events-auto"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-[10px] shadow-md cursor-pointer hover:bg-gray-200 transition-all">
+                <span className="font-mono text-sm font-bold text-blue-700">
+                  ||
+                </span>
+                <span className="uppercase font-bold text-[1rem] text-blue-700">
+                  {active.name}
+                </span>
+              </div>
             </div>
-          </nav>
+          </div>
+        </div>
+
+        {/* Hover-expanded full nav from condensed */}
+        <div className="fixed top-4 left-0 right-0 z-40 pointer-events-none">
+          <div className="container mx-auto px-4 flex justify-end">
+            <nav
+              ref={fullNavRef}
+              className="opacity-0 pointer-events-none"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <div className="bg-white bg-opacity-90 backdrop-blur-md mt-6 mx-8 px-2 py-1 rounded-[10px] shadow-lg flex gap-4 transition-all duration-300 border border-gray-200">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    className={clsx(
+                      "uppercase font-semibold px-3 py-1 rounded-[10px] text-sm transition-colors",
+                      item.path === pathname
+                        ? "bg-blue-700 text-white"
+                        : "text-blue-700 hover:bg-blue-200"
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
 
       {/* MOBILE NAVBAR */}
-      <div className="lg:hidden fixed top-0 left-0 w-full z-50  px-4 py-3 flex items-center justify-between">
+      <div className="lg:hidden fixed top-0 left-0 w-full z-50 px-4 py-3 flex items-center justify-between">
         <Link href="/">
           <Image src={logo} alt="Logo" width={70} height={70} />
         </Link>
@@ -181,7 +201,7 @@ export default function Navbar() {
               key={item.path}
               href={item.path}
               onClick={() => setMenuOpen(false)}
-              className="hover:text-blue-900 "
+              className="hover:text-blue-900"
             >
               {item.name}
             </Link>
