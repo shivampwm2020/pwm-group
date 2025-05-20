@@ -92,7 +92,7 @@ export default function Navbar() {
   return (
     <>
       {/* DESKTOP NAVBAR */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block mb-6">
         {/* Full navbar only at top */}
         {!hasScrolled && (
           <div className="fixed top-4 left-0 right-0 z-40">
@@ -180,9 +180,9 @@ export default function Navbar() {
           <Image src={logo} alt="Logo" width={70} height={70} />
         </Link>
         <div className="flex items-center gap-4 bg-gray-300 px-4 py-2 rounded-lg shadow-md">
-          <a href="mailto:test@example.com">
+          <Link href="/contact">
             <GoMail className="text-2xl text-blue-700" />
-          </a>
+          </Link>
           <button onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? (
               <RxCross2 className="text-2xl text-blue-700" />
