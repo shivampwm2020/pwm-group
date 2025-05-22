@@ -2,11 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const products = [
   {
@@ -112,42 +108,6 @@ const stats = [
 ];
 
 export default function HomePage() {
-  useEffect(() => {
-    const items = gsap.utils.toArray(".project-card");
-    const containers = gsap.utils.toArray(".project-container");
-
-    items.forEach((el) => {
-      gsap.fromTo(
-        el,
-        { scale: 0.95 },
-        {
-          scale: 1,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 80%",
-            end: "bottom center",
-            scrub: true,
-          },
-          ease: "power2.out",
-        }
-      );
-    });
-
-    if (window.innerWidth >= 768) {
-      containers.forEach((el) => {
-        gsap.to(el, {
-          y: -100,
-          scrollTrigger: {
-            trigger: el,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
-          },
-        });
-      });
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-white mt-8">
       {/* Hero Section */}
@@ -163,14 +123,14 @@ export default function HomePage() {
               Builder-First Tech Collective
             </span>
 
-            <h1 className="max-w-3xl mx-auto text-3xl sm:text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight font-sans uppercase">
+            <h1 className="max-w-4xl mx-auto text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-none font-serif uppercase">
               Transforming Ideas{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
                 Into Innovation
               </span>
             </h1>
 
-            <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-gray-600 leading-snug font-mono max-w-2xl mx-auto">
+            <p className="mt-6 sm:mt-8 text-base sm:text-sm md:text-lg text-gray-600 leading-tight tracking-tighter font-mono max-w-2xl mx-auto">
               PWM Group (formerly Programming with Maurya) is a builder-first
               tech collective focused on launching impactful platforms for
               developers, AI engineers, and enterprises.
@@ -179,13 +139,16 @@ export default function HomePage() {
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/products"
-                className="px-6 py-3 sm:px-8 sm:py-3 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-base sm:text-lg shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-200"
+                className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-blue-700 shadow-lg rounded-lg hover:bg-white group"
               >
-                Explore Our Products
+                <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-lg"></span>
+                <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
+                  Explore Our Products
+                </span>
               </Link>
               <Link
                 href="/contact"
-                className="px-6 py-3 sm:px-8 sm:py-3 rounded-lg bg-white text-blue-600 font-medium text-base sm:text-lg shadow-sm border border-gray-200 hover:shadow-md hover:border-gray-300 transition-all duration-200"
+                className="flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-blue-700 whitespace-nowrap bg-white border-2 border-transparent rounded-lg shadow-sm hover:bg-blue-700 hover:text-white hover:border-white focus:outline-none"
               >
                 Contact Us
               </Link>
@@ -197,13 +160,13 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-14 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 rounded-b-4xl relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hexagon-pattern.svg')] opacity-10"></div>
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-white opacity-5 rounded-full"></div>
         <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-white opacity-5 rounded-full"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center py-8">
-            <p className="text-xl font-medium text-white font-sans">
+            <p className="text-2xl font-medium leading-tight text-white font-mono">
               From open-source tools to AI-powered SaaS platforms, PWM is now a
               launchpad for products, ideas, and community-led innovation.
             </p>
@@ -215,49 +178,42 @@ export default function HomePage() {
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/diagonal-lines.svg')] opacity-5"></div>
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50 to-transparent"></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium text-sm mb-4">
               Products
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
               Products by PWM Group
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-mono leading-tight">
               From open-source tools to AI-powered SaaS platforms, PWM is now a
               launchpad for products, ideas, and community-led innovation.
             </p>
           </div>
 
-          {/* Cards in zigzag layout */}
-          <div className="grid grid-cols-1 gap-24 md:grid-cols-2 lg:gap-44 ">
+          <div className="max-w-lg sm:max-w-5xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product, index) => (
-              <li
+              <div
                 key={product.name}
-                className={`bg-black project-container ${
-                  index % 2 === 0
-                    ? "md:col-start-1 md:row-start-" +
-                      (Math.floor(index / 2) * 2 + 1)
-                    : "md:col-start-2 md:row-start-" +
-                      (Math.floor(index / 2) * 2 + 2)
-                } md:row-span-2`}
+                className="group bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative"
               >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                 <div
-                  className={`h-40 ${product.color} relative overflow-hidden flex items-center justify-center p-6`}
+                  className={`h-[170px] bg-gradient-to-r ${product.color} flex items-center justify-center p-6 relative overflow-hidden`}
                 >
-                  <div className="absolute inset-0 "></div>
+                  <div className="absolute inset-0 bg-[url('/circuit-dots.svg')] bg-repeat opacity-10"></div>
                   <div className="text-white text-center relative z-10">
                     <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium mb-2">
                       {product.category}
                     </span>
-                    <h3 className="text-xl font-bold text-white">
+                    <h3 className="text-xl font-bold font-serif">
                       {product.name}
                     </h3>
                   </div>
                 </div>
-                <div className="p-4 h-[calc(100%-160px)] flex flex-col justify-between relative z-10">
-                  <p className="text-gray-600 mb-4 line-clamp-3">
+                <div className="p-6 relative z-10">
+                  <p className="text-gray-600 text-base mb-6 line-clamp-3">
                     {product.description}
                   </p>
                   <Link
@@ -268,18 +224,25 @@ export default function HomePage() {
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
                   </Link>
                 </div>
-              </li>
+              </div>
             ))}
           </div>
 
-          {/* View All Button */}
-          <div className="text-center mt-20">
+          <div className="text-center mt-12">
             <Link
               href="/products"
-              className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-50 border border-gray-200 text-blue-600 font-medium hover:bg-gray-100 transition-colors duration-200"
+              className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 shadow-lg ease-in-out rounded hover:pl-10 hover:pr-6 bg-indigo-100 group"
             >
-              View all products
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+              <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"></span>
+              <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
+                <ArrowRight className="w-5 h-5 text-blue-700" />
+              </span>
+              <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
+                <ArrowRight className="w-5 h-5 text-white" />
+              </span>
+              <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
+                View all products
+              </span>
             </Link>
           </div>
         </div>
@@ -294,8 +257,10 @@ export default function HomePage() {
             <span className="inline-block px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 font-medium text-sm mb-4">
               Services
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
+              Services
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-mono leading-tight">
               AI and automation for SMBs and enterprises.
             </p>
           </div>
@@ -316,7 +281,9 @@ export default function HomePage() {
                       <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium mb-2">
                         {service.category}
                       </span>
-                      <h3 className="text-xl font-bold">{service.name}</h3>
+                      <h3 className="text-xl font-bold font-serif">
+                        {service.name}
+                      </h3>
                     </div>
                   </div>
                   <div className="md:w-2/3 p-6 relative z-10">
@@ -337,10 +304,18 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               href="/services"
-              className="inline-flex items-center px-6 py-3 rounded-lg bg-white border border-gray-200 text-indigo-600 font-medium hover:bg-gray-100 transition-colors duration-200"
+              className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 shadow-lg ease-in-out rounded hover:pl-10 hover:pr-6 bg-indigo-100 group"
             >
-              View all services
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+              <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"></span>
+              <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
+                <ArrowRight className="w-5 h-5 text-blue-700" />
+              </span>
+              <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
+                <ArrowRight className="w-5 h-5 text-white" />
+              </span>
+              <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
+                View all services
+              </span>
             </Link>
           </div>
         </div>
@@ -355,10 +330,10 @@ export default function HomePage() {
             <span className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium text-sm mb-4">
               Testimonials
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
               What Our Clients Say
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-mono leading-tight">
               We take pride in delivering exceptional solutions that meet our
               clients' needs
             </p>

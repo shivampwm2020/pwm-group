@@ -77,9 +77,9 @@ export const colors = {
 export const typography = {
   // Font families
   fontFamily: {
-    sans: 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    sans: '"Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
     serif:
-      'Merriweather, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      '"Merriweather", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
     mono: '"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
   },
 
@@ -95,7 +95,7 @@ export const typography = {
     "4xl": "2.25rem", // 36px
     "5xl": "3rem", // 48px
     "6xl": "3.75rem", // 60px
-    "7xl": "4rem",
+    "7xl": "4.5rem", // 72px
   },
 
   // Font weights
@@ -106,6 +106,7 @@ export const typography = {
     semibold: "600",
     bold: "700",
     extrabold: "800",
+    black: "900",
   },
 
   // Line heights

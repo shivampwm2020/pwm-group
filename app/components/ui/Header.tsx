@@ -176,9 +176,12 @@ export default function Navbar() {
 
       {/* MOBILE NAVBAR */}
       <div className="lg:hidden fixed top-0 left-0 w-full z-50 px-4 py-3 flex items-center justify-between">
-        <Link href="/">
-          <Image src={logo} alt="Logo" width={70} height={70} />
-        </Link>
+        {!hasScrolled && (
+          <Link href="/">
+            <Image src={logo} alt="Logo" width={70} height={70} className="" />
+          </Link>
+        )}
+
         <div className="flex items-center gap-4 bg-gray-300 px-4 py-2 rounded-lg shadow-md">
           <Link href="/contact">
             <GoMail className="text-2xl text-blue-700" />
