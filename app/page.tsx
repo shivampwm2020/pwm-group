@@ -422,11 +422,11 @@ export default function HomePage() {
 
               {/* Content */}
               <div className="px-8 pb-10 text-center">
-                <span className="inline-block text-sm font-medium bg-green-100 text-green-700 px-4 py-1 rounded-full mb-4">
+                <span className="inline-block text-sm font-medium font-sans bg-green-100 text-green-700 px-4 py-1 rounded-full mb-4">
                   {communityInitiatives[0].category}
                 </span>
 
-                <p className="text-gray-700 text-base sm:text-lg mb-6 leading-relaxed">
+                <p className="text-gray-700 text-base sm:text-lg mb-6 leading-relaxed font-sans">
                   {communityInitiatives[0].description}
                 </p>
 
