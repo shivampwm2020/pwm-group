@@ -276,34 +276,36 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="flex justify-center items-center min-h-[60vh] px-4 py-12 ">
-            <div className="w-full max-w-2xl backdrop-blur-sm border border-gray-200 rounded-3xl shadow-xl overflow-hidden">
-              {/* Header */}
-              <div
-                className={`p-6 sm:p-8 bg-gradient-to-r ${services[0].color} text-white rounded-t-3xl relative`}
-              >
-                <div className="absolute inset-0 bg-[url('/tech-pattern.svg')] opacity-10 bg-repeat rounded-t-3xl"></div>
-                <div className="relative z-10">
-                  <span className="text-xs sm:text-sm font-medium bg-white/20 px-3 py-1 rounded-full inline-block mb-3">
-                    {services[0].category}
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-bold font-serif text-center">
-                    {services[0].name}
-                  </h2>
-                </div>
+          <div className="flex justify-center items-center min-h-[60vh] px-4 py-12">
+            <div className="w-full max-w-xl bg-white border-t-4 border-blue-700 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              {/* Image */}
+              <div className="flex justify-center items-center px-8 py-8 pt-10 pb-6">
+                <img
+                  src={services[0].image}
+                  alt="Service Logo"
+                  className="h-20 sm:h-24 object-contain"
+                />
               </div>
 
+              {/* Divider Line */}
+              <div className="border-b border-gray-200 mx-8"></div>
+
               {/* Content */}
-              <div className="p-6 sm:p-8 text-center">
+              <div className="p-8 sm:p-10 text-center">
+                <span className="inline-block text-sm font-medium bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full mb-4">
+                  {services[0].category}
+                </span>
+
                 <p className="text-gray-700 text-base sm:text-lg mb-6 leading-relaxed">
                   {services[0].description}
                 </p>
+
                 <Link
                   href={services[0].path}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full text-sm font-medium transition-transform transform hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 text-indigo-600 font-semibold text-sm sm:text-base hover:underline"
                 >
-                  Learn More
-                  <ArrowRight className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
             </div>
@@ -407,35 +409,27 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="flex justify-center items-center min-h-[60vh] px-4 py-16 ">
-            <div className="w-full max-w-3xl bg-white/80 backdrop-blur-sm border border-gray-200 rounded-3xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-              {/* Top Banner with Image & Title */}
-              <div
-                className={`relative bg-gradient-to-r ${communityInitiatives[0].color} text-white p-8 sm:p-10`}
-              >
-                <div className="absolute inset-0 bg-[url('/community-pattern.svg')] bg-repeat opacity-10 rounded-t-3xl"></div>
-                <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                  <img
-                    src={communityInitiatives[0].image}
-                    alt={communityInitiatives[0].name}
-                    className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-full border-4 border-white shadow-md"
-                  />
-                  <div className="text-center sm:text-left">
-                    <span className="inline-block bg-white/20 text-xs sm:text-sm px-3 py-1 rounded-full font-medium mb-2">
-                      {communityInitiatives[0].category}
-                    </span>
-                    <h2 className="text-2xl sm:text-3xl font-bold font-serif">
-                      {communityInitiatives[0].name}
-                    </h2>
-                  </div>
-                </div>
+          <div className="flex justify-center items-center min-h-[60vh] px-4 py-16">
+            <div className="w-full max-w-md bg-white/80 backdrop-blur-sm border-t-4 border-blue-700 rounded-3xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+              {/* Logo Image */}
+              <div className="flex justify-center items-center p-8 pb-4 bg-white">
+                <img
+                  src={communityInitiatives[0].image}
+                  alt="Community"
+                  className="h-24 object-contain"
+                />
               </div>
 
-              {/* Description + CTA */}
-              <div className="p-6 sm:p-10 text-center sm:text-left">
-                <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+              {/* Content */}
+              <div className="px-8 pb-10 text-center">
+                <span className="inline-block text-sm font-medium bg-green-100 text-green-700 px-4 py-1 rounded-full mb-4">
+                  {communityInitiatives[0].category}
+                </span>
+
+                <p className="text-gray-700 text-base sm:text-lg mb-6 leading-relaxed">
                   {communityInitiatives[0].description}
                 </p>
+
                 <Link
                   href={communityInitiatives[0].path}
                   className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full text-sm font-medium transition-transform transform hover:scale-105"
