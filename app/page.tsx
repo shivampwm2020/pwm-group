@@ -113,45 +113,60 @@ const stats = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white mt-8">
+    <div className="min-h-screen bg-white mt-16 sm:mt-18 ">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
+        {/* Background Layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 z-0"></div>
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 z-0"></div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-[url('/dots-pattern.svg')] bg-repeat opacity-5 z-0"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[url('/circles-pattern.svg')] bg-no-repeat bg-left-bottom opacity-5 z-0"></div>
+        <div className="absolute top-0 right-0 w-1/2 md:w-1/3 h-full bg-[url('/dots-pattern.svg')] bg-repeat opacity-5 z-0"></div>
+        <div className="absolute bottom-0 left-0 w-3/4 sm:w-1/2 h-1/2 bg-[url('/circles-pattern.svg')] bg-no-repeat bg-left-bottom opacity-5 z-0"></div>
 
-        <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Content Container */}
+        <div className="min-h-[80vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="w-full max-w-7xl mx-auto text-center">
+            {/* Badge */}
             <span className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium text-sm mb-4">
               Builder-First Tech Collective
             </span>
 
-            <h1 className="max-w-4xl mx-auto text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-none font-sans uppercase">
+            {/* Heading */}
+            <h1 className="max-w-4xl mx-auto text-3xl sm:text-5xl lg:text-7xl font-black text-gray-900 leading-none font-sans uppercase">
               Transforming Ideas{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
                 Into Innovation
               </span>
             </h1>
 
-            <p className="mt-6 sm:mt-8 text-base sm:text-sm md:text-lg text-gray-600 leading-tight tracking-tighter font-sans max-w-3xl mx-auto">
+            {/* Description */}
+            <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed tracking-tight font-sans max-w-3xl mx-auto">
               PWM Group (formerly Programming with Maurya) is a builder-first
               tech collective focused on launching impactful platforms for
               developers, AI engineers, and enterprises.
             </p>
 
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 sm:mt-10">
-              <Button href="/products" variant="primary">
+              <Button
+                href="/products"
+                variant="primary"
+                className="w-full sm:w-auto "
+              >
                 Explore Our Products
               </Button>
-              <Button href="/contact" variant="secondary">
+              <Button
+                href="/contact"
+                variant="secondary"
+                className="w-full sm:w-auto"
+              >
                 Contact Us
               </Button>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent z-0"></div>
       </section>
 
       {/* Stats Section */}
@@ -293,7 +308,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-10">
             <Link
               href="/services"
               className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 shadow-lg ease-in-out rounded hover:pl-10 hover:pr-6 bg-indigo-100 group"
@@ -431,7 +446,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-10">
             <Link
               href="/community"
               className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-green-600 transition-all duration-150 shadow-lg ease-in-out rounded hover:pl-10 hover:pr-6 bg-indigo-100 group"
@@ -452,39 +467,37 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 relative overflow-hidden rounded-b-4xl">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 sm:py-24 lg:py-32 relative overflow-hidden rounded-b-4xl">
         <div className="absolute inset-0 bg-[url('/wave-lines.svg')] opacity-10"></div>
-        <div className="absolute -left-32 -bottom-32 w-96 h-96 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
-        <div className="absolute -right-32 -top-32 w-96 h-96 bg-indigo-500 opacity-20 rounded-full blur-3xl"></div>
+        <div className="absolute -left-32 -bottom-32 w-80 h-80 sm:w-96 sm:h-96 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
+        <div className="absolute -right-32 -top-32 w-80 h-80 sm:w-96 sm:h-96 bg-indigo-500 opacity-20 rounded-full blur-3xl"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col items-center justify-center gap-4">
-            <div className="text-white max-w-2xl">
-              <h2 className="text-5xl font-extrabold mb-2 font-sans text-center">
-                Let's deploy more than code
+          <div className="flex flex-col items-center justify-center gap-8 text-center">
+            <div className="text-white max-w-3xl">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-sans mb-4 leading-snug">
+                Let’s deploy more than code
               </h2>
-              <p className="text-blue-100 text-lg font-sans leading-tight tracking-tighter text-center">
-                Let's deploy ideas, knowledge, and growth 🚀
+              <p className="text-blue-100 text-base sm:text-lg leading-snug tracking-tight">
+                Let’s deploy ideas, knowledge, and growth 🚀
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
               <Link
                 href="/contact"
-                className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-white shadow-lg rounded-lg hover:bg-blue-500 group"
+                className="relative inline-flex items-center justify-center px-6 py-3 text-base font-medium transition-all bg-white text-blue-700 rounded-lg shadow-lg hover:bg-blue-500 hover:text-white group w-full sm:w-auto text-center"
               >
                 <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-blue-500 rounded-lg"></span>
-                <span className="relative w-full text-left text-blue-700 transition-colors duration-200 ease-in-out group-hover:text-white">
-                  Get Started
-                </span>
+                <span className="relative z-10">Get Started</span>
               </Link>
 
               <Link
                 href="/products"
-                className="relative inline-flex items-center justify-start px-8 py-3 overflow-hidden font-medium transition-all bg-blue-500 shadow-lg rounded-lg hover:bg-blue-800 group"
+                className="relative inline-flex items-center justify-center px-6 py-3 text-base font-medium transition-all bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-800 group w-full sm:w-auto text-center"
               >
                 <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-lg"></span>
-                <span className="relative w-full text-left text-white hover:text-blue-700 transition-colors duration-200 ease-in-out">
-                  Explore Solutions
-                </span>
+                <span className="relative z-10">Explore Solutions</span>
               </Link>
             </div>
           </div>
