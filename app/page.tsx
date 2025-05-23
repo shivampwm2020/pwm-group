@@ -351,30 +351,33 @@ export default function HomePage() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-md border border-gray-100 p-8 hover:shadow-xl transition-all duration-300 relative group"
+                className="bg-white rounded-3xl shadow-lg border border-b-4 border-b-blue-700 border-gray-100 p-8 hover:shadow-2xl transition-all duration-300 relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl"></div>
-                <div className="absolute top-0 right-0 w-20 h-20 bg-blue-50 rounded-bl-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-                <div className="mb-6 relative z-10">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span key={star} className="text-yellow-400 inline-block">
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-6 italic relative z-10">
-                  "{testimonial.quote}"
-                </p>
-                <div className="flex items-center relative z-10">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full mr-4 flex items-center justify-center text-blue-600 font-bold">
-                    {testimonial.author.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">
-                      {testimonial.author}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-3xl z-0"></div>
+                <div className="flex flex-col justify-between h-full relative z-10">
+                  <div className="mb-6">
+                    <div className="flex gap-1 mb-4">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <span key={star} className="text-yellow-400 text-lg">
+                          ★
+                        </span>
+                      ))}
                     </div>
-                    <div className="text-sm text-gray-500">
-                      {testimonial.position}
+                    <p className="text-gray-700 text-base sm:text-lg italic leading-relaxed font-serif">
+                      “{testimonial.quote}”
+                    </p>
+                  </div>
+                  <div className="flex items-center mt-6 pt-4 border-t border-gray-100">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-100 to-blue-200 flex items-center justify-center text-blue-700 font-bold text-lg mr-4">
+                      {testimonial.author.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="text-gray-900 font-semibold">
+                        {testimonial.author}
+                      </p>
+                      <p className="text-gray-500 text-sm">
+                        {testimonial.position}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -463,14 +466,14 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 relative overflow-hidden rounded-b-4xl">
         <div className="absolute inset-0 bg-[url('/wave-lines.svg')] opacity-10"></div>
         <div className="absolute -left-32 -bottom-32 w-96 h-96 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
         <div className="absolute -right-32 -top-32 w-96 h-96 bg-indigo-500 opacity-20 rounded-full blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col items-center justify-center gap-4">
             <div className="text-white max-w-2xl">
-              <h2 className="text-4xl font-extrabold mb-4">
+              <h2 className="text-4xl font-extrabold mb-2 font-serif text-center">
                 Let's deploy more than code
               </h2>
               <p className="text-blue-100 text-lg font-mono text-center">
@@ -480,15 +483,22 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="px-8 py-3 rounded-lg bg-white text-blue-600 font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-white shadow-lg rounded-lg hover:bg-blue-500 group"
               >
-                Get Started
+                <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-blue-500 rounded-lg"></span>
+                <span className="relative w-full text-left text-blue-700 transition-colors duration-200 ease-in-out group-hover:text-white">
+                  Get Started
+                </span>
               </Link>
+
               <Link
                 href="/products"
-                className="px-8 py-3 rounded-lg bg-blue-500 bg-opacity-30 text-white font-medium text-lg hover:bg-opacity-40 transition-all duration-200"
+                className="relative inline-flex items-center justify-start px-8 py-3 overflow-hidden font-medium transition-all bg-blue-500 shadow-lg rounded-lg hover:bg-blue-800 group"
               >
-                Explore Solutions
+                <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-lg"></span>
+                <span className="relative w-full text-left text-white hover:text-blue-700 transition-colors duration-200 ease-in-out">
+                  Explore Solutions
+                </span>
               </Link>
             </div>
           </div>
