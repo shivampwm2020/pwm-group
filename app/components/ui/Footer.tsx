@@ -14,7 +14,7 @@ export default function Footer() {
                 width={65}
                 height={65}
               />
-              <span className="font-semibold text-lg text-gray-900 font-serif">
+              <span className="font-bold text-lg text-gray-900 font-sans">
                 PWM Group
               </span>
             </div>

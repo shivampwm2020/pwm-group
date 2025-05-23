@@ -47,15 +47,15 @@ const services = [
     color: "from-indigo-600 to-blue-700",
     category: "AI Solutions",
   },
-  {
-    name: "Enterprise Consulting",
-    description:
-      "Service Arm: Expanding into enterprise consulting and product development using PWM's frameworks and internal tools.",
-    path: "/services/enterprise-consulting",
-    icon: "chart-bar",
-    color: "from-blue-600 to-cyan-600",
-    category: "Consulting",
-  },
+  // {
+  //   name: "Enterprise Consulting",
+  //   description:
+  //     "Service Arm: Expanding into enterprise consulting and product development using PWM's frameworks and internal tools.",
+  //   path: "/services/enterprise-consulting",
+  //   icon: "chart-bar",
+  //   color: "from-blue-600 to-cyan-600",
+  //   category: "Consulting",
+  // },
 ];
 
 const communityInitiatives = [
@@ -64,19 +64,20 @@ const communityInitiatives = [
     description:
       "The Production Gurus is a focused tech community for builders, developers, founders, and AI enthusiasts who love turning ideas into real, shipped products.",
     path: "/community/production-gurus",
+    image: "/theproductiongurus1.png",
     icon: "users",
     color: "from-green-600 to-teal-600",
     category: "Professional Network",
   },
-  {
-    name: "Developer Champions",
-    description:
-      "PWM Group began as a small peer-to-peer learning group where developers shared knowledge, asked questions, and helped each other grow.",
-    path: "/community/developer-champions",
-    icon: "code",
-    color: "from-blue-600 to-indigo-600",
-    category: "Knowledge Sharing",
-  },
+  // {
+  //   name: "Developer Champions",
+  //   description:
+  //     "PWM Group began as a small peer-to-peer learning group where developers shared knowledge, asked questions, and helped each other grow.",
+  //   path: "/community/developer-champions",
+  //   icon: "code",
+  //   color: "from-blue-600 to-indigo-600",
+  //   category: "Knowledge Sharing",
+  // },
 ];
 
 const testimonials = [
@@ -160,7 +161,7 @@ export default function HomePage() {
         <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-white opacity-5 rounded-full"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center py-8">
-            <p className="text-2xl font-medium leading-tight text-white font-sans">
+            <p className="text-2xl font-medium leading-tight tracking-tighter text-white font-sans">
               From open-source tools to AI-powered SaaS platforms, PWM is now a
               launchpad for products, ideas, and community-led innovation.
             </p>
@@ -186,11 +187,11 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="max-w-lg sm:max-w-5xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="max-w-lg sm:max-w-5xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3 ">
             {products.map((product, index) => (
               <div
                 key={product.name}
-                className="group bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative"
+                className="group bg-white rounded-xl shadow-md  border-t-4 border-blue-700 overflow-hidden hover:shadow-xl transition-all duration-300 relative"
               >
                 {/* Image section with overlay */}
                 <div className="relative h-[170px] flex items-center justify-center overflow-hidden bg-white">
@@ -247,60 +248,49 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[url('/square-dots.svg')] opacity-5"></div>
         <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-indigo-100 to-transparent opacity-40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <span className="inline-block px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 font-medium text-sm mb-2">
               Services
             </span>
             <h2 className="text-5xl font-extrabold text-gray-900 mb-2 font-sans">
               Our Services
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-mono leading-tight">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight">
               AI and automation for SMBs and enterprises.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
-            {services.map((service) => (
+          <div className="flex justify-center items-center min-h-[60vh] px-4 py-12 ">
+            <div className="w-full max-w-2xl backdrop-blur-sm border border-gray-200 rounded-3xl shadow-xl overflow-hidden">
+              {/* Header */}
               <div
-                key={service.name}
-                className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative md:min-h-[200px]"
+                className={`p-6 sm:p-8 bg-gradient-to-r ${services[0].color} text-white rounded-t-3xl relative`}
               >
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 hover:opacity-10 transition-opacity duration-300 z-0"></div>
-
-                {/* Responsive Flex */}
-                <div className="flex flex-col sm:flex-col md:flex-row h-full relative z-10">
-                  {/* Left Section (Image/Color) */}
-                  <div
-                    className={`w-full md:w-[200px] h-[180px] md:h-auto bg-gradient-to-br ${service.color} p-6 flex items-center justify-center relative`}
-                  >
-                    <div className="absolute inset-0 bg-[url('/tech-pattern.svg')] bg-repeat opacity-10"></div>
-                    <div className="text-white text-center relative z-10">
-                      <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium mb-2">
-                        {service.category}
-                      </span>
-                      <h3 className="text-lg md:text-xl font-bold font-serif">
-                        {service.name}
-                      </h3>
-                    </div>
-                  </div>
-
-                  {/* Right Section (Text) */}
-                  <div className="flex-1 p-5 flex flex-col justify-between">
-                    <p className="text-gray-600 text-sm md:text-base mb-4">
-                      {service.description}
-                    </p>
-                    <Link
-                      href={service.path}
-                      className="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700 transition-colors duration-200"
-                    >
-                      Learn more
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                    </Link>
-                  </div>
+                <div className="absolute inset-0 bg-[url('/tech-pattern.svg')] opacity-10 bg-repeat rounded-t-3xl"></div>
+                <div className="relative z-10">
+                  <span className="text-xs sm:text-sm font-medium bg-white/20 px-3 py-1 rounded-full inline-block mb-3">
+                    {services[0].category}
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-bold font-serif text-center">
+                    {services[0].name}
+                  </h2>
                 </div>
               </div>
-            ))}
+
+              {/* Content */}
+              <div className="p-6 sm:p-8 text-center">
+                <p className="text-gray-700 text-base sm:text-lg mb-6 leading-relaxed">
+                  {services[0].description}
+                </p>
+                <Link
+                  href={services[0].path}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full text-sm font-medium transition-transform transform hover:scale-105"
+                >
+                  Learn More
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
           </div>
 
           <div className="text-center mt-12">
@@ -386,14 +376,14 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[url('/polygon-mesh.svg')] opacity-5"></div>
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-green-100 to-transparent opacity-30"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <span className="inline-block px-4 py-2 rounded-full bg-green-100 text-green-700 font-medium text-sm mb-4">
               Community
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl font-extrabold text-gray-900 mb-4">
               Join Our Community
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 leading-tight tracking-tighter max-w-3xl mx-auto">
               Whether you're just getting started, deep into dev tools,
               launching your startup, or scaling your side project — this space
               is for smart conversations, shared learnings, and meaningful
@@ -401,42 +391,44 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2">
-            {communityInitiatives.map((initiative) => (
+          <div className="flex justify-center items-center min-h-[60vh] px-4 py-16 ">
+            <div className="w-full max-w-3xl bg-white/80 backdrop-blur-sm border border-gray-200 rounded-3xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+              {/* Top Banner with Image & Title */}
               <div
-                key={initiative.name}
-                className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative md:min-h-[320px]"
+                className={`relative bg-gradient-to-r ${communityInitiatives[0].color} text-white p-8 sm:p-10`}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-teal-50 opacity-0 hover:opacity-10 transition-opacity duration-300"></div>
-                <div className="flex flex-col md:flex-row h-full">
-                  <div
-                    className={`md:w-1/3 h-[200px] md:h-auto bg-gradient-to-br ${initiative.color} p-8 flex items-center justify-center relative`}
-                  >
-                    <div className="absolute inset-0 bg-[url('/community-pattern.svg')] bg-repeat opacity-10"></div>
-                    <div className="text-white text-center relative z-10">
-                      <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium mb-2">
-                        {initiative.category}
-                      </span>
-                      <h3 className="text-xl font-bold font-serif">
-                        {initiative.name}
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="md:w-2/3 p-6 relative z-10 flex flex-col justify-center">
-                    <p className="text-gray-600 mb-6">
-                      {initiative.description}
-                    </p>
-                    <Link
-                      href={initiative.path}
-                      className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors duration-200 group"
-                    >
-                      Join community
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
-                    </Link>
+                <div className="absolute inset-0 bg-[url('/community-pattern.svg')] bg-repeat opacity-10 rounded-t-3xl"></div>
+                <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                  <img
+                    src={communityInitiatives[0].image}
+                    alt={communityInitiatives[0].name}
+                    className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-full border-4 border-white shadow-md"
+                  />
+                  <div className="text-center sm:text-left">
+                    <span className="inline-block bg-white/20 text-xs sm:text-sm px-3 py-1 rounded-full font-medium mb-2">
+                      {communityInitiatives[0].category}
+                    </span>
+                    <h2 className="text-2xl sm:text-3xl font-bold font-serif">
+                      {communityInitiatives[0].name}
+                    </h2>
                   </div>
                 </div>
               </div>
-            ))}
+
+              {/* Description + CTA */}
+              <div className="p-6 sm:p-10 text-center sm:text-left">
+                <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+                  {communityInitiatives[0].description}
+                </p>
+                <Link
+                  href={communityInitiatives[0].path}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full text-sm font-medium transition-transform transform hover:scale-105"
+                >
+                  Join Community
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
           </div>
 
           <div className="text-center mt-12">
@@ -467,10 +459,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col items-center justify-center gap-4">
             <div className="text-white max-w-2xl">
-              <h2 className="text-4xl font-extrabold mb-2 font-serif text-center">
+              <h2 className="text-5xl font-extrabold mb-2 font-sans text-center">
                 Let's deploy more than code
               </h2>
-              <p className="text-blue-100 text-lg font-mono text-center">
+              <p className="text-blue-100 text-lg font-sans leading-tight tracking-tighter text-center">
                 Let's deploy ideas, knowledge, and growth 🚀
               </p>
             </div>
