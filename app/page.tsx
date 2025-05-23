@@ -193,11 +193,11 @@ export default function HomePage() {
                 className="group bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative"
               >
                 {/* Image section with overlay */}
-                <div className="relative h-[170px] overflow-hidden">
+                <div className="relative h-[170px] flex items-center justify-center overflow-hidden bg-white">
                   <img
                     src={product.image}
                     alt={product.category}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="h-full w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                 </div>
