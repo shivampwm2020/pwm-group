@@ -1,59 +1,66 @@
-import React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/app/lib/utils';
-import { components } from '@/app/styles/design-system';
+import React from "react";
+import Link from "next/link";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/app/lib/utils";
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:pointer-events-none',
+  "inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:pointer-events-none",
   {
     variants: {
       variant: {
-        primary: 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:shadow-lg',
-        secondary: 'bg-white text-blue-600 border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300',
-        tertiary: 'bg-transparent text-gray-700 hover:text-blue-600',
-        ghost: 'hover:bg-gray-100 text-gray-700',
-        link: 'text-blue-600 hover:underline p-0 h-auto',
+        primary:
+          "relative overflow-hidden bg-blue-700 text-white shadow-lg rounded-lg hover:bg-white group",
+        secondary:
+          "bg-white text-blue-700 border-2 border-transparent rounded-lg shadow-sm hover:bg-blue-700 hover:text-white hover:border-white",
       },
       size: {
-        xs: 'px-2.5 py-1.5 text-xs rounded',
-        sm: 'px-3 py-2 text-sm rounded-md',
-        md: 'px-4 py-2.5 text-base rounded-lg',
-        lg: 'px-6 py-3 text-lg rounded-lg',
-        xl: 'px-8 py-4 text-xl rounded-xl',
-      },
-      fullWidth: {
-        true: 'w-full',
+        md: "px-5 py-3 text-base rounded-lg",
       },
     },
     defaultVariants: {
-      variant: 'primary',
-      size: 'md',
-      fullWidth: false,
+      variant: "primary",
+      size: "md",
     },
   }
 );
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+export interface ButtonProps extends VariantProps<typeof buttonVariants> {
+  href?: string;
   children: React.ReactNode;
-  asChild?: boolean;
+  className?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, fullWidth, children, ...props }, ref) => {
+  ({ href, children, className, variant, size, ...props }, ref) => {
+    const classes = cn(buttonVariants({ variant, size }), className);
+
+    const content =
+      variant === "primary" ? (
+        <>
+          <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-lg" />
+          <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
+            {children}
+          </span>
+        </>
+      ) : (
+        children
+      );
+
+    if (href) {
+      return (
+        <Link href={href} className={classes}>
+          {content}
+        </Link>
+      );
+    }
+
     return (
-      <button
-        className={cn(buttonVariants({ variant, size, fullWidth, className }))}
-        ref={ref}
-        {...props}
-      >
-        {children}
+      <button ref={ref} className={classes} {...props}>
+        {content}
       </button>
     );
   }
 );
 
-Button.displayName = 'Button';
-
-export { Button, buttonVariants }; 
+Button.displayName = "Button";
+export { Button, buttonVariants };

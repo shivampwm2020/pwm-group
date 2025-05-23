@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import gsap from "gsap";
+import { Button } from "./components/ui";
 
 const products = [
   {
@@ -10,6 +10,7 @@ const products = [
     description:
       "AI-powered repo exploration for developers and learners. ExplainGitHub lets you chat with any public or private GitHub repository using LLMs.",
     path: "/products/explaingithub",
+    image: "/explaingithub.png",
     icon: "code",
     color: "from-blue-600 to-indigo-700",
     category: "Developer Tools",
@@ -19,6 +20,7 @@ const products = [
     description:
       "A GitHub meets Instagram experience. RepoFlicks is a showcase platform where developers can present their GitHub repositories like social media posts.",
     path: "/products/repoflicks",
+    image: "/repoflicks.png",
     icon: "shield-check",
     color: "from-indigo-600 to-purple-700",
     category: "Developer Platform",
@@ -28,6 +30,7 @@ const products = [
     description:
       "Simplifying access to government schemes in India. Sarkari Samadhan is a citizen-centric chatbot platform that helps users discover, understand, and apply for Indian government schemes.",
     path: "/products/sarkarisamadhan",
+    image: "/sarkari_samadhan_in_logo.png",
     icon: "graduation-cap",
     color: "from-purple-600 to-pink-700",
     category: "Governance",
@@ -123,35 +126,26 @@ export default function HomePage() {
               Builder-First Tech Collective
             </span>
 
-            <h1 className="max-w-4xl mx-auto text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-none font-serif uppercase">
+            <h1 className="max-w-4xl mx-auto text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-none font-sans uppercase">
               Transforming Ideas{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
                 Into Innovation
               </span>
             </h1>
 
-            <p className="mt-6 sm:mt-8 text-base sm:text-sm md:text-lg text-gray-600 leading-tight tracking-tighter font-mono max-w-2xl mx-auto">
+            <p className="mt-6 sm:mt-8 text-base sm:text-sm md:text-lg text-gray-600 leading-tight tracking-tighter font-sans max-w-3xl mx-auto">
               PWM Group (formerly Programming with Maurya) is a builder-first
               tech collective focused on launching impactful platforms for
               developers, AI engineers, and enterprises.
             </p>
 
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/products"
-                className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-blue-700 shadow-lg rounded-lg hover:bg-white group"
-              >
-                <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-lg"></span>
-                <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
-                  Explore Our Products
-                </span>
-              </Link>
-              <Link
-                href="/contact"
-                className="flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-blue-700 whitespace-nowrap bg-white border-2 border-transparent rounded-lg shadow-sm hover:bg-blue-700 hover:text-white hover:border-white focus:outline-none"
-              >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 sm:mt-10">
+              <Button href="/products" variant="primary">
+                Explore Our Products
+              </Button>
+              <Button href="/contact" variant="secondary">
                 Contact Us
-              </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -166,7 +160,7 @@ export default function HomePage() {
         <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-white opacity-5 rounded-full"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center py-8">
-            <p className="text-2xl font-medium leading-tight text-white font-mono">
+            <p className="text-2xl font-medium leading-tight text-white font-sans">
               From open-source tools to AI-powered SaaS platforms, PWM is now a
               launchpad for products, ideas, and community-led innovation.
             </p>
@@ -180,13 +174,13 @@ export default function HomePage() {
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium text-sm mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium text-sm mb-2">
               Products
             </span>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
-              Products by PWM Group
+            <h2 className="text-5xl font-extrabold text-gray-900 mb-2 font-sans">
+              Our Products
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-mono leading-tight">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight">
               From open-source tools to AI-powered SaaS platforms, PWM is now a
               launchpad for products, ideas, and community-led innovation.
             </p>
@@ -198,21 +192,21 @@ export default function HomePage() {
                 key={product.name}
                 className="group bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div
-                  className={`h-[170px] bg-gradient-to-r ${product.color} flex items-center justify-center p-6 relative overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-[url('/circuit-dots.svg')] bg-repeat opacity-10"></div>
-                  <div className="text-white text-center relative z-10">
-                    <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium mb-2">
-                      {product.category}
-                    </span>
-                    <h3 className="text-xl font-bold font-serif">
-                      {product.name}
-                    </h3>
-                  </div>
+                {/* Image section with overlay */}
+                <div className="relative h-[170px] overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.category}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                 </div>
+
+                {/* Content section */}
                 <div className="p-6 relative z-10">
+                  <span className="inline-block px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-xs font-medium rounded-full mb-3">
+                    {product.category}
+                  </span>
                   <p className="text-gray-600 text-base mb-6 line-clamp-3">
                     {product.description}
                   </p>
@@ -254,11 +248,11 @@ export default function HomePage() {
         <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-indigo-100 to-transparent opacity-40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 font-medium text-sm mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 font-medium text-sm mb-2">
               Services
             </span>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
-              Services
+            <h2 className="text-5xl font-extrabold text-gray-900 mb-2 font-sans">
+              Our Services
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-mono leading-tight">
               AI and automation for SMBs and enterprises.
@@ -330,7 +324,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      {/* <section className=" hidden py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/curved-lines.svg')] opacity-5"></div>
         <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-gray-50 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -385,7 +379,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Community Section */}
       <section className="py-24 bg-gray-50 relative overflow-hidden">
