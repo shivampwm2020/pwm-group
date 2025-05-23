@@ -43,6 +43,7 @@ const services = [
     description:
       "AI and automation for SMBs and enterprises. Aiution is an AI-as-a-Service platform that helps businesses automate workflows, launch internal chatbots, create analytics dashboards, and integrate AI systems with minimal setup.",
     path: "/services/aiution",
+    image: "/aiution_logo.svg",
     icon: "brain",
     color: "from-indigo-600 to-blue-700",
     category: "AI Solutions",
@@ -139,7 +140,7 @@ export default function HomePage() {
             </h1>
 
             {/* Description */}
-            <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed tracking-tight font-sans max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto mt-4 font-sans leading-tight">
               PWM Group (formerly Programming with Maurya) is a builder-first
               tech collective focused on launching impactful platforms for
               developers, AI engineers, and enterprises.
@@ -398,7 +399,7 @@ export default function HomePage() {
             <h2 className="text-5xl font-extrabold text-gray-900 mb-4">
               Join Our Community
             </h2>
-            <p className="text-xl text-gray-600 leading-tight tracking-tighter max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight">
               Whether you're just getting started, deep into dev tools,
               launching your startup, or scaling your side project — this space
               is for smart conversations, shared learnings, and meaningful
@@ -478,7 +479,7 @@ export default function HomePage() {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-sans mb-4 leading-snug">
                 Let’s deploy more than code
               </h2>
-              <p className="text-blue-100 text-base sm:text-lg leading-snug tracking-tight">
+              <p className="text-base sm:text-lg text-blue-100 max-w-4xl mx-auto font-sans leading-tight">
                 Let’s deploy ideas, knowledge, and growth 🚀
               </p>
             </div>
