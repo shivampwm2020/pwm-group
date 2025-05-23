@@ -265,35 +265,43 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
             {services.map((service) => (
               <div
                 key={service.name}
-                className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative"
+                className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative md:min-h-[200px]"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 hover:opacity-10 transition-opacity duration-300"></div>
-                <div className="flex flex-col md:flex-row">
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 hover:opacity-10 transition-opacity duration-300 z-0"></div>
+
+                {/* Responsive Flex */}
+                <div className="flex flex-col sm:flex-col md:flex-row h-full relative z-10">
+                  {/* Left Section (Image/Color) */}
                   <div
-                    className={`md:w-1/3 bg-gradient-to-br ${service.color} p-8 flex items-center justify-center relative`}
+                    className={`w-full md:w-[200px] h-[180px] md:h-auto bg-gradient-to-br ${service.color} p-6 flex items-center justify-center relative`}
                   >
                     <div className="absolute inset-0 bg-[url('/tech-pattern.svg')] bg-repeat opacity-10"></div>
                     <div className="text-white text-center relative z-10">
                       <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium mb-2">
                         {service.category}
                       </span>
-                      <h3 className="text-xl font-bold font-serif">
+                      <h3 className="text-lg md:text-xl font-bold font-serif">
                         {service.name}
                       </h3>
                     </div>
                   </div>
-                  <div className="md:w-2/3 p-6 relative z-10">
-                    <p className="text-gray-600 mb-6">{service.description}</p>
+
+                  {/* Right Section (Text) */}
+                  <div className="flex-1 p-5 flex flex-col justify-between">
+                    <p className="text-gray-600 text-sm md:text-base mb-4">
+                      {service.description}
+                    </p>
                     <Link
                       href={service.path}
                       className="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700 transition-colors duration-200"
                     >
                       Learn more
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>
@@ -396,32 +404,34 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2">
             {communityInitiatives.map((initiative) => (
               <div
                 key={initiative.name}
-                className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative"
+                className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 relative md:min-h-[320px]"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-teal-50 opacity-0 hover:opacity-10 transition-opacity duration-300"></div>
-                <div className="flex flex-col md:flex-row">
+                <div className="flex flex-col md:flex-row h-full">
                   <div
-                    className={`md:w-1/3 bg-gradient-to-br ${initiative.color} p-8 flex items-center justify-center relative`}
+                    className={`md:w-1/3 h-[200px] md:h-auto bg-gradient-to-br ${initiative.color} p-8 flex items-center justify-center relative`}
                   >
                     <div className="absolute inset-0 bg-[url('/community-pattern.svg')] bg-repeat opacity-10"></div>
                     <div className="text-white text-center relative z-10">
                       <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium mb-2">
                         {initiative.category}
                       </span>
-                      <h3 className="text-xl font-bold">{initiative.name}</h3>
+                      <h3 className="text-xl font-bold font-serif">
+                        {initiative.name}
+                      </h3>
                     </div>
                   </div>
-                  <div className="md:w-2/3 p-6 relative z-10">
+                  <div className="md:w-2/3 p-6 relative z-10 flex flex-col justify-center">
                     <p className="text-gray-600 mb-6">
                       {initiative.description}
                     </p>
                     <Link
                       href={initiative.path}
-                      className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors duration-200"
+                      className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors duration-200 group"
                     >
                       Join community
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -435,10 +445,18 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               href="/community"
-              className="inline-flex items-center px-6 py-3 rounded-lg bg-white border border-gray-200 text-green-600 font-medium hover:bg-gray-100 transition-colors duration-200"
+              className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-green-600 transition-all duration-150 shadow-lg ease-in-out rounded hover:pl-10 hover:pr-6 bg-indigo-100 group"
             >
-              View all community initiatives
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+              <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-green-600 group-hover:h-full"></span>
+              <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
+                <ArrowRight className="w-5 h-5 text-green-600" />
+              </span>
+              <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
+                <ArrowRight className="w-5 h-5 text-white" />
+              </span>
+              <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
+                View all community initiatives
+              </span>
             </Link>
           </div>
         </div>
