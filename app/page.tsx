@@ -409,15 +409,17 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="flex justify-center items-center min-h-[60vh] px-4 py-16">
-            <div className="w-full max-w-md bg-white/80 backdrop-blur-sm border-t-4 border-blue-700 rounded-3xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+          <div className="flex justify-center items-center min-h-[60vh] bg-gradient-to-b from-white to-green-50 px-4 py-16">
+            <div className="w-full max-w-md bg-white/90 backdrop-blur-md border border-gray-200 rounded-3xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
               {/* Logo Image */}
-              <div className="flex justify-center items-center p-8 pb-4 bg-white">
-                <img
-                  src={communityInitiatives[0].image}
-                  alt="Community"
-                  className="h-24 object-contain"
-                />
+              <div className="flex justify-center items-center px-8 pt-8">
+                <div className="w-28 h-28 rounded-xl overflow-hidden shadow-md border border-gray-200">
+                  <img
+                    src={communityInitiatives[0].image}
+                    alt="Community"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
 
               {/* Content */}
@@ -432,7 +434,7 @@ export default function HomePage() {
 
                 <Link
                   href={communityInitiatives[0].path}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full text-sm font-medium transition-transform transform hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full text-sm font-semibold transition-transform duration-200 transform hover:scale-105"
                 >
                   Join Community
                   <ArrowRight className="w-4 h-4" />
