@@ -33,10 +33,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   descriptionColor = "text-gray-600",
   primaryBtnText,
   primaryBtnLink,
-  primaryBtnColor = "bg-blue-600 hover:bg-blue-700",
+  primaryBtnColor,
   secondaryBtnText,
   secondaryBtnLink,
-  secondaryBtnColor = "bg-gray-200 hover:bg-gray-300",
+  secondaryBtnColor,
 }) => {
   return (
     <section className="relative overflow-hidden">
@@ -77,10 +77,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </p>
 
           {/* CTA Buttons */}
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 sm:mt-10">
             <Button
               href={primaryBtnLink}
-              className={`w-full sm:w-auto ${primaryBtnColor} text-white rounded-full`}
+              className={`w-full sm:w-auto ${
+                primaryBtnColor ||
+                "bg-blue-600 hover:bg-white hover:text-blue-600 text-white"
+              } rounded-full`}
             >
               {primaryBtnText}
             </Button>
@@ -88,7 +92,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {secondaryBtnText && secondaryBtnLink && (
               <Button
                 href={secondaryBtnLink}
-                className={`w-full sm:w-auto ${secondaryBtnColor} rounded-full`}
+                className={`w-full sm:w-auto ${
+                  secondaryBtnColor ||
+                  "bg-white text-blue-600   hover:bg-blue-600 hover:text-white"
+                } rounded-full`}
               >
                 {secondaryBtnText}
               </Button>

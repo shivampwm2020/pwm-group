@@ -61,8 +61,8 @@ export default function ProductsPage() {
       {/* Hero Section */}
       <HeroSection
         badgeText="Products by PWM Group"
-        headingBefore="From Open-Source"
-        highlightText="Tools"
+        headingBefore="From"
+        highlightText="Open-Source Tools"
         headingAfter="to AI-Powered Platforms"
         highlightGradient="from-blue-600 to-indigo-600"
         description="PWM is a launchpad for products, ideas, and community-led innovation"
