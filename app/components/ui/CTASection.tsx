@@ -1,7 +1,20 @@
 import React from "react";
 import Link from "next/link";
 
-const CTASection = ({
+interface CTASectionProps {
+  heading: string;
+  subheading: string;
+  buttonOneText: string;
+  buttonOneHref: string;
+  buttonOneBg: string;
+  buttonOneTextColor: string;
+  buttonTwoText: string;
+  buttonTwoHref: string;
+  buttonTwoBg: string;
+  buttonTwoTextColor: string;
+}
+
+const CTASection: React.FC<CTASectionProps> = ({
   heading,
   subheading,
   buttonOneText,
