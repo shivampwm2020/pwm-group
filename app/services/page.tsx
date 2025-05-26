@@ -1,5 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import HeroSection from "../components/ui/HeroSection";
+import CountUp from "react-countup";
+import {
+  FaArrowRight,
+  FaCalendarAlt,
+  FaCheckCircle,
+  FaNewspaper,
+  FaRocket,
+  FaUsers,
+} from "react-icons/fa";
+import { FiGift, FiSettings } from "react-icons/fi";
+import CTASection from "../components/ui/CTASection";
 
 const services = [
   {
@@ -43,10 +56,41 @@ const services = [
 ];
 
 const stats = [
-  { value: "98%", label: "Client satisfaction rate" },
-  { value: "200+", label: "Projects delivered" },
-  { value: "24/7", label: "Support and maintenance" },
-  { value: "15+", label: "Years of experience" },
+  { value: 98, suffix: "%", label: "Client satisfaction rate" },
+  { value: 200, suffix: "+", label: "Projects delivered" },
+  { value: 24, suffix: "/7", label: "Support and maintenance" },
+  { value: 5, suffix: "+", label: "Years of experience" },
+];
+
+const roadmapItems = [
+  {
+    id: 1,
+    title: "Weekly Newsletter",
+    description:
+      "Launching a focused newsletter covering tech trends, AI innovations, product stories, and community updates.",
+    icon: <FaNewspaper className="text-white text-2xl" />,
+  },
+  {
+    id: 2,
+    title: "Community Building",
+    description:
+      "Creating dedicated communities for AI engineers, indie hackers, product builders, and users of each PWM tool.",
+    icon: <FaUsers className="text-white text-2xl" />,
+  },
+  {
+    id: 3,
+    title: "Sessions & Events",
+    description:
+      "Organizing live sessions with industry experts, startup founders, and AI practitioners to guide the community.",
+    icon: <FaCalendarAlt className="text-white text-2xl" />,
+  },
+  {
+    id: 4,
+    title: "New Platforms",
+    description:
+      "Continued development of innovative tools for developers and non-tech users — with planned platforms over months.",
+    icon: <FaRocket className="text-white text-2xl" />,
+  },
 ];
 
 export default function ServicesPage() {
@@ -67,21 +111,25 @@ export default function ServicesPage() {
       />
 
       {/* Stats Section */}
-      <div className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl shadow-xl overflow-hidden">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-blue-500/30">
-              {stats.map((stat, index) => (
-                <div key={index} className="p-8 sm:p-10 text-center">
-                  <p className="text-3xl sm:text-4xl font-bold text-white">
-                    {stat.value}
-                  </p>
-                  <p className="mt-2 text-blue-100 text-sm sm:text-base">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+      <div className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 bg-gradient-to-r from-indigo-500 via-blue-500 to-blue-600 rounded-3xl shadow-xl overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+            {stats.map((stat, index) => (
+              <div key={index} className="p-8 text-center">
+                <h3 className="text-4xl sm:text-5xl font-extrabold text-white">
+                  <CountUp
+                    end={stat.value}
+                    duration={2}
+                    enableScrollSpy
+                    scrollSpyOnce
+                  />
+                  {stat.suffix}
+                </h3>
+                <p className="mt-2 text-sm sm:text-base text-white/90 font-medium">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -89,12 +137,12 @@ export default function ServicesPage() {
       {/* Services Section */}
       <div
         id="services"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24"
       >
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900">Services</h2>
-          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-            Aiution- AI and automation for SMBs and enterprises
+          <h2 className="text-4xl font-bold text-gray-900">Our Services</h2>
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            Aiution – AI and automation tailored for SMBs and enterprises.
           </p>
         </div>
 
@@ -102,117 +150,68 @@ export default function ServicesPage() {
           {services.map((service, index) => (
             <div
               key={service.name}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
+              className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 transition hover:shadow-2xl"
             >
               <div className="p-8 md:p-12">
-                <div className="flex flex-col lg:flex-row gap-12">
+                <div className="flex flex-col lg:flex-row gap-10">
+                  {/* Left Gradient Panel */}
                   <div className="lg:w-2/5">
-                    <div className="bg-gradient-to-br from-indigo-600 to-blue-700 rounded-xl p-8 text-white h-full flex flex-col justify-between">
+                    <div className="bg-gradient-to-br from-indigo-600 to-blue-700 rounded-2xl p-8 text-white h-full flex flex-col justify-between">
                       <div>
-                        <h3 className="text-2xl font-bold mb-3">
+                        <h3 className="text-2xl font-semibold mb-4">
                           {service.name}
                         </h3>
-                        <div className="w-16 h-1 bg-white/40 mb-6"></div>
-                        <p className="text-blue-100 mb-8">
-                          Transform your business with our expertise
+                        <div className="w-16 h-1 bg-white/40 mb-6" />
+                        <p className="text-white/80 mb-8">
+                          Transform your business with our expertise.
                         </p>
                       </div>
 
                       <Link
                         href={service.path}
-                        className="inline-flex items-center justify-center px-5 py-3 bg-white/20 hover:bg-white/30 rounded-lg text-white font-medium text-sm transition-colors duration-200 w-full"
+                        className="inline-flex items-center justify-center px-5 py-3 bg-white/20 hover:bg-white/30 rounded-lg text-white font-medium text-sm transition-all duration-300"
                       >
-                        Learn More
-                        <svg
-                          className="ml-2 w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                          ></path>
-                        </svg>
+                        Learn More <FaArrowRight className="ml-2" />
                       </Link>
                     </div>
                   </div>
 
+                  {/* Right Content Area */}
                   <div className="lg:w-3/5">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {service.name}
                     </h3>
-                    <p className="text-lg text-gray-600 mb-8">
+                    <p className="text-gray-600 text-base mb-8">
                       {service.description}
                     </p>
 
-                    <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+                    <div className="grid md:grid-cols-2 gap-10">
+                      {/* Features */}
                       <div>
                         <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                          <span className="flex items-center justify-center w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full mr-3">
-                            <svg
-                              className="w-4 h-4"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                          Services
+                          <FiSettings className="text-indigo-600 mr-2" />
+                          Features
                         </h4>
                         <ul className="space-y-3">
                           {service.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start">
-                              <svg
-                                className="w-5 h-5 text-indigo-600 mt-0.5 mr-2"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
+                              <FaCheckCircle className="text-indigo-600 mt-1 mr-2" />
                               <span className="text-gray-700">{feature}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
+                      {/* Benefits */}
                       <div>
                         <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                          <span className="flex items-center justify-center w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full mr-3">
-                            <svg
-                              className="w-4 h-4"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
-                            </svg>
-                          </span>
+                          <FiGift className="text-indigo-600 mr-2" />
                           Benefits
                         </h4>
                         <ul className="space-y-3">
                           {service.benefits.map((benefit, idx) => (
                             <li key={idx} className="flex items-start">
-                              <svg
-                                className="w-5 h-5 text-indigo-600 mt-0.5 mr-2"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
+                              <FaCheckCircle className="text-indigo-600 mt-1 mr-2" />
                               <span className="text-gray-700">{benefit}</span>
                             </li>
                           ))}
@@ -228,102 +227,57 @@ export default function ServicesPage() {
       </div>
 
       {/* Process Section */}
-      <div className="bg-gray-50 py-24">
+      <div className="bg-gray-50 py-24" id="roadmap">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">
+            <h2 className="text-4xl font-bold text-gray-900">
               PWM Group's Roadmap
             </h2>
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              PWM isn't just a product studio — it's becoming a full ecosystem
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              PWM isn't just a product studio — it's becoming a full ecosystem.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100 relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                1
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-4">
-                Weekly Newsletter
-              </h3>
-              <p className="text-gray-600">
-                Launching a focused newsletter covering tech trends, AI
-                innovations, product stories, and community updates.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {roadmapItems.map((item) => (
+              <div
+                key={item.id}
+                className="relative bg-white border border-gray-100 rounded-3xl shadow-md p-8 hover:shadow-xl transition duration-300"
+              >
+                {/* Icon Badge */}
+                <div className="absolute -top-5 -left-5 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg">
+                  {item.icon}
+                </div>
 
-            <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100 relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                2
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-4">
-                Community Building
-              </h3>
-              <p className="text-gray-600">
-                Creating dedicated communities for AI engineers, indie hackers,
-                product builders, and users of each PWM tool.
-              </p>
-            </div>
+                {/* Roadmap Content */}
+                <h3 className="text-xl font-bold text-gray-900 mt-6 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-sm">{item.description}</p>
 
-            <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100 relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                3
+                {/* Step number (optional badge style) */}
+                <div className="absolute top-5 right-5 w-6 h-6 bg-indigo-100 text-indigo-600 text-sm font-semibold rounded-full flex items-center justify-center">
+                  {item.id}
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-4">
-                Sessions & Events
-              </h3>
-              <p className="text-gray-600">
-                Organizing live sessions with industry experts, startup
-                founders, and AI practitioners to guide the community.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100 relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                4
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-4">
-                New Platforms
-              </h3>
-              <p className="text-gray-600">
-                Continued development of innovative tools for developers and
-                non-tech users — with planned platforms over months.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Call to Action */}
-      <div className="bg-gradient-to-r from-indigo-600 to-blue-600 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-8">
-            <div className="text-white max-w-2xl">
-              <h3 className="text-3xl font-bold mb-4">
-                Let's deploy more than code
-              </h3>
-              <p className="text-indigo-100 text-lg">
-                Let's deploy ideas, knowledge, and growth 🚀
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="px-8 py-3 rounded-lg bg-white text-indigo-600 font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-200"
-              >
-                Get Started
-              </Link>
-              <Link
-                href="/products"
-                className="px-8 py-3 rounded-lg bg-indigo-500 bg-opacity-30 text-white font-medium text-lg hover:bg-opacity-40 transition-all duration-200"
-              >
-                Explore Products
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CTASection
+        heading="Let’s deploy more than code"
+        subheading="Let’s deploy ideas, knowledge, and growth 🚀"
+        buttonOneText="Get Started"
+        buttonOneHref="/contact"
+        buttonOneBg="bg-white"
+        buttonOneTextColor="text-blue-700 hover:bg-blue-500 hover:text-white"
+        buttonTwoText="Explore Products"
+        buttonTwoHref="/products"
+        buttonTwoBg="bg-blue-500 hover:bg-blue-800"
+        buttonTwoTextColor="text-white hover:text-blue-700"
+      />
     </div>
   );
 }
