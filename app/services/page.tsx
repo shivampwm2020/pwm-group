@@ -20,6 +20,7 @@ const services = [
     description:
       "Aiution is an AI-as-a-Service platform that helps businesses automate workflows, launch internal chatbots, create analytics dashboards, and integrate AI systems with minimal setup. It's tailored for enterprises in India and beyond that want to modernize operations without hiring large dev teams.",
     path: "/services/aiution",
+    image: "/aiution_logo.svg",
     icon: "artificial-intelligence",
     features: [
       "Workflow automation",
@@ -39,6 +40,7 @@ const services = [
     description:
       "Service Arm: Expanding into enterprise consulting and product development using PWM's frameworks and internal tools.",
     path: "/services/enterprise-consulting",
+    image: "/aiution_logo.svg",
     icon: "chart-increasing",
     features: [
       "Enterprise consulting",
@@ -57,7 +59,7 @@ const services = [
 
 const stats = [
   { value: 98, suffix: "%", label: "Client satisfaction rate" },
-  { value: 200, suffix: "+", label: "Projects delivered" },
+  { value: 20, suffix: "+", label: "Projects delivered" },
   { value: 24, suffix: "/7", label: "Support and maintenance" },
   { value: 5, suffix: "+", label: "Years of experience" },
 ];
@@ -102,7 +104,7 @@ export default function ServicesPage() {
         headingBefore="AI and Automation"
         highlightText="Services"
         headingAfter="for Enterprises"
-        highlightGradient="from-blue-600 to-indigo-600"
+        highlightTextColor="text-blue-700"
         description="AI and automation for SMBs and enterprises, tailored for businesses that want to modernize operations."
         primaryBtnText="Explore Services"
         primaryBtnLink="#services"
@@ -150,29 +152,18 @@ export default function ServicesPage() {
           {services.map((service, index) => (
             <div
               key={service.name}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 transition hover:shadow-2xl"
+              className="bg-white rounded-3xl shadow-xl overflow-hidden border-t-4 border-blue-700 transition hover:shadow-2xl"
             >
               <div className="p-8 md:p-12">
                 <div className="flex flex-col lg:flex-row gap-10">
-                  {/* Left Gradient Panel */}
+                  {/* Left Image Panel */}
                   <div className="lg:w-2/5">
-                    <div className="bg-gradient-to-br from-indigo-600 to-blue-700 rounded-2xl p-8 text-white h-full flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-2xl font-semibold mb-4">
-                          {service.name}
-                        </h3>
-                        <div className="w-16 h-1 bg-white/40 mb-6" />
-                        <p className="text-white/80 mb-8">
-                          Transform your business with our expertise.
-                        </p>
-                      </div>
-
-                      <Link
-                        href={service.path}
-                        className="inline-flex items-center justify-center px-5 py-3 bg-white/20 hover:bg-white/30 rounded-lg text-white font-medium text-sm transition-all duration-300"
-                      >
-                        Learn More <FaArrowRight className="ml-2" />
-                      </Link>
+                    <div className="rounded-2xl overflow-hidden h-full flex items-center justify-center bg-white">
+                      <img
+                        src={service.image}
+                        alt={service.name}
+                        className="max-w-full max-h-full object-contain"
+                      />
                     </div>
                   </div>
 

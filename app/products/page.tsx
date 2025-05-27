@@ -64,7 +64,7 @@ export default function ProductsPage() {
         headingBefore="From"
         highlightText="Open-Source Tools"
         headingAfter="to AI-Powered Platforms"
-        highlightGradient="from-blue-600 to-indigo-600"
+        highlightTextColor="text-blue-700"
         description="PWM is a launchpad for products, ideas, and community-led innovation"
         primaryBtnText="Explore Solutions"
         primaryBtnLink="#solutions"

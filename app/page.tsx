@@ -121,7 +121,7 @@ export default function HomePage() {
         badgeText="Builder-First Tech Collective"
         headingBefore="Transforming Ideas"
         highlightText="Into Innovation"
-        highlightGradient="from-blue-600 to-indigo-600"
+        highlightTextColor="text-blue-700"
         description="PWM Group (formerly Programming with Maurya) is a builder-first tech collective focused on launching impactful platforms for developers, AI engineers, and enterprises."
         primaryBtnText="Explore Our Products"
         primaryBtnLink="/products"

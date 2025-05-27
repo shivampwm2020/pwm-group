@@ -8,7 +8,7 @@ interface HeroSectionProps {
   headingBefore: string;
   highlightText: string;
   headingAfter?: string;
-  highlightGradient: string; // gradient tailwind class e.g., 'from-green-600 to-green-400'
+  highlightTextColor: string; // gradient tailwind class e.g., 'from-green-600 to-green-400'
   headingTextColor?: string; // e.g., 'text-gray-900'
   description: string;
   descriptionColor?: string; // e.g., 'text-gray-600'
@@ -27,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   headingBefore,
   highlightText,
   headingAfter,
-  highlightGradient,
+  highlightTextColor,
   headingTextColor = "text-gray-900",
   description,
   descriptionColor = "text-gray-600",
@@ -61,11 +61,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className={`max-w-4xl mx-auto text-3xl sm:text-5xl lg:text-7xl font-black leading-none font-sans uppercase ${headingTextColor}`}
           >
             {headingBefore}{" "}
-            <span
-              className={`text-transparent bg-clip-text bg-gradient-to-r ${highlightGradient}`}
-            >
-              {highlightText}
-            </span>
+            <span className={`${highlightTextColor}`}>{highlightText}</span>
             {headingAfter && <> {headingAfter}</>}
           </h1>
 
