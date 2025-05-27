@@ -8,7 +8,7 @@ interface HeroSectionProps {
   headingBefore: string;
   highlightText: string;
   headingAfter?: string;
-  highlightGradient: string; // gradient tailwind class e.g., 'from-green-600 to-green-400'
+  highlightTextColor: string; // gradient tailwind class e.g., 'from-green-600 to-green-400'
   headingTextColor?: string; // e.g., 'text-gray-900'
   description: string;
   descriptionColor?: string; // e.g., 'text-gray-600'
@@ -18,16 +18,17 @@ interface HeroSectionProps {
   secondaryBtnText?: string;
   secondaryBtnLink?: string;
   secondaryBtnColor?: string;
+  backgroundClassName?: string;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   badgeText,
-  badgeBgColor = "bg-blue-100",
-  badgeTextColor = "text-blue-700",
+  badgeBgColor,
+  badgeTextColor,
   headingBefore,
   highlightText,
   headingAfter,
-  highlightGradient,
+  highlightTextColor,
   headingTextColor = "text-gray-900",
   description,
   descriptionColor = "text-gray-600",
@@ -37,11 +38,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   secondaryBtnText,
   secondaryBtnLink,
   secondaryBtnColor,
+  backgroundClassName,
 }) => {
   return (
     <section className="relative overflow-hidden">
       {/* Background Patterns */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 z-0" />
+      <div
+        className={`absolute inset-0 z-0 ${
+          backgroundClassName || "bg-gradient-to-br from-blue-50 to-indigo-50"
+        }`}
+      />
+
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 z-0" />
       <div className="absolute top-0 right-0 w-1/2 md:w-1/3 h-full bg-[url('/dots-pattern.svg')] bg-repeat opacity-5 z-0" />
       <div className="absolute bottom-0 left-0 w-3/4 sm:w-1/2 h-1/2 bg-[url('/circles-pattern.svg')] bg-no-repeat bg-left-bottom opacity-5 z-0" />
@@ -61,11 +68,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className={`max-w-4xl mx-auto text-3xl sm:text-5xl lg:text-7xl font-black leading-none font-sans uppercase ${headingTextColor}`}
           >
             {headingBefore}{" "}
-            <span
-              className={`text-transparent bg-clip-text bg-gradient-to-r ${highlightGradient}`}
-            >
-              {highlightText}
-            </span>
+            <span className={`${highlightTextColor}`}>{highlightText}</span>
             {headingAfter && <> {headingAfter}</>}
           </h1>
 
@@ -83,7 +86,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               href={primaryBtnLink}
               className={`w-full sm:w-auto ${
                 primaryBtnColor ||
-                "bg-blue-600 hover:bg-white hover:text-blue-600 text-white"
+                "bg-blue-700 hover:bg-white hover:text-blue-700 text-white"
               } rounded-full`}
             >
               {primaryBtnText}
@@ -94,7 +97,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 href={secondaryBtnLink}
                 className={`w-full sm:w-auto ${
                   secondaryBtnColor ||
-                  "bg-white text-blue-600   hover:bg-blue-600 hover:text-white"
+                  "bg-white text-blue-700   hover:bg-blue-700 hover:text-white"
                 } rounded-full`}
               >
                 {secondaryBtnText}

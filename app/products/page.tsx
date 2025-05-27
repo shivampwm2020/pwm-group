@@ -64,7 +64,7 @@ export default function ProductsPage() {
         headingBefore="From"
         highlightText="Open-Source Tools"
         headingAfter="to AI-Powered Platforms"
-        highlightGradient="from-blue-600 to-indigo-600"
+        highlightTextColor="text-blue-700"
         description="PWM is a launchpad for products, ideas, and community-led innovation"
         primaryBtnText="Explore Solutions"
         primaryBtnLink="#solutions"
@@ -172,6 +172,25 @@ export default function ProductsPage() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Coming Soon Section */}
+      <div className="relative my-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto text-center py-20 px-8 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 rounded-3xl shadow-2xl relative overflow-hidden">
+          {/* Glow background effect */}
+          <div className="absolute inset-0 bg-white opacity-10 blur-3xl pointer-events-none z-0" />
+
+          <div className="relative z-10">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
+              🚀 More Products Launching Soon
+            </h2>
+            <p className="text-lg sm:text-xl text-indigo-100 max-w-3xl mx-auto leading-relaxed font-medium">
+              Our team is crafting new experiences that push innovation forward.
+              Stay tuned for tools that empower developers, streamline
+              governance, and spark creativity.
+            </p>
+          </div>
         </div>
       </div>
 
