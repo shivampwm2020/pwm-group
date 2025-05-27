@@ -4,6 +4,9 @@ import Link from "next/link";
 interface CTASectionProps {
   heading: string;
   subheading: string;
+  bgGradient?: string;
+  leftBlobColor?: string;
+  rightBlobColor?: string;
   buttonOneText: string;
   buttonOneHref: string;
   buttonOneBg: string;
@@ -17,6 +20,7 @@ interface CTASectionProps {
 const CTASection: React.FC<CTASectionProps> = ({
   heading,
   subheading,
+  bgGradient,
   buttonOneText,
   buttonOneHref,
   buttonOneBg,
@@ -27,7 +31,11 @@ const CTASection: React.FC<CTASectionProps> = ({
   buttonTwoTextColor,
 }) => {
   return (
-    <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 sm:py-24 lg:py-32 relative overflow-hidden rounded-b-4xl">
+    <section
+      className={`${
+        bgGradient || "bg-gradient-to-r from-blue-600 to-indigo-700"
+      } py-20 sm:py-24 lg:py-32 relative overflow-hidden rounded-b-4xl`}
+    >
       <div className="absolute inset-0 bg-[url('/wave-lines.svg')] opacity-10"></div>
       <div className="absolute -left-32 -bottom-32 w-80 h-80 sm:w-96 sm:h-96 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
       <div className="absolute -right-32 -top-32 w-80 h-80 sm:w-96 sm:h-96 bg-indigo-500 opacity-20 rounded-full blur-3xl"></div>
