@@ -83,7 +83,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               href={primaryBtnLink}
               className={`w-full sm:w-auto ${
                 primaryBtnColor ||
-                "bg-blue-600 hover:bg-white hover:text-blue-600 text-white"
+                "bg-blue-700 hover:bg-white hover:text-blue-700 text-white"
               } rounded-full`}
             >
               {primaryBtnText}
@@ -94,7 +94,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 href={secondaryBtnLink}
                 className={`w-full sm:w-auto ${
                   secondaryBtnColor ||
-                  "bg-white text-blue-600   hover:bg-blue-600 hover:text-white"
+                  "bg-white text-blue-700   hover:bg-blue-700 hover:text-white"
                 } rounded-full`}
               >
                 {secondaryBtnText}
