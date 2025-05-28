@@ -5,8 +5,6 @@ interface CTASectionProps {
   heading: string;
   subheading: string;
   bgGradient?: string;
-  leftBlobColor?: string;
-  rightBlobColor?: string;
   buttonOneText: string;
   buttonOneHref: string;
   buttonOneBg: string;
@@ -52,19 +50,37 @@ const CTASection: React.FC<CTASectionProps> = ({
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
+            {/* Button One */}
             <Link
               href={buttonOneHref}
-              className={`relative inline-flex items-center justify-center px-6 py-3 text-base font-medium transition-all ${buttonOneBg} ${buttonOneTextColor} rounded-lg shadow-lg hover:opacity-90 group w-full sm:w-auto text-center`}
+              className={`relative inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg shadow-md w-full sm:w-auto text-center transition-colors duration-300
+                ${buttonOneBg} ${buttonOneTextColor}
+                hover:${
+                  buttonOneBg === "bg-white" ? "bg-blue-700" : "bg-white"
+                } hover:${
+                buttonOneTextColor === "text-blue-700"
+                  ? "text-white"
+                  : "text-blue-700"
+              }
+              `}
             >
-              <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-blue-500 rounded-lg"></span>
               <span className="relative z-10">{buttonOneText}</span>
             </Link>
 
+            {/* Button Two */}
             <Link
               href={buttonTwoHref}
-              className={`relative inline-flex items-center justify-center px-6 py-3 text-base font-medium transition-all ${buttonTwoBg} ${buttonTwoTextColor} rounded-lg shadow-lg hover:opacity-90 group w-full sm:w-auto text-center`}
+              className={`relative inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg shadow-md w-full sm:w-auto text-center transition-colors duration-300
+                ${buttonTwoBg} ${buttonTwoTextColor}
+                hover:${
+                  buttonTwoBg === "bg-white" ? "bg-blue-700" : "bg-white"
+                } hover:${
+                buttonTwoTextColor === "text-blue-700"
+                  ? "text-white"
+                  : "text-blue-700"
+              }
+              `}
             >
-              <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-lg"></span>
               <span className="relative z-10">{buttonTwoText}</span>
             </Link>
           </div>
