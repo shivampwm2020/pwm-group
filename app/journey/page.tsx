@@ -11,66 +11,39 @@ import CTASection from "../components/ui/CTASection";
 
 const journeyMilestones = [
   {
-    year: "2018",
-    title: "The Beginning",
-    icon: <FaUsers />,
-    description:
-      "PWM Group started as a small initiative to help students learn programming and technology skills.",
-    achievements: [
-      "Founded by Shivam Maurya",
-      "First online programming course launched",
-      "Built a community of 50+ learners",
-    ],
+    year: "2020",
+    title: "Foundation Era",
+    icon: "🛠️", // Represents foundation and building
+    description: "Our initial platform focused on programming tutorials.",
+    achievements: ["Built using Wix", "Programming-focused content"],
+    link: "https://shivam21maurya.wixsite.com/website-1",
   },
   {
-    year: "2020",
-    title: "Expansion & Growth",
-    icon: <FaRocket />,
-    description:
-      "Despite the pandemic, we expanded our offerings and reached more students through online platforms.",
-    achievements: [
-      "Launched SarkariSamadhan platform",
-      "Expanded to 500+ students",
-      "Started enterprise consulting services",
-    ],
+    year: "2021",
+    title: "Growth Phase",
+    icon: "📈", // Represents growth
+    description: "Expanded educational content and structured learning paths.",
+    achievements: ["Beginner to advanced courses", "Improved navigation"],
+    link: "https://shivam21maurya.wixsite.com/my-site-3",
   },
   {
     year: "2022",
-    title: "Technological Innovation",
-    icon: <FaLightbulb />,
-    description:
-      "We began focusing on AI-powered solutions and expanded our product portfolio.",
-    achievements: [
-      "Started AI research division",
-      "Launched ExplainGitHub beta",
-      "Formed The Production Gurus community",
-    ],
+    title: "Community Focus",
+    icon: "🌐", // Represents community and connectivity
+    description: "Interactive features and community collaboration tools.",
+    achievements: ["User forums", "Live Q&A sessions"],
+    link: "https://shivam21maurya.wixsite.com/programming-with-mau",
   },
   {
     year: "2023",
-    title: "Enterprise Solutions",
-    icon: <FaCode />,
-    description:
-      "Started developing enterprise-grade solutions for businesses across India.",
-    achievements: [
-      "Launched AIution services",
-      "Developed RepoFlicks platform",
-      "Expanded team to 20+ members",
-    ],
-  },
-  {
-    year: "2024",
-    title: "The Future Ahead",
-    icon: <FaGlobe />,
-    description:
-      "Continuing to innovate and expand our offerings to empower more people with technology.",
-    achievements: [
-      "International expansion planned",
-      "New enterprise platforms in development",
-      "Research partnerships with leading institutions",
-    ],
+    title: "Pre-AI Transition",
+    icon: "🤖", // Represents AI and future tech
+    description: "Our comprehensive learning hub before our AI transformation.",
+    achievements: ["All-in-one hub", "Preview of upcoming AI tools"],
+    link: "https://shivam21maurya.wixsite.com/website",
   },
 ];
+
 export default function JourneyPage() {
   return (
     <div className="bg-white">
@@ -107,7 +80,7 @@ export default function JourneyPage() {
       </section>
 
       {/* Previous Site Archives */}
-      <section className="bg-white py-20 px-4 sm:px-8">
+      <section id="archives" className="bg-white py-20 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="lg:text-center mb-12">
             <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">
@@ -122,32 +95,44 @@ export default function JourneyPage() {
             </p>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2">
+          <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
             {journeyMilestones.map((milestone, index) => (
-              <div
+              <a
                 key={index}
-                className="bg-white shadow-xl rounded-2xl p-6 transition-transform transform hover:border-t-4 hover:border-blue-700 hover:scale-[1.03] hover:shadow-2xl"
+                href={milestone.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white border border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.02] transition-transform duration-300 p-6"
               >
-                <div className="flex items-center mb-4 space-x-4">
-                  <div className="text-3xl text-indigo-600">
-                    {milestone.icon}
-                  </div>
-                  <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="text-3xl text-indigo-600">
+                      {milestone.icon}
+                    </div>
                     <h3 className="text-lg font-semibold text-gray-800">
                       {milestone.title}
                     </h3>
-                    <p className="text-sm text-gray-500">{milestone.year}</p>
                   </div>
+                  <span className="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                    {milestone.year}
+                  </span>
                 </div>
+
                 <p className="text-gray-600 text-sm mb-3">
                   {milestone.description}
                 </p>
+
                 <ul className="text-gray-700 text-sm list-disc pl-5 space-y-1">
                   {milestone.achievements.map((point, idx) => (
                     <li key={idx}>{point}</li>
                   ))}
                 </ul>
-              </div>
+
+                <div className="mt-4 text-sm text-blue-600 font-medium flex items-center">
+                  <span>Visit Archive</span>
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </a>
             ))}
           </div>
         </div>
