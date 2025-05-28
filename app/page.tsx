@@ -119,6 +119,8 @@ export default function HomePage() {
       {/* Hero Section */}
       <HeroSection
         badgeText="Builder-First Tech Collective"
+        badgeBgColor="bg-blue-100"
+        badgeTextColor="text-blue-700"
         headingBefore="Transforming Ideas"
         highlightText="Into Innovation"
         highlightTextColor="text-blue-700"
