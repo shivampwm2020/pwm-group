@@ -101,6 +101,8 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <HeroSection
         badgeText="Services by PWM Group"
+        badgeBgColor="bg-blue-100"
+        badgeTextColor="text-blue-700"
         headingBefore="AI and Automation"
         highlightText="Services"
         headingAfter="for Enterprises"
