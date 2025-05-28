@@ -282,7 +282,7 @@ export default function CommunityPage() {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-gradient-to-r from-green-600 to-teal-600 py-16">
+      <div className="bg-gradient-to-r from-green-600 to-teal-600 py-16 rounded-b-4xl">
         <div className="absolute inset-0 bg-[url('/wave-lines.svg')] opacity-10"></div>
         <div className="absolute -left-32 -bottom-32 w-80 h-80 sm:w-96 sm:h-96 bg-green-500 opacity-20 rounded-full blur-3xl"></div>
         <div className="absolute -right-32 -top-32 w-80 h-80 sm:w-96 sm:h-96 bg-green-300 opacity-20 rounded-full blur-3xl"></div>
