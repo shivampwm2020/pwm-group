@@ -61,6 +61,8 @@ export default function ProductsPage() {
       {/* Hero Section */}
       <HeroSection
         badgeText="Products by PWM Group"
+        badgeBgColor="bg-blue-100"
+        badgeTextColor="text-blue-700"
         headingBefore="From"
         highlightText="Open-Source Tools"
         headingAfter="to AI-Powered Platforms"
