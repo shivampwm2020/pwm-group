@@ -98,7 +98,7 @@ export default function Navbar() {
       <div className="hidden lg:block mb-6">
         {/* Full navbar only at top */}
         {!hasScrolled && (
-          <div className="fixed top-4 left-0 right-0 z-40">
+          <div className="fixed top-0 left-0 right-0 z-40">
             <div className="container mx-auto px-8 py-4 flex items-center justify-between">
               {/* Logo */}
               <Link href="/" aria-label="Logo">
@@ -128,7 +128,7 @@ export default function Navbar() {
         )}
 
         {/* Condensed || Active text */}
-        <div className="fixed top-4 left-0 right-0 z-40 pointer-events-none">
+        <div className="fixed top-0 left-0 right-0 z-40 pointer-events-none">
           <div className="container mx-auto px-8 py-4 flex justify-end">
             <div
               ref={condensedRef}
@@ -149,7 +149,7 @@ export default function Navbar() {
         </div>
 
         {/* Hover-expanded full nav from condensed */}
-        <div className="fixed top-4 left-0 right-0 z-40 pointer-events-none">
+        <div className="fixed top-0 left-0 right-0 z-40 pointer-events-none">
           <div className="container mx-auto px-4 flex justify-end">
             <nav
               ref={fullNavRef}
@@ -163,7 +163,7 @@ export default function Navbar() {
                     key={item.path}
                     href={item.path}
                     className={clsx(
-                      "uppercase font-semibold px-3 py-1 rounded-[10px] text-sm transition-colors",
+                      "uppercase font-semibold px-3 py-1 rounded-[10px] text-[1rem] transition-colors",
                       pathname === item.path ||
                         pathname.startsWith(`${item.path}/`)
                         ? "bg-blue-700 text-white"

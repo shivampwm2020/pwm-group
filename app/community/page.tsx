@@ -6,6 +6,7 @@ const communityInitiatives = [
     description:
       "The Production Gurus is a focused tech community for builders, developers, founders, and AI enthusiasts who love turning ideas into real, shipped products. Whether you're just getting started, deep into dev tools, launching your startup, or scaling your side project — this space is for smart conversations, shared learnings, and meaningful connections.",
     path: "/community/production-gurus",
+    imageUrl: "/theproductiongurus1.png",
     icon: "users",
     bgColor: "from-green-600 to-teal-600",
     features: [
@@ -100,22 +101,32 @@ export default function CommunityPage() {
         </div>
 
         <div className="space-y-20">
-          {communityInitiatives.map((initiative, index) => (
+          {communityInitiatives.map((initiative) => (
             <div
               key={initiative.name}
               className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-gray-200 transition-transform hover:scale-[1.01]"
             >
               <div className="flex flex-col md:flex-row">
-                {/* Left Gradient Panel */}
-                <div
-                  className={`md:w-2/5 bg-gradient-to-br ${initiative.bgColor} p-12 md:p-16 flex items-center justify-center`}
-                >
-                  <div className="text-white text-center space-y-4">
-                    <h3 className="text-3xl font-bold">{initiative.name}</h3>
-                    <div className="w-20 h-1 bg-white/40 mx-auto"></div>
-                    <p className="text-white/90">Join us today</p>
+                {/* Left Panel: Image or Gradient */}
+                {initiative.imageUrl ? (
+                  <div className="md:w-2/5">
+                    <img
+                      src={initiative.imageUrl}
+                      alt={initiative.name}
+                      className="w-full h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none"
+                    />
                   </div>
-                </div>
+                ) : (
+                  <div
+                    className={`md:w-2/5 bg-gradient-to-br ${initiative.bgColor} p-12 md:p-16 flex items-center justify-center`}
+                  >
+                    <div className="text-white text-center space-y-4">
+                      <h3 className="text-3xl font-bold">{initiative.name}</h3>
+                      <div className="w-20 h-1 bg-white/40 mx-auto"></div>
+                      <p className="text-white/90">Join us today</p>
+                    </div>
+                  </div>
+                )}
 
                 {/* Right Content */}
                 <div className="md:w-3/5 p-8 md:p-12 bg-white">

@@ -78,12 +78,10 @@ export default function ProductPage({ params }: ProductPageProps) {
     <div className="bg-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-white">
-        {/* Background gradient (optional - for overall background, not the image section) */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 z-0"></div>
 
         <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-16 py-24 lg:py-32 relative z-10">
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
-            {/* Text Content */}
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
               <div className="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-3">
                 PWM Group Product
@@ -111,7 +109,6 @@ export default function ProductPage({ params }: ProductPageProps) {
               </div>
             </div>
 
-            {/* Right-side Visual Box with Image in Center */}
             <div className="mt-14 sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 flex justify-center lg:justify-end">
               <div className="bg-white relative w-full max-w-md rounded-xl shadow-2xl overflow-hidden aspect-video flex items-center justify-center bg-cover bg-center">
                 <img
