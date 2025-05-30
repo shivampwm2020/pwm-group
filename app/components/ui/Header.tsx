@@ -29,7 +29,10 @@ export default function Navbar() {
   const [isCondensedVisible, setIsCondensedVisible] = useState(false);
   const [isFullNavVisible, setIsFullNavVisible] = useState(false);
 
-  const active = navItems.find((item) => item.path === pathname) || navItems[0];
+  const active =
+    navItems.find(
+      (item) => pathname === item.path || pathname.startsWith(`${item.path}/`)
+    ) || navItems[0];
 
   const condensedRef = useRef(null);
   const fullNavRef = useRef(null);
@@ -110,7 +113,8 @@ export default function Navbar() {
                     href={item.path}
                     className={clsx(
                       "uppercase font-semibold px-3 py-1 rounded-[10px] text-[1rem] transition-colors",
-                      item.path === pathname
+                      pathname === item.path ||
+                        pathname.startsWith(`${item.path}/`)
                         ? "bg-blue-700 text-white"
                         : "text-blue-700 hover:bg-blue-200"
                     )}
@@ -160,7 +164,8 @@ export default function Navbar() {
                     href={item.path}
                     className={clsx(
                       "uppercase font-semibold px-3 py-1 rounded-[10px] text-sm transition-colors",
-                      item.path === pathname
+                      pathname === item.path ||
+                        pathname.startsWith(`${item.path}/`)
                         ? "bg-blue-700 text-white"
                         : "text-blue-700 hover:bg-blue-200"
                     )}

@@ -6,7 +6,6 @@ const communityInitiatives = [
     description:
       "The Production Gurus is a focused tech community for builders, developers, founders, and AI enthusiasts who love turning ideas into real, shipped products. Whether you're just getting started, deep into dev tools, launching your startup, or scaling your side project — this space is for smart conversations, shared learnings, and meaningful connections.",
     path: "/community/production-gurus",
-    image: "/theproductiongurus1.png",
     icon: "users",
     bgColor: "from-green-600 to-teal-600",
     features: [
@@ -27,7 +26,6 @@ const communityInitiatives = [
     description:
       "PWM Group began as a small peer-to-peer learning group where developers shared knowledge, asked questions, and helped each other grow. Over time, as our community matured and our projects evolved, we realized the need to turn this energy into action — to build things together that solve real-world problems.",
     path: "/community/developer-champions",
-    image: "/theproductiongurus1.png",
     icon: "code",
     bgColor: "from-blue-600 to-indigo-600",
     features: [
@@ -102,32 +100,34 @@ export default function CommunityPage() {
         </div>
 
         <div className="space-y-20">
-          {communityInitiatives.map((initiative) => (
+          {communityInitiatives.map((initiative, index) => (
             <div
               key={initiative.name}
               className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-gray-200 transition-transform hover:scale-[1.01]"
             >
               <div className="flex flex-col md:flex-row">
-                {/* Left Image Panel */}
-                <div className="w-full md:w-2/5 h-60 md:h-auto relative">
-                  <img
-                    src={initiative.image}
-                    alt={initiative.name}
-                    className="w-full h-full object-cover"
-                  />
+                {/* Left Gradient Panel */}
+                <div
+                  className={`md:w-2/5 bg-gradient-to-br ${initiative.bgColor} p-12 md:p-16 flex items-center justify-center`}
+                >
+                  <div className="text-white text-center space-y-4">
+                    <h3 className="text-3xl font-bold">{initiative.name}</h3>
+                    <div className="w-20 h-1 bg-white/40 mx-auto"></div>
+                    <p className="text-white/90">Join us today</p>
+                  </div>
                 </div>
 
                 {/* Right Content */}
-                <div className="w-full md:w-3/5 p-6 sm:p-8 md:p-12 bg-white">
-                  <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+                <div className="md:w-3/5 p-8 md:p-12 bg-white">
+                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                     {initiative.description}
                   </p>
 
-                  <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                  <div className="grid md:grid-cols-2 gap-10">
                     {/* What We Offer */}
                     <div>
-                      <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
-                        <span className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 bg-green-100 text-green-600 rounded-full mr-2 sm:mr-3 shadow-sm">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                        <span className="flex items-center justify-center w-9 h-9 bg-green-100 text-green-600 rounded-full mr-3 shadow-sm">
                           <svg
                             className="w-4 h-4"
                             fill="currentColor"
@@ -156,9 +156,7 @@ export default function CommunityPage() {
                                 clipRule="evenodd"
                               />
                             </svg>
-                            <span className="text-gray-700 text-sm sm:text-base">
-                              {feature}
-                            </span>
+                            <span className="text-gray-700">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -166,8 +164,8 @@ export default function CommunityPage() {
 
                     {/* Community Benefits */}
                     <div>
-                      <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
-                        <span className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 bg-green-100 text-green-600 rounded-full mr-2 sm:mr-3 shadow-sm">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                        <span className="flex items-center justify-center w-9 h-9 bg-green-100 text-green-600 rounded-full mr-3 shadow-sm">
                           <svg
                             className="w-4 h-4"
                             fill="currentColor"
@@ -192,27 +190,134 @@ export default function CommunityPage() {
                                 clipRule="evenodd"
                               />
                             </svg>
-                            <span className="text-gray-700 text-sm sm:text-base">
-                              {benefit}
-                            </span>
+                            <span className="text-gray-700">{benefit}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  <div className="mt-8">
+                  <div className="mt-10">
                     <Link
                       href={initiative.path}
-                      className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-green-600 to-teal-600 text-white font-medium text-sm sm:text-base shadow-md hover:shadow-lg transition"
+                      className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold hover:shadow-xl transition-transform duration-200 hover:scale-105"
                     >
-                      Join {initiative.name}
+                      Join This Community
+                      <svg
+                        className="ml-2 w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Replace Upcoming Events with PWM's Roadmap */}
+      <div id="events" className="bg-gradient-to-b from-white to-gray-50 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold tracking-tight text-gray-900">
+              🚀 PWM Group's Roadmap
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              PWM isn’t just a product studio — it's becoming a full-fledged
+              ecosystem.
+            </p>
+          </div>
+
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Weekly Newsletter",
+                icon: "📬",
+                desc: "Launching a focused newsletter covering tech trends, AI innovations, product stories, and community updates.",
+              },
+              {
+                title: "Community Building",
+                icon: "🤝",
+                desc: "Creating dedicated communities for AI engineers, indie hackers, product builders, and users of each PWM tool.",
+              },
+              {
+                title: "Sessions & Events",
+                icon: "🎤",
+                desc: "Organizing live sessions with industry experts, startup founders, and AI practitioners to guide the community.",
+              },
+              {
+                title: "New Platforms",
+                icon: "🛠️",
+                desc: "Continued development of innovative tools for developers and non-tech users.",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="group relative bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 p-6"
+              >
+                <div className="flex items-center justify-center w-14 h-14 text-3xl rounded-full bg-gradient-to-tr from-green-100 to-teal-100 text-green-700 mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-green-600 transition">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-gray-600 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+                <div className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-5 bg-gradient-to-r from-green-200 to-transparent rounded-2xl pointer-events-none transition-all duration-500" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action */}
+      <div className="bg-gradient-to-r from-green-600 to-teal-600 py-16 rounded-b-4xl">
+        <div className="absolute inset-0 bg-[url('/wave-lines.svg')] opacity-10"></div>
+        <div className="absolute -left-32 -bottom-32 w-80 h-80 sm:w-96 sm:h-96 bg-green-500 opacity-20 rounded-full blur-3xl"></div>
+        <div className="absolute -right-32 -top-32 w-80 h-80 sm:w-96 sm:h-96 bg-green-300 opacity-20 rounded-full blur-3xl"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col items-center justify-center gap-8 text-center">
+            <div className="text-white max-w-3xl">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-sans mb-4 leading-snug">
+                Let's deploy more than code
+              </h2>
+              <p className="text-base sm:text-lg text-blue-100 max-w-4xl mx-auto font-sans leading-tight">
+                Let's deploy ideas, knowledge, and growth 🚀
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
+              <Link
+                href="/contact"
+                className="relative inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-green-600 font-medium text-base shadow-lg hover:shadow-xl transition-all duration-200 hover:opacity-90 group w-full sm:w-auto text-center"
+              >
+                <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-green-600 rounded-lg"></span>
+                <span className="relative z-10 hover:text-white">
+                  Contact Us
+                </span>
+              </Link>
+              <Link
+                href="/products"
+                className="relative inline-flex items-center justify-center px-6 py-3 text-base font-medium transition-all bg-green-600 text-white rounded-lg shadow-lg hover:opacity-90 group w-full sm:w-auto text-center"
+              >
+                <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-lg"></span>
+                <span className="relative z-10 hover:text-green-600">
+                  Explore Products
+                </span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

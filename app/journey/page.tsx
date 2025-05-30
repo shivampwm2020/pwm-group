@@ -46,7 +46,7 @@ const journeyMilestones = [
 
 export default function JourneyPage() {
   return (
-    <div className="bg-white">
+    <div className=" bg-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-white">
         {/* Gradient background */}
