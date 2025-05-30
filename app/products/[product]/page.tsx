@@ -1,62 +1,65 @@
-import { notFound } from 'next/navigation';
-import { ArrowRight, Check } from 'lucide-react';
-import Link from 'next/link';
-import { PageProps } from '@/app/types';
+import { notFound } from "next/navigation";
+import { ArrowRight, Check } from "lucide-react";
+import Link from "next/link";
+import { PageProps } from "@/app/types";
 
 const products = {
   explaingithub: {
-    name: 'ExplainGitHub',
-    description: 'AI-powered GitHub repository explanation platform',
-    longDescription: 'ExplainGitHub uses advanced AI to analyze and explain GitHub repositories, making codebases more accessible and understandable for developers at all levels.',
+    name: "ExplainGitHub",
+    description: "AI-powered GitHub repository explanation platform",
+    longDescription:
+      "ExplainGitHub uses advanced AI to analyze and explain GitHub repositories, making codebases more accessible and understandable for developers at all levels.",
     features: [
-      'Instant repository analysis',
-      'Code explanation in plain English',
-      'Documentation generation',
-      'Team collaboration tools',
+      "Instant repository analysis",
+      "Code explanation in plain English",
+      "Documentation generation",
+      "Team collaboration tools",
     ],
     benefits: [
-      'Save time understanding new codebases',
-      'Accelerate onboarding for new team members',
-      'Improve code documentation',
-      'Enhance team collaboration',
+      "Save time understanding new codebases",
+      "Accelerate onboarding for new team members",
+      "Improve code documentation",
+      "Enhance team collaboration",
     ],
-    icon: '📚',
+    imageUrl: "/explaingithub.png",
   },
   repoflicks: {
-    name: 'RepoFlicks',
-    description: 'Your AI-powered code review assistant',
-    longDescription: 'RepoFlicks leverages artificial intelligence to provide comprehensive code reviews, ensuring your projects follow best practices and are optimized for performance.',
+    name: "RepoFlicks",
+    description: "Your AI-powered code review assistant",
+    longDescription:
+      "RepoFlicks leverages artificial intelligence to provide comprehensive code reviews, ensuring your projects follow best practices and are optimized for performance.",
     features: [
-      'Automated code review',
-      'Best practices suggestions',
-      'Security vulnerability detection',
-      'Performance optimization tips',
+      "Automated code review",
+      "Best practices suggestions",
+      "Security vulnerability detection",
+      "Performance optimization tips",
     ],
     benefits: [
-      'Catch bugs before they reach production',
-      'Maintain consistent code quality',
-      'Enhance application security',
-      'Improve system performance',
+      "Catch bugs before they reach production",
+      "Maintain consistent code quality",
+      "Enhance application security",
+      "Improve system performance",
     ],
-    icon: '🎯',
+    imageUrl: "/explaingithub.png",
   },
   sarkarisamadhan: {
-    name: 'SarkariSamadhan',
-    description: 'Government job preparation platform',
-    longDescription: 'SarkariSamadhan is a comprehensive platform designed to help aspirants prepare for government examinations with curated study materials and mock tests.',
+    name: "SarkariSamadhan",
+    description: "Government job preparation platform",
+    longDescription:
+      "SarkariSamadhan is a comprehensive platform designed to help aspirants prepare for government examinations with curated study materials and mock tests.",
     features: [
-      'Comprehensive study materials',
-      'Practice tests and mock exams',
-      'Job alerts and notifications',
-      'Expert guidance and mentorship',
+      "Comprehensive study materials",
+      "Practice tests and mock exams",
+      "Job alerts and notifications",
+      "Expert guidance and mentorship",
     ],
     benefits: [
-      'Structured preparation approach',
-      'Real-time performance tracking',
-      'Stay updated with latest job opportunities',
-      'Learn from subject matter experts',
+      "Structured preparation approach",
+      "Real-time performance tracking",
+      "Stay updated with latest job opportunities",
+      "Learn from subject matter experts",
     ],
-    icon: '🎓',
+    imageUrl: "/explaingithub.png",
   },
 };
 
@@ -75,74 +78,93 @@ export default function ProductPage({ params }: ProductPageProps) {
     <div className="bg-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 z-0"></div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative z-10">
-          <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+        {/* Background gradient (optional - for overall background, not the image section) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 z-0"></div>
+
+        <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-16 py-24 lg:py-32 relative z-10">
+          <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+            {/* Text Content */}
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-              <div className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">
+              <div className="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-3">
                 PWM Group Product
               </div>
-              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
                 {product.name}
               </h1>
-              <p className="mt-6 text-xl text-gray-500 leading-relaxed">
+              <p className="mt-6 text-xl text-gray-600 leading-relaxed max-w-xl">
                 {product.longDescription}
               </p>
-              <div className="mt-8 sm:flex sm:justify-center lg:justify-start gap-4">
+
+              <div className="mt-10 sm:flex sm:justify-center lg:justify-start gap-6">
                 <Link
                   href="#features"
-                  className="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition-all duration-200"
+                  className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg bg-blue-600 text-white font-semibold text-lg shadow-md hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition"
                 >
                   Explore Features
                 </Link>
                 <Link
                   href="/contact"
-                  className="mt-3 sm:mt-0 w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white border-blue-100 hover:bg-gray-50 md:py-4 md:text-lg md:px-10 shadow-sm transition-all duration-200"
+                  className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg border border-blue-200 text-blue-600 bg-white shadow-sm hover:bg-gray-50 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-100 transition"
                 >
                   Contact Sales
                 </Link>
               </div>
             </div>
-            <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
-              <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md overflow-hidden">
-                <div className="relative block w-full bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-lg overflow-hidden aspect-video">
-                  <div className="absolute inset-0 flex items-center justify-center text-8xl">
-                    {product.icon}
-                  </div>
-                </div>
+
+            {/* Right-side Visual Box with Image in Center */}
+            <div className="mt-14 sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 flex justify-center lg:justify-end">
+              <div className="bg-white relative w-full max-w-md rounded-xl shadow-2xl overflow-hidden aspect-video flex items-center justify-center bg-cover bg-center">
+                <img
+                  src={product.imageUrl} // actual image in the center
+                  alt="Product Preview"
+                  className="max-w-full max-h-full object-contain"
+                />
               </div>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent to-white"></div>
+
+        {/* Soft bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-white"></div>
       </div>
 
       {/* Features Section */}
-      <section id="features" className="py-24 bg-white">
+      <section
+        id="features"
+        className="py-24 bg-gradient-to-b from-white to-blue-50"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:text-center mb-16">
-            <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Key Features</h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              Everything you need to succeed
+          <div className="lg:text-center mb-20">
+            <h2 className="text-base font-semibold tracking-wide uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              Key Features
+            </h2>
+            <p className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+              Everything You Need to Succeed
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-              {product.name} provides a comprehensive set of features designed to enhance your workflow and productivity.
+            <p className="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+              {product.name} provides a modern toolkit designed to boost your
+              productivity and streamline your workflow.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {product.features.map((feature, index) => (
-              <div key={index} className="relative bg-white rounded-lg border border-gray-200 p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-indigo-600"></div>
+              <div
+                key={index}
+                className="relative bg-white/30 backdrop-blur-md border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-t-xl"></div>
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                    <div className="h-12 w-12 flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md group-hover:scale-110 transition-transform">
                       <Check className="h-6 w-6" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Feature {index + 1}</h3>
-                    <p className="text-base text-gray-600">{feature}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {`Feature ${index + 1}`}
+                    </h3>
+                    <p className="text-base text-gray-700">{feature}</p>
                   </div>
                 </div>
               </div>
@@ -152,26 +174,45 @@ export default function ProductPage({ params }: ProductPageProps) {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:text-center mb-16">
-            <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Benefits</h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              Why choose {product.name}?
-            </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-              Our product delivers tangible results that transform your operations and drive growth.
+      <section className="py-24 bg-gradient-to-r from-blue-50 via-white to-indigo-50">
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
+          <div className="text-center mb-20">
+            <h2 className="text-sm font-semibold tracking-widest text-indigo-600 uppercase">
+              Benefits
+            </h2>
+            <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+              Why choose <span className="text-indigo-600">{product.name}</span>
+              ?
+            </h1>
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
+              Our product delivers tangible results that transform your
+              operations and drive growth.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
             {product.benefits.map((benefit, index) => (
-              <div key={index} className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-blue-600 mb-4">
-                  <span className="text-lg font-semibold">{index + 1}</span>
+              <div
+                key={index}
+                className="group relative bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-shadow duration-500 cursor-pointer transform hover:-translate-y-1"
+                style={{ willChange: "transform, box-shadow" }}
+              >
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-tr from-indigo-500 to-blue-600 text-white mb-6 shadow-md transition-transform duration-500 group-hover:scale-110">
+                  <span className="text-xl font-extrabold tracking-wide">
+                    {index + 1}
+                  </span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Benefit {index + 1}</h3>
-                <p className="text-base text-gray-600">{benefit}</p>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-3 tracking-tight">
+                  Benefit {index + 1}
+                </h3>
+                <p className="text-gray-700 text-lg leading-relaxed tracking-normal">
+                  {benefit}
+                </p>
+
+                {/* Decorative large number */}
+                <div className="absolute top-6 right-6 opacity-10 text-indigo-200 text-8xl font-extrabold select-none pointer-events-none leading-none">
+                  {index + 1}
+                </div>
               </div>
             ))}
           </div>
@@ -179,34 +220,28 @@ export default function ProductPage({ params }: ProductPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:flex lg:items-center lg:justify-between">
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              <span className="block">Ready to transform your workflow?</span>
-              <span className="block text-blue-200">Get started with {product.name} today.</span>
-            </h2>
-            <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-              <div className="inline-flex rounded-md shadow">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 md:py-4 md:text-lg md:px-10 transition-all duration-200"
-                >
-                  Get started
-                </Link>
-              </div>
-              <div className="ml-3 inline-flex rounded-md shadow">
-                <Link
-                  href="/products"
-                  className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-blue-700 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10 transition-all duration-200"
-                >
-                  Learn more
-                </Link>
-              </div>
-            </div>
+      <section className="bg-gradient-to-r from-indigo-700 via-blue-700 to-indigo-800 py-20 sm:py-28">
+        <div className="max-w-3xl mx-auto px-6 sm:px-12 lg:px-16 text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+            <span className="block">Ready to transform your workflow?</span>
+            <span className="block text-blue-300 mt-2">{`Get started with ${product.name} today.`}</span>
+          </h2>
+          <div className="mt-10 flex justify-center space-x-6">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-4 rounded-xl bg-white text-blue-700 font-semibold text-lg shadow-md hover:shadow-lg hover:scale-[1.05] transition-transform duration-300"
+            >
+              Get started
+            </Link>
+            <Link
+              href="/products"
+              className="inline-flex items-center justify-center px-10 py-4 rounded-xl bg-blue-700 bg-opacity-60 text-white font-semibold text-lg shadow-md hover:bg-opacity-80 hover:shadow-lg hover:scale-[1.05] transition-all duration-300"
+            >
+              Learn more
+            </Link>
           </div>
         </div>
       </section>
     </div>
   );
-} 
+}
