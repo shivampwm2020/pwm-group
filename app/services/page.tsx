@@ -151,64 +151,76 @@ export default function ServicesPage() {
         </div>
 
         <div className="space-y-20">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.name}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden border-t-4 border-blue-700 transition hover:shadow-2xl"
+              className="bg-white rounded-3xl shadow-lg overflow-hidden border-t-4 border-blue-700 transition hover:shadow-2xl mb-2"
             >
-              <div className="p-8 md:p-12">
+              <div className="p-6 md:p-10">
                 <div className="flex flex-col lg:flex-row gap-10">
                   {/* Left Image Panel */}
                   <div className="lg:w-2/5">
-                    <div className="rounded-2xl overflow-hidden h-full flex items-center justify-center bg-white">
+                    <div className="rounded-2xl overflow-hidden h-full flex items-center justify-center bg-gray-50 p-6">
                       <img
                         src={service.image}
                         alt={service.name}
-                        className="max-w-full max-h-full object-contain"
+                        className="max-w-full max-h-64 object-contain"
                       />
                     </div>
                   </div>
 
                   {/* Right Content Area */}
-                  <div className="lg:w-3/5">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {service.name}
-                    </h3>
-                    <p className="text-gray-600 text-base mb-8">
-                      {service.description}
-                    </p>
+                  <div className="lg:w-3/5 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                        {service.name}
+                      </h3>
+                      <p className="text-gray-600 text-base mb-6">
+                        {service.description}
+                      </p>
 
-                    <div className="grid md:grid-cols-2 gap-10">
-                      {/* Features */}
-                      <div>
-                        <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                          <FiSettings className="text-indigo-600 mr-2" />
-                          Features
-                        </h4>
-                        <ul className="space-y-3">
-                          {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <FaCheckCircle className="text-indigo-600 mt-1 mr-2" />
-                              <span className="text-gray-700">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      <div className="grid md:grid-cols-2 gap-8 mb-6">
+                        {/* Features */}
+                        <div>
+                          <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <FiSettings className="text-indigo-600 mr-2" />
+                            Features
+                          </h4>
+                          <ul className="space-y-2">
+                            {service.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start">
+                                <FaCheckCircle className="text-indigo-600 mt-1 mr-2" />
+                                <span className="text-gray-700">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Benefits */}
+                        <div>
+                          <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <FiGift className="text-indigo-600 mr-2" />
+                            Benefits
+                          </h4>
+                          <ul className="space-y-2">
+                            {service.benefits.map((benefit, idx) => (
+                              <li key={idx} className="flex items-start">
+                                <FaCheckCircle className="text-indigo-600 mt-1 mr-2" />
+                                <span className="text-gray-700">{benefit}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
 
-                      {/* Benefits */}
-                      <div>
-                        <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                          <FiGift className="text-indigo-600 mr-2" />
-                          Benefits
-                        </h4>
-                        <ul className="space-y-3">
-                          {service.benefits.map((benefit, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <FaCheckCircle className="text-indigo-600 mt-1 mr-2" />
-                              <span className="text-gray-700">{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      {/* Learn More Button */}
+                      <div className="mt-4">
+                        <Link
+                          href={service.path}
+                          className="inline-block px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-medium hover:from-indigo-700 hover:to-blue-700 transition"
+                        >
+                          Learn More →
+                        </Link>
                       </div>
                     </div>
                   </div>
