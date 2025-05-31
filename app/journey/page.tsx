@@ -46,7 +46,7 @@ const journeyMilestones = [
 
 export default function JourneyPage() {
   return (
-    <div className=" bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-white">
         {/* Gradient background */}
@@ -55,10 +55,10 @@ export default function JourneyPage() {
         {/* Hero content */}
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:py-36 text-center">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900">
+            <h1 className="text-6xl uppercase font-extrabold font-sans text-gray-900">
               Our Journey
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight mt-2">
               From a programming education platform to an AI innovation
               powerhouse
             </p>

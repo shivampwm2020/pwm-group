@@ -237,52 +237,56 @@ export default function CommunityInitiativePage({
       </section>
 
       {/* Events Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:text-center mb-16">
-            <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="lg:text-center mb-20">
+            <h2 className="text-sm text-blue-600 font-semibold tracking-wide uppercase">
               Upcoming Events
             </h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <p className="mt-3 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
               Connect with the Community
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <p className="mt-5 max-w-3xl mx-auto text-lg text-gray-600">
               Join us at these exclusive events to learn, network, and grow with
               fellow professionals.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-10">
             {initiative.events.map((event, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg border border-gray-200 p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="bg-white rounded-xl border border-gray-200 p-8 shadow-lg hover:shadow-2xl transition-shadow duration-400 ease-in-out"
+                style={{
+                  backdropFilter: "blur(12px)",
+                  backgroundColor: "rgba(255, 255, 255, 0.8)",
+                }}
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
-                    <div className="flex flex-col items-center justify-center h-16 w-16 rounded-lg bg-blue-600 text-white">
-                      <Calendar className="h-6 w-6 mb-1" />
-                      <div className="text-xs font-medium">
+                    <div className="flex flex-col items-center justify-center h-20 w-20 rounded-xl bg-gradient-to-br from-blue-600 to-blue-400 text-white shadow-md">
+                      <Calendar className="h-8 w-8 mb-2" />
+                      <div className="text-sm font-semibold tracking-wide">
                         {event.date.split(",")[0]}
                       </div>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2 tracking-tight">
                       {event.title}
                     </h3>
-                    <p className="text-sm text-gray-500 mb-3">
-                      {event.date} • {event.location}
+                    <p className="text-sm text-gray-500 mb-4 italic">
+                      {event.date} &bull; {event.location}
                     </p>
-                    <p className="text-base text-gray-600">
+                    <p className="text-base text-gray-700 leading-relaxed">
                       {event.description}
                     </p>
                     <Link
                       href="#"
-                      className="mt-4 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500"
+                      className="mt-6 inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
                     >
                       Register Now
-                      <ArrowRight className="ml-1 h-4 w-4" />
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </div>
                 </div>
@@ -295,34 +299,28 @@ export default function CommunityInitiativePage({
       {/* CTA Section */}
       <section
         id="join"
-        className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 sm:py-20"
+        className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 sm:py-24"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:flex lg:items-center lg:justify-between">
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              <span className="block">Ready to join our community?</span>
-              <span className="block text-blue-200">
-                Become a member today.
-              </span>
-            </h2>
-            <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-              <div className="inline-flex rounded-md shadow">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 md:py-4 md:text-lg md:px-10 transition-all duration-200"
-                >
-                  Join Now
-                </Link>
-              </div>
-              <div className="ml-3 inline-flex rounded-md shadow">
-                <Link
-                  href="/community"
-                  className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-blue-700 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10 transition-all duration-200"
-                >
-                  Explore Communities
-                </Link>
-              </div>
-            </div>
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+            <span>Ready to join our community?</span>
+            <br />
+            <span className="text-blue-200">Become a member today.</span>
+          </h2>
+
+          <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-600 bg-white rounded-xl shadow-md hover:bg-blue-50 transition duration-300"
+            >
+              Join Now
+            </Link>
+            <Link
+              href="/community"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-white bg-opacity-10 border border-white border-opacity-30 rounded-xl hover:bg-opacity-20 transition duration-300 backdrop-blur-sm"
+            >
+              Explore Communities
+            </Link>
           </div>
         </div>
       </section>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const communityInitiatives = [
@@ -104,24 +105,28 @@ export default function CommunityPage() {
           {communityInitiatives.map((initiative) => (
             <div
               key={initiative.name}
-              className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-gray-200 transition-transform hover:scale-[1.01]"
+              className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-gray-200 hover:scale-[1.01] transition-transform duration-300"
             >
-              <div className="flex flex-col md:flex-row">
-                {/* Left Panel: Image or Gradient */}
+              <div className="flex flex-col lg:flex-row">
+                {/* Image Section */}
                 {initiative.imageUrl ? (
-                  <div className="md:w-2/5">
-                    <img
+                  <div className="w-full lg:w-2/5 h-64 lg:h-auto">
+                    <Image
                       src={initiative.imageUrl}
-                      alt={initiative.name}
-                      className="w-full h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none"
+                      alt={initiative.name || "Community Preview"}
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-cover rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none"
                     />
                   </div>
                 ) : (
                   <div
-                    className={`md:w-2/5 bg-gradient-to-br ${initiative.bgColor} p-12 md:p-16 flex items-center justify-center`}
+                    className={`w-full lg:w-2/5 bg-gradient-to-br ${initiative.bgColor} p-10 lg:p-16 flex items-center justify-center`}
                   >
                     <div className="text-white text-center space-y-4">
-                      <h3 className="text-3xl font-bold">{initiative.name}</h3>
+                      <h3 className="text-2xl sm:text-3xl font-bold">
+                        {initiative.name}
+                      </h3>
                       <div className="w-20 h-1 bg-white/40 mx-auto"></div>
                       <p className="text-white/90">Join us today</p>
                     </div>
@@ -129,35 +134,19 @@ export default function CommunityPage() {
                 )}
 
                 {/* Right Content */}
-                <div className="md:w-3/5 p-8 md:p-12 bg-white">
-                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                    {initiative.description}
-                  </p>
+                <div className="w-full lg:w-3/5 p-6 sm:p-10 lg:p-12 bg-white flex flex-col justify-between">
+                  <div>
+                    <p className="text-gray-700 text-base sm:text-lg mb-6">
+                      {initiative.description}
+                    </p>
 
-                  <div className="grid md:grid-cols-2 gap-10">
-                    {/* What We Offer */}
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                        <span className="flex items-center justify-center w-9 h-9 bg-green-100 text-green-600 rounded-full mr-3 shadow-sm">
-                          <svg
-                            className="w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                        What We Offer
-                      </h4>
-                      <ul className="space-y-3">
-                        {initiative.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {/* Features */}
+                      <div>
+                        <h4 className="text-lg text-gray-900 font-semibold mb-4 flex items-center">
+                          <span className="w-9 h-9 bg-green-100 text-green-600 flex items-center justify-center rounded-full mr-3 shadow-sm">
                             <svg
-                              className="w-5 h-5 text-green-600 mt-1 mr-2 shrink-0"
+                              className="w-4 h-4"
                               fill="currentColor"
                               viewBox="0 0 20 20"
                             >
@@ -167,66 +156,71 @@ export default function CommunityPage() {
                                 clipRule="evenodd"
                               />
                             </svg>
-                            <span className="text-gray-700">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                          </span>
+                          What We Offer
+                        </h4>
+                        <ul className="space-y-2 text-sm text-gray-900 sm:text-base">
+                          {initiative.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start">
+                              <svg
+                                className="w-5 h-5 text-green-600 mr-2 mt-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                    {/* Community Benefits */}
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                        <span className="flex items-center justify-center w-9 h-9 bg-green-100 text-green-600 rounded-full mr-3 shadow-sm">
-                          <svg
-                            className="w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
-                          </svg>
-                        </span>
-                        Community Benefits
-                      </h4>
-                      <ul className="space-y-3">
-                        {initiative.benefits.map((benefit, idx) => (
-                          <li key={idx} className="flex items-start">
+                      {/* Benefits */}
+                      <div>
+                        <h4 className="text-lg text-gray-900 font-semibold mb-4 flex items-center">
+                          <span className="w-9 h-9 bg-green-100 text-green-600 flex items-center justify-center rounded-full mr-3 shadow-sm">
                             <svg
-                              className="w-5 h-5 text-green-600 mt-1 mr-2 shrink-0"
+                              className="w-4 h-4"
                               fill="currentColor"
                               viewBox="0 0 20 20"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clipRule="evenodd"
-                              />
+                              <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                             </svg>
-                            <span className="text-gray-700">{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
+                          </span>
+                          Community Benefits
+                        </h4>
+                        <ul className="space-y-2 text-sm text-gray-900 sm:text-base">
+                          {initiative.benefits.map((benefit, idx) => (
+                            <li key={idx} className="flex items-start">
+                              <svg
+                                className="w-5 h-5 text-green-600 mr-2 mt-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <span>{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="mt-10">
+                  <div className="mt-8">
                     <Link
                       href={initiative.path}
-                      className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold hover:shadow-xl transition-transform duration-200 hover:scale-105"
+                      className="inline-block px-6 py-3 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-full font-medium text-sm sm:text-base hover:shadow-md transition-all"
                     >
-                      Join This Community
-                      <svg
-                        className="ml-2 w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
+                      Learn More
                     </Link>
                   </div>
                 </div>
