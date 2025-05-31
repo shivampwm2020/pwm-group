@@ -330,46 +330,46 @@ export default function Contact() {
       </Section>
 
       {/* FAQ */}
-      <Section variant="secondary" padding="md">
-        <SectionContainer>
-          <SectionHeader>
-            <SectionTitle>Frequently Asked Questions</SectionTitle>
-            <SectionDescription>
-              Find answers to common questions about our products and services
+
+      <Section padding="md">
+        <SectionContainer className="max-w-3xl mx-auto">
+          <SectionHeader className="text-center mb-10">
+            <SectionTitle className="text-3xl font-bold">
+              Frequently Asked Questions
+            </SectionTitle>
+            <SectionDescription className="mt-2 text-gray-600">
+              Find answers to the most common questions about our services and
+              community.
             </SectionDescription>
           </SectionHeader>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {faqs.map((faq, index: number) => (
-              <Card
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
                 key={index}
-                variant="ghost"
-                className="p-5 transition-all border-b-4 border-blue-700 hover:shadow-md rounded-xl"
+                className="border-b-4 border-blue-700 rounded-lg overflow-hidden transition-all"
               >
                 <button
-                  className="flex items-center justify-between w-full text-left"
                   onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center p-5 bg-white hover:bg-gray-50 transition-colors"
                 >
-                  <h3 className="font-semibold text-gray-900 text-lg">
+                  <span className="text-left text-lg font-medium text-gray-800">
                     {faq.question}
-                  </h3>
+                  </span>
                   <ChevronDown
-                    className={`h-5 w-5 transition-transform duration-200 text-gray-900 ${
+                    className={`w-5 h-5 text-gray-600 transition-transform ${
                       openIndex === index ? "rotate-180" : ""
                     }`}
                   />
                 </button>
-
                 <div
-                  className={`mt-3 text-sm text-gray-600 transition-all duration-300 ease-in-out overflow-hidden ${
-                    openIndex === index
-                      ? "max-h-[500px] opacity-100"
-                      : "max-h-0 opacity-0"
+                  className={`transition-all duration-300 px-5 pb-5 text-gray-600 text-base ${
+                    openIndex === index ? "block" : "hidden"
                   }`}
                 >
-                  <p className="mt-2 text-gray-900">{faq.answer}</p>
+                  {faq.answer}
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </SectionContainer>
