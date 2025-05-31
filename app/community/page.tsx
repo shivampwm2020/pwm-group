@@ -49,13 +49,13 @@ export default function CommunityPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+      <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-teal-50 z-0"></div>
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 z-0" />
 
-        <div className="min-h-[80vh]  flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="min-h-[80vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="w-full max-w-7xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 rounded-full bg-green-100 text-green-700 font-medium text-sm mb-6">
+            <span className="inline-block px-4 py-2 rounded-full bg-green-100 text-green-700 font-medium text-sm mb-4">
               Community-Led Innovation
             </span>
             <h1 className="max-w-4xl mx-auto text-3xl sm:text-5xl lg:text-7xl font-black leading-none text-gray-900 font-sans uppercase">
@@ -66,7 +66,7 @@ export default function CommunityPage() {
               We've moved beyond just learning — we now build, ship, and grow
               together.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center sm:mt-10">
               <Link
                 href="#initiatives"
                 className="px-8 py-3 rounded-full bg-gradient-to-r from-green-600 to-teal-600 text-white font-medium text-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-200"
@@ -83,7 +83,7 @@ export default function CommunityPage() {
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
-      </div>
+      </section>
 
       {/* Community Initiatives */}
       <div

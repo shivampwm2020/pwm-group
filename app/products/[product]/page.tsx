@@ -22,6 +22,7 @@ const products = {
       "Enhance team collaboration",
     ],
     imageUrl: "/explaingithub.png",
+    link: "https://explaingithub.com",
   },
   repoflicks: {
     name: "RepoFlicks",
@@ -41,6 +42,7 @@ const products = {
       "Improve system performance",
     ],
     imageUrl: "/explaingithub.png",
+    link: "https://repoflicks.com",
   },
   sarkarisamadhan: {
     name: "SarkariSamadhan",
@@ -60,6 +62,7 @@ const products = {
       "Learn from subject matter experts",
     ],
     imageUrl: "/explaingithub.png",
+    link: "https://sarkarisamadhan.com",
   },
 };
 
@@ -83,13 +86,18 @@ export default function ProductPage({ params }: ProductPageProps) {
         <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-16 py-24 lg:py-32 relative z-10">
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-              <div className="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-3">
-                PWM Group Product
-              </div>
+              <a
+                href={product.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mb-2 text-sm font-semibold bg-blue-100 px-3 py-1 rounded-full text-blue-600 uppercase tracking-normal hover:underline hover:text-blue-700 transition"
+              >
+                Visit Official Website
+              </a>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
                 {product.name}
               </h1>
-              <p className="mt-6 text-xl text-gray-600 leading-relaxed max-w-xl">
+              <p className="mt-4 text-lg text-gray-600 leading-relaxed max-w-xl">
                 {product.longDescription}
               </p>
 
@@ -144,11 +152,11 @@ export default function ProductPage({ params }: ProductPageProps) {
             </p>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-16">
             {product.features.map((feature, index) => (
               <div
                 key={index}
-                className="relative bg-white/30 backdrop-blur-md border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 group"
+                className="relative w-full max-w-[340px] mx-auto bg-white/30 backdrop-blur-md border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-t-xl"></div>
                 <div className="flex items-start gap-4">
@@ -209,6 +217,76 @@ export default function ProductPage({ params }: ProductPageProps) {
                 {/* Decorative large number */}
                 <div className="absolute top-6 right-6 opacity-10 text-indigo-200 text-8xl font-extrabold select-none pointer-events-none leading-none">
                   {index + 1}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
+          <div className="text-center mb-16">
+            <h2 className="text-sm font-semibold tracking-widest text-blue-600 uppercase">
+              Customer Reviews
+            </h2>
+            <h3 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
+              Loved by Developers Like You
+            </h3>
+            <p className="mt-2 max-w-2xl mx-auto text-lg text-gray-600">
+              Here's what our happy users have to say about {product.name}.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {[
+              {
+                name: "Aarav Mehta",
+                title: "Frontend Developer",
+                rating: 5,
+                review: `I've saved hours trying to understand unfamiliar repositories. ${product.name} is now a must-have in my toolkit!`,
+              },
+              {
+                name: "Sanya Kapoor",
+                title: "Software Engineer",
+                rating: 4,
+                review: `The explanations are incredibly accurate and easy to follow. It really helps during code reviews.`,
+              },
+              {
+                name: "Rahul Sharma",
+                title: "Tech Lead",
+                rating: 5,
+                review: `Our team uses ${product.name} to onboard new developers. It cuts down ramp-up time significantly.`,
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition duration-300"
+              >
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className={`h-5 w-5 ${
+                        i < item.rating ? "text-yellow-400" : "text-gray-300"
+                      }`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M10 15l-5.878 3.09L5.6 12.545 1 8.91l6.09-.888L10 2.5l2.91 5.522 6.09.888-4.6 3.636 1.478 5.545z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-700 text-base leading-relaxed mb-6">
+                  “{item.review}”
+                </p>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900">
+                    {item.name}
+                  </h4>
+                  <p className="text-sm text-gray-500">{item.title}</p>
                 </div>
               </div>
             ))}
