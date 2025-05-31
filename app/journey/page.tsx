@@ -54,6 +54,9 @@ export default function JourneyPage() {
 
         {/* Hero content */}
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:py-36 text-center">
+          <span className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium text-sm mb-6">
+            Journey by PWM Group
+          </span>
           <div className="max-w-3xl mx-auto">
             <h1 className="text-6xl uppercase font-extrabold font-sans text-gray-900">
               Our Journey
@@ -95,8 +98,8 @@ export default function JourneyPage() {
             </p>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
-            {journeyMilestones.map((milestone, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {journeyMilestones.slice(0, 4).map((milestone, index) => (
               <a
                 key={index}
                 href={milestone.link}
