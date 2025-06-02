@@ -102,7 +102,7 @@ export default function Navbar() {
             <div className="container mx-auto px-8 py-4 flex items-center justify-between">
               {/* Logo */}
               <Link href="/" aria-label="Logo">
-                <Image src={logo} alt="Logo" width={75} height={75} priority />
+                <Image src={logo} alt="Logo" width={85} height={85} priority />
               </Link>
 
               {/* Nav links */}

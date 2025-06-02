@@ -370,15 +370,15 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="flex justify-center items-center min-h-[60vh] px-4 py-16">
+          <div className="flex justify-center items-center min-h-[60vh] px-2 py-8">
             <div className="w-full max-w-md bg-white/90 backdrop-blur-md border-t-4 border-blue-700 rounded-3xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
               {/* Logo Image */}
               <div className="flex justify-center items-center px-8 pt-8">
-                <div className="w-28 h-28 rounded-xl overflow-hidden shadow-md border border-gray-200">
+                <div className="w-full max-w-md   overflow-hidden shadow-md ">
                   <img
                     src={communityInitiatives[0].image}
                     alt="Community"
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto object-cover p-2"
                   />
                 </div>
               </div>

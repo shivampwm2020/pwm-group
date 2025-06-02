@@ -1,6 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaTwitter, FaLinkedinIn, FaGithub, FaYoutube } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+
+const socialLinks = [
+  {
+    href: "https://x.com/_shivammaurya__",
+    label: "X",
+    icon: FaSquareXTwitter,
+  },
+  {
+    href: "https://www.linkedin.com/company/programming-with-maurya/",
+    label: "LinkedIn",
+    icon: FaLinkedinIn,
+  },
+  {
+    href: "https://www.youtube.com/@ProgrammingwithMaurya21",
+    label: "YouTube",
+    icon: FaYoutube,
+  },
+];
 
 export default function Footer() {
   return (
@@ -13,12 +32,9 @@ export default function Footer() {
               <Image
                 src="/pwm_logo.svg"
                 alt="PWM Logo"
-                width={65}
-                height={65}
+                width={85}
+                height={85}
               />
-              <span className="font-bold text-xl text-gray-900 tracking-wide">
-                PWM Group
-              </span>
             </div>
             <p className="text-sm text-gray-500 max-w-xs leading-relaxed">
               Empowering enterprises with cutting-edge technology solutions,
@@ -26,28 +42,19 @@ export default function Footer() {
             </p>
 
             {/* Social Icons */}
-            <div className="mt-6 flex gap-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-500 transition"
-              >
-                <span className="sr-only">Twitter</span>
-                <FaTwitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-500 transition"
-              >
-                <span className="sr-only">LinkedIn</span>
-                <FaLinkedinIn className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-500 transition"
-              >
-                <span className="sr-only">GitHub</span>
-                <FaGithub className="h-5 w-5" />
-              </a>
+            <div className="mt-4 flex gap-4">
+              {socialLinks.map(({ href, label, icon: Icon }, index) => (
+                <a
+                  key={index}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-blue-700 transition"
+                >
+                  <span className="sr-only">{label}</span>
+                  <Icon className="h-6 w-6" />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -152,9 +159,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="pt-6 border-t border-gray-200 text-center">
-          <p className="text-xs text-gray-500 font-mono">
-            © 2024 PWM Group. All rights reserved.
+        <div className="pt-4 pb-6 border-t border-gray-200 text-center">
+          <p className="text-sm text-gray-500 font-mono">
+            © 2020–2025 PWM Group. All rights reserved. MSME Certified (Indian
+            Government) – UDYAM-UP-75-0023553
           </p>
         </div>
       </div>
