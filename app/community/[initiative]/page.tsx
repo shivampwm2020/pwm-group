@@ -80,16 +80,17 @@ export default function CommunityInitiativePage({
 
               <div className="mt-10 sm:flex sm:justify-center lg:justify-start gap-6">
                 <Link
-                  href="#join"
+                  href="#stats"
                   className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg bg-blue-600 text-white font-semibold text-lg shadow-md hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition"
                 >
-                  Join the Community
+                  Know More
                 </Link>
                 <Link
-                  href="/contact"
+                  href="https://chat.whatsapp.com/H2t9sQcPQBZIToKIagWmTo"
+                  target="_blank"
                   className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg border border-blue-200 text-blue-600 bg-white shadow-sm hover:bg-gray-50 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-100 transition"
                 >
-                  Contact Us
+                  Join Now
                 </Link>
               </div>
             </div>
@@ -111,7 +112,7 @@ export default function CommunityInitiativePage({
       </div>
 
       {/* Stats Section */}
-      <section className="bg-white py-16 border-b border-gray-100">
+      <section id="stats" className="bg-white py-16 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 text-center">
             {/* Stat 1 - Community Members */}

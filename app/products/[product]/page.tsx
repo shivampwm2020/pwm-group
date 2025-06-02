@@ -86,14 +86,6 @@ export default function ProductPage({ params }: ProductPageProps) {
         <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-16 py-24 lg:py-32 relative z-10">
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-              <a
-                href={product.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mb-2 text-sm font-semibold bg-blue-100 px-3 py-1 rounded-full text-blue-600 uppercase tracking-normal hover:underline hover:text-blue-700 transition"
-              >
-                Visit Official Website
-              </a>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
                 {product.name}
               </h1>
@@ -109,10 +101,11 @@ export default function ProductPage({ params }: ProductPageProps) {
                   Explore Features
                 </Link>
                 <Link
-                  href="/contact"
+                  href={product.link}
+                  target="_blank"
                   className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg border border-blue-200 text-blue-700 bg-white shadow-sm hover:bg-gray-50 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-100 transition"
                 >
-                  Contact Us
+                  Visit Site
                 </Link>
               </div>
             </div>
