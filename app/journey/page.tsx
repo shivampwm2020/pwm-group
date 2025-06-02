@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Bot, Globe, TrendingUp, Wrench } from "lucide-react";
 import Link from "next/link";
 import {
   FaRocket,
@@ -13,7 +13,7 @@ const journeyMilestones = [
   {
     year: "2020",
     title: "Foundation Era",
-    icon: "🛠️",
+    icon: <Wrench className="w-6 h-6 text-indigo-600" />,
     description: "Our initial platform focused on programming tutorials.",
     achievements: ["Built using Wix", "Programming-focused content"],
     link: "https://shivam21maurya.wixsite.com/website-1",
@@ -21,7 +21,7 @@ const journeyMilestones = [
   {
     year: "2021",
     title: "Growth Phase",
-    icon: "📈",
+    icon: <TrendingUp className="w-6 h-6 text-indigo-600" />,
     description: "Expanded educational content and structured learning paths.",
     achievements: ["Beginner to advanced courses", "Improved navigation"],
     link: "https://shivam21maurya.wixsite.com/my-site-3",
@@ -29,7 +29,7 @@ const journeyMilestones = [
   {
     year: "2022",
     title: "Community Focus",
-    icon: "🌐",
+    icon: <Globe className="w-6 h-6 text-indigo-600" />,
     description: "Interactive features and community collaboration tools.",
     achievements: ["User forums", "Live Q&A sessions"],
     link: "https://shivam21maurya.wixsite.com/programming-with-mau",
@@ -37,7 +37,7 @@ const journeyMilestones = [
   {
     year: "2023",
     title: "Pre-AI Transition",
-    icon: "🤖",
+    icon: <Bot className="w-6 h-6 text-indigo-600" />,
     description: "Our comprehensive learning hub before our AI transformation.",
     achievements: ["All-in-one hub", "Preview of upcoming AI tools"],
     link: "https://shivam21maurya.wixsite.com/website",
@@ -85,38 +85,36 @@ export default function JourneyPage() {
       {/* Previous Site Archives */}
       <section id="archives" className="bg-white py-20 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="lg:text-center mb-12">
-            <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">
+          <div className="text-center mb-12">
+            <h2 className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
               Archives
             </h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <p className="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900">
               Our Digital Evolution
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
               Explore our past iterations as we transformed from a simple blog
               to an enterprise platform
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {journeyMilestones.slice(0, 4).map((milestone, index) => (
+            {journeyMilestones.map((milestone, index) => (
               <a
                 key={index}
                 href={milestone.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-white border border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.02] transition-transform duration-300 p-6"
+                className="block bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 p-6"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="text-3xl text-indigo-600">
-                      {milestone.icon}
-                    </div>
+                    <div>{milestone.icon}</div>
                     <h3 className="text-lg font-semibold text-gray-800">
                       {milestone.title}
                     </h3>
                   </div>
-                  <span className="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                  <span className="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">
                     {milestone.year}
                   </span>
                 </div>
@@ -125,13 +123,13 @@ export default function JourneyPage() {
                   {milestone.description}
                 </p>
 
-                <ul className="text-gray-700 text-sm list-disc pl-5 space-y-1">
+                <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700">
                   {milestone.achievements.map((point, idx) => (
                     <li key={idx}>{point}</li>
                   ))}
                 </ul>
 
-                <div className="mt-4 text-sm text-blue-600 font-medium flex items-center">
+                <div className="mt-4 flex items-center text-sm text-blue-600 font-medium">
                   <span>Visit Archive</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </div>

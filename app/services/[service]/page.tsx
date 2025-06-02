@@ -58,9 +58,6 @@ export default function ServicePage({ params }: ServicePageProps) {
           <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
             {/* Left side - Text */}
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-              <div className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">
-                PWM Group Service
-              </div>
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                 {service.name}
               </h1>

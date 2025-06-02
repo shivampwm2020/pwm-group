@@ -41,7 +41,7 @@ const products = {
       "Enhance application security",
       "Improve system performance",
     ],
-    imageUrl: "/explaingithub.png",
+    imageUrl: "/repoflicks.png",
     link: "https://repoflicks.com",
   },
   sarkarisamadhan: {
@@ -61,7 +61,7 @@ const products = {
       "Stay updated with latest job opportunities",
       "Learn from subject matter experts",
     ],
-    imageUrl: "/explaingithub.png",
+    imageUrl: "/sarkari_samadhan_in_logo.png",
     link: "https://sarkarisamadhan.com",
   },
 };

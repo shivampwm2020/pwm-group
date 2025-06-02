@@ -168,7 +168,7 @@ export default function HomePage() {
             {products.map((product, index) => (
               <div
                 key={product.name}
-                className="group bg-white rounded-xl shadow-md  border-t-4 border-blue-700 overflow-hidden hover:shadow-xl transition-all duration-300 relative"
+                className="group bg-white rounded-xl shadow-md  border-t-4 border-blue-200 overflow-hidden hover:shadow-xl transition-all duration-300 relative"
               >
                 {/* Image section with overlay */}
                 <div className="relative h-[170px] flex items-center justify-center overflow-hidden bg-white">
@@ -182,7 +182,7 @@ export default function HomePage() {
 
                 {/* Content section */}
                 <div className="p-6 relative z-10">
-                  <span className="inline-block px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-xs font-medium rounded-full mb-3">
+                  <span className="inline-block px-3 py-1 bg-blue-700 text-white text-xs font-medium rounded-full mb-3">
                     {product.category}
                   </span>
                   <p className="text-gray-600 text-base mb-6 line-clamp-3">
@@ -205,7 +205,7 @@ export default function HomePage() {
               href="/products"
               className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 shadow-lg ease-in-out rounded hover:pl-10 hover:pr-6 bg-indigo-100 group"
             >
-              <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"></span>
+              <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-blue-700 group-hover:h-full"></span>
               <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
                 <ArrowRight className="w-5 h-5 text-blue-700" />
               </span>
@@ -371,14 +371,14 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center items-center min-h-[60vh] px-2 py-8">
-            <div className="w-full max-w-md bg-white/90 backdrop-blur-md border-t-4 border-blue-700 rounded-3xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+            <div className="w-full max-w-md bg-white/90 backdrop-blur-md border-t-4 border-blue-200 rounded-3xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
               {/* Logo Image */}
               <div className="flex justify-center items-center px-8 pt-8">
-                <div className="w-full max-w-md   overflow-hidden shadow-md ">
+                <div className="w-full max-w-md overflow-hidden shadow-md ">
                   <img
                     src={communityInitiatives[0].image}
                     alt="Community"
-                    className="w-full h-auto object-cover p-2"
+                    className="w-full h-auto object-cover p-1"
                   />
                 </div>
               </div>
