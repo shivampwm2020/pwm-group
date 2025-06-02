@@ -50,10 +50,13 @@ export default function CommunityPage() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-teal-50 z-0"></div>
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 z-0"></div>
 
         <div className="min-h-[80vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 z-0" />
+          <div className="absolute top-0 right-0 w-1/2 md:w-1/3 h-full bg-[url('/dots-pattern.svg')] bg-repeat opacity-5 z-0" />
+          <div className="absolute bottom-0 left-0 w-3/4 sm:w-1/2 h-1/2 bg-[url('/circles-pattern.svg')] bg-no-repeat bg-left-bottom opacity-5 z-0" />
+
           <div className="w-full max-w-7xl mx-auto text-center">
             <span className="inline-block px-4 py-2 rounded-full bg-green-100 text-green-700 font-medium text-sm mb-4">
               Community-Led Innovation

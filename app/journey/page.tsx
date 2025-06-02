@@ -50,7 +50,7 @@ export default function JourneyPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-white">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-indigo-50 to-white z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 z-0"></div>
 
         {/* Hero content */}
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:py-36 text-center">
