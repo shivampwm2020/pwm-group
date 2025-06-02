@@ -13,7 +13,7 @@ const journeyMilestones = [
   {
     year: "2020",
     title: "Foundation Era",
-    icon: "🛠️", // Represents foundation and building
+    icon: "🛠️",
     description: "Our initial platform focused on programming tutorials.",
     achievements: ["Built using Wix", "Programming-focused content"],
     link: "https://shivam21maurya.wixsite.com/website-1",
@@ -21,7 +21,7 @@ const journeyMilestones = [
   {
     year: "2021",
     title: "Growth Phase",
-    icon: "📈", // Represents growth
+    icon: "📈",
     description: "Expanded educational content and structured learning paths.",
     achievements: ["Beginner to advanced courses", "Improved navigation"],
     link: "https://shivam21maurya.wixsite.com/my-site-3",
@@ -29,7 +29,7 @@ const journeyMilestones = [
   {
     year: "2022",
     title: "Community Focus",
-    icon: "🌐", // Represents community and connectivity
+    icon: "🌐",
     description: "Interactive features and community collaboration tools.",
     achievements: ["User forums", "Live Q&A sessions"],
     link: "https://shivam21maurya.wixsite.com/programming-with-mau",
@@ -37,7 +37,7 @@ const journeyMilestones = [
   {
     year: "2023",
     title: "Pre-AI Transition",
-    icon: "🤖", // Represents AI and future tech
+    icon: "🤖",
     description: "Our comprehensive learning hub before our AI transformation.",
     achievements: ["All-in-one hub", "Preview of upcoming AI tools"],
     link: "https://shivam21maurya.wixsite.com/website",
@@ -144,9 +144,7 @@ export default function JourneyPage() {
       {/* Timeline Section */}
       <section className="py-24 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Vertical line */}
           <div className="relative">
-            {/* On mobile, line on left; on md+, centered */}
             <div className="absolute left-4 md:left-1/2 top-0 h-full w-1 bg-gradient-to-b from-blue-500 to-indigo-500 transform md:-translate-x-1/2"></div>
 
             {/* Timeline Items */}
@@ -160,25 +158,25 @@ export default function JourneyPage() {
                   <>
                     <p className="text-gray-600 mb-6">
                       Transformed into a comprehensive AI ecosystem with three
-                      distinct platforms: Sarkari Samadhan, Aiution, and Goal
-                      Ninja.
+                      distinct platforms: ExplainGithub, Aiution, and The
+                      Production Gurus.
                     </p>
                     <div className="space-y-4">
                       {[
                         {
-                          name: "Sarkari Samadhan",
+                          name: "Services",
                           desc: "Simplifying government services for every Indian citizen",
                           bg: "bg-orange-50",
                           text: "text-orange-800",
                         },
                         {
-                          name: "Aiution",
+                          name: "Products",
                           desc: "Enterprise AI integration and solutions platform",
                           bg: "bg-blue-50",
                           text: "text-blue-800",
                         },
                         {
-                          name: "Community Hub",
+                          name: "Community",
                           desc: "Connecting professionals, learners, and innovators",
                           bg: "bg-green-50",
                           text: "text-green-800",
