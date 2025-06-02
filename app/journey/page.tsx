@@ -164,20 +164,20 @@ export default function JourneyPage() {
                     <div className="space-y-4">
                       {[
                         {
-                          name: "Services",
-                          desc: "Simplifying government services for every Indian citizen",
+                          name: "ExplainGithub",
+                          desc: "AI-powered tool to interact with GitHub repositories and gain instant, professional insights into code, pull requests, and architecture,",
                           bg: "bg-orange-50",
                           text: "text-orange-800",
                         },
                         {
-                          name: "Products",
-                          desc: "Enterprise AI integration and solutions platform",
+                          name: "Aiution",
+                          desc: "Aiution is an AI-as-a-Service platform enabling businesses to automate workflows, deploy chatbots, and integrate AI systems with minimal setup.",
                           bg: "bg-blue-50",
                           text: "text-blue-800",
                         },
                         {
-                          name: "Community",
-                          desc: "Connecting professionals, learners, and innovators",
+                          name: "The Production Gurus",
+                          desc: "The Production Gurus is a tech community for builders, developers, and founders to share ideas, build products, and connect meaningfully.",
                           bg: "bg-green-50",
                           text: "text-green-800",
                         },
