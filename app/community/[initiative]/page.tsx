@@ -71,9 +71,6 @@ export default function CommunityInitiativePage({
           <div className="lg:grid lg:grid-cols-12 lg:gap-6 items-center">
             {/* Left: Text Section */}
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-              <div className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
-                PWM Group Community
-              </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-gray-900 leading-none">
                 {initiative.name}
               </h1>
@@ -89,10 +86,10 @@ export default function CommunityInitiativePage({
                   Join the Community
                 </Link>
                 <Link
-                  href="#features"
+                  href="/contact"
                   className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg border border-blue-200 text-blue-600 bg-white shadow-sm hover:bg-gray-50 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-100 transition"
                 >
-                  Learn More
+                  Contact Us
                 </Link>
               </div>
             </div>

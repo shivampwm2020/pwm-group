@@ -104,15 +104,15 @@ export default function ProductPage({ params }: ProductPageProps) {
               <div className="mt-10 sm:flex sm:justify-center lg:justify-start gap-6">
                 <Link
                   href="#features"
-                  className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg bg-blue-600 text-white font-semibold text-lg shadow-md hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition"
+                  className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg bg-blue-700 text-white font-semibold text-lg shadow-md hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition"
                 >
                   Explore Features
                 </Link>
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg border border-blue-200 text-blue-600 bg-white shadow-sm hover:bg-gray-50 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-100 transition"
+                  className="w-full sm:w-auto flex items-center justify-center px-10 py-4 rounded-lg border border-blue-200 text-blue-700 bg-white shadow-sm hover:bg-gray-50 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-100 transition"
                 >
-                  Contact Sales
+                  Contact Us
                 </Link>
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-20">
-            <h2 className="text-base font-semibold tracking-wide uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+            <h2 className="text-base font-semibold tracking-wide uppercase text-transparent bg-clip-text bg-blue-700">
               Key Features
             </h2>
             <p className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
@@ -158,10 +158,10 @@ export default function ProductPage({ params }: ProductPageProps) {
                 key={index}
                 className="relative w-full max-w-[340px] mx-auto bg-white/30 backdrop-blur-md border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-t-xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-blue-700 rounded-t-xl"></div>
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="h-12 w-12 flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md group-hover:scale-110 transition-transform">
+                    <div className="h-12 w-12 flex items-center justify-center rounded-xl bg-blue-700 text-white shadow-md group-hover:scale-110 transition-transform">
                       <Check className="h-6 w-6" />
                     </div>
                   </div>
@@ -182,12 +182,11 @@ export default function ProductPage({ params }: ProductPageProps) {
       <section className="py-24 bg-gradient-to-r from-blue-50 via-white to-indigo-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
           <div className="text-center mb-20">
-            <h2 className="text-sm font-semibold tracking-widest text-indigo-600 uppercase">
+            <h2 className="text-sm font-semibold tracking-widest text-blue-700 uppercase">
               Benefits
             </h2>
             <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
-              Why choose <span className="text-indigo-600">{product.name}</span>
-              ?
+              Why choose <span className="text-blue-700">{product.name}</span>?
             </h1>
             <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
               Our product delivers tangible results that transform your
@@ -202,7 +201,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 className="group relative bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-shadow duration-500 cursor-pointer transform hover:-translate-y-1"
                 style={{ willChange: "transform, box-shadow" }}
               >
-                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-tr from-indigo-500 to-blue-600 text-white mb-6 shadow-md transition-transform duration-500 group-hover:scale-110">
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-700 text-white mb-6 shadow-md transition-transform duration-500 group-hover:scale-110">
                   <span className="text-xl font-extrabold tracking-wide">
                     {index + 1}
                   </span>
@@ -215,7 +214,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 </p>
 
                 {/* Decorative large number */}
-                <div className="absolute top-6 right-6 opacity-10 text-indigo-200 text-8xl font-extrabold select-none pointer-events-none leading-none">
+                <div className="absolute top-6 right-6 opacity-10 text-indigo-300 text-8xl font-extrabold select-none pointer-events-none leading-none">
                   {index + 1}
                 </div>
               </div>
