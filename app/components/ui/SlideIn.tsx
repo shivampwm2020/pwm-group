@@ -18,13 +18,13 @@ const variants = {
 export default function SlideIn({
   children,
   direction = "up",
-  delay = 0.1,
+  delay = 0.2,
 }: SlideInProps) {
   return (
     <motion.div
       initial={variants[direction]}
       whileInView={{ x: 0, y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, delay }}
+      transition={{ duration: 0.8, delay }}
       viewport={{ once: true, amount: 0.3 }}
     >
       {children}
