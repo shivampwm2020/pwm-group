@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { Button } from "../components/ui";
-import HeroSection from "../components/ui/HeroSection";
 import CTASection from "../components/ui/CTASection";
 import Image from "next/image";
+import HeroSection from "../components/ui/HeroSection";
+import { Link } from "next-view-transitions";
 
 const products = [
   {
@@ -55,7 +54,7 @@ const products = [
   },
 ];
 
-export default function ProductsPage() {
+const ProductsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -211,4 +210,6 @@ export default function ProductsPage() {
       />
     </div>
   );
-}
+};
+
+export default ProductsPage;

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/pwm_logo.svg";
 import gsap from "gsap";
@@ -10,6 +10,7 @@ import clsx from "clsx";
 import useScrollDirection from "@/app/hooks/useScrollDirection";
 import { GoMail } from "react-icons/go";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
+import { Link } from "next-view-transitions";
 
 const navItems = [
   { name: "Home", path: "/" },

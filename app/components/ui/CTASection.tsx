@@ -1,5 +1,6 @@
+import { Link } from "next-view-transitions";
 import React from "react";
-import Link from "next/link";
+import SlideIn from "./SlideIn";
 
 interface CTASectionProps {
   heading: string;
@@ -39,51 +40,53 @@ const CTASection: React.FC<CTASectionProps> = ({
       <div className="absolute -right-32 -top-32 w-80 h-80 sm:w-96 sm:h-96 bg-indigo-500 opacity-20 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col items-center justify-center gap-8 text-center">
-          <div className="text-white max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-sans mb-4 leading-snug">
-              {heading}
-            </h2>
-            <p className="text-base sm:text-lg text-blue-100 max-w-4xl mx-auto font-sans leading-tight">
-              {subheading}
-            </p>
-          </div>
+        <div className="flex flex-col items-center justify-center gap-12 text-center">
+          <SlideIn direction="right">
+            <div className="text-white max-w-3xl">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-sans mb-4 leading-snug">
+                {heading}
+              </h2>
+              <p className="text-base sm:text-lg text-blue-100 max-w-4xl mx-auto font-sans leading-tight">
+                {subheading}
+              </p>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
-            {/* Button One */}
-            <Link
-              href={buttonOneHref}
-              className={`relative inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg shadow-md w-full sm:w-auto text-center transition-colors duration-300
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4 justify-center">
+              {/* Button One */}
+              <Link
+                href={buttonOneHref}
+                className={`relative inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg shadow-md w-full sm:w-auto text-center transition-colors duration-300
                 ${buttonOneBg} ${buttonOneTextColor}
                 hover:${
                   buttonOneBg === "bg-white" ? "bg-blue-700" : "bg-white"
                 } hover:${
-                buttonOneTextColor === "text-blue-700"
-                  ? "text-white"
-                  : "text-blue-700"
-              }
+                  buttonOneTextColor === "text-blue-700"
+                    ? "text-white"
+                    : "text-blue-700"
+                }
               `}
-            >
-              <span className="relative z-10">{buttonOneText}</span>
-            </Link>
+              >
+                <span className="relative z-10">{buttonOneText}</span>
+              </Link>
 
-            {/* Button Two */}
-            <Link
-              href={buttonTwoHref}
-              className={`relative inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg shadow-md w-full sm:w-auto text-center transition-colors duration-300
+              {/* Button Two */}
+              <Link
+                href={buttonTwoHref}
+                className={`relative inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg shadow-md w-full sm:w-auto text-center transition-colors duration-300
                 ${buttonTwoBg} ${buttonTwoTextColor}
                 hover:${
                   buttonTwoBg === "bg-white" ? "bg-blue-700" : "bg-white"
                 } hover:${
-                buttonTwoTextColor === "text-blue-700"
-                  ? "text-white"
-                  : "text-blue-700"
-              }
+                  buttonTwoTextColor === "text-blue-700"
+                    ? "text-white"
+                    : "text-blue-700"
+                }
               `}
-            >
-              <span className="relative z-10">{buttonTwoText}</span>
-            </Link>
-          </div>
+              >
+                <span className="relative z-10">{buttonTwoText}</span>
+              </Link>
+            </div>
+          </SlideIn>
         </div>
       </div>
     </section>

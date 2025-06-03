@@ -18,6 +18,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { Link } from "next-view-transitions";
 
 const faqs = [
   {
@@ -121,12 +122,12 @@ export default function Contact() {
               <CardDescription className="mb-4">
                 Our team typically responds within 24 hours
               </CardDescription>
-              <a
+              <Link
                 href="mailto:connect@programmingwithmaurya.com"
                 className="text-blue-600 font-medium hover:text-blue-700 transition-colors"
               >
                 connect@programmingwithmaurya.com
-              </a>
+              </Link>
             </Card>
 
             <Card className="flex flex-col items-center text-center">
@@ -149,12 +150,12 @@ export default function Contact() {
               <CardDescription className="mb-4">
                 Available Monday-Friday, 9am-6pm IST
               </CardDescription>
-              <a
+              <Link
                 href="tel:+916391277940"
                 className="text-blue-600 font-medium hover:text-blue-700 transition-colors"
               >
                 +91 63912 77940
-              </a>
+              </Link>
             </Card>
 
             <Card className="flex flex-col items-center text-center">
@@ -281,7 +282,7 @@ export default function Contact() {
                   </h3>
                   <div className="mt-4 flex gap-4">
                     {socialLinks.map(({ href, label, icon: Icon }, index) => (
-                      <a
+                      <Link
                         key={index}
                         href={href}
                         target="_blank"
@@ -290,7 +291,7 @@ export default function Contact() {
                       >
                         <span className="sr-only">{label}</span>
                         <Icon className="h-6 w-6" />
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { ArrowRight, Check } from "lucide-react";
-import Link from "next/link";
+import { Check } from "lucide-react";
+import { Link } from "next-view-transitions";
 import { PageProps } from "@/app/types";
 
 const services = {

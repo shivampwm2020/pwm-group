@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { ViewTransitions } from "next-view-transitions";
 
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
@@ -19,22 +20,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
-      <body
-        className={`${inter.className} h-full antialiased bg-gradient-to-br from-blue-50 to-indigo-50 overflow-x-hidden m-0 p-0`}
-      >
-        {/* Main Navigation */}
-        <Header />
+    <ViewTransitions>
+      <html lang="en" className="h-full scroll-smooth">
+        <body
+          className={`${inter.className} h-full antialiased bg-gradient-to-br from-blue-50 to-indigo-50 overflow-x-hidden m-0 p-0`}
+        >
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
 
-        {/* Main Content */}
-        <main className="flex-grow">{children}</main>
-
-        {/* Footer */}
-        <Footer />
-
-        {/* Add Analytics */}
-        <Analytics />
-      </body>
-    </html>
+          {/* Add Analytics */}
+          <Analytics />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

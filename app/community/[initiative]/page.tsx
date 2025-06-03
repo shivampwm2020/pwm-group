@@ -2,10 +2,10 @@
 
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, Calendar, Users, Award } from "lucide-react";
-import Link from "next/link";
 import { PageProps } from "@/app/types";
 import CountUp from "react-countup";
 import { FaAward, FaGlobe, FaUsers } from "react-icons/fa";
+import { Link } from "next-view-transitions";
 
 const initiatives = {
   "production-gurus": {

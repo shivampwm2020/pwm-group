@@ -1,13 +1,6 @@
 import { ArrowRight, Bot, Globe, TrendingUp, Wrench } from "lucide-react";
-import Link from "next/link";
-import {
-  FaRocket,
-  FaLightbulb,
-  FaUsers,
-  FaCode,
-  FaGlobe,
-} from "react-icons/fa";
 import CTASection from "../components/ui/CTASection";
+import { Link } from "next-view-transitions";
 
 const journeyMilestones = [
   {
@@ -68,12 +61,12 @@ export default function JourneyPage() {
 
             {/* CTA button */}
             <div className="mt-10">
-              <a
+              <Link
                 href="#archives"
                 className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-base sm:text-lg px-6 py-3 rounded-lg shadow-md transition"
               >
                 Explore Our Story
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -100,7 +93,7 @@ export default function JourneyPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {journeyMilestones.map((milestone, index) => (
-              <a
+              <Link
                 key={index}
                 href={milestone.link}
                 target="_blank"
@@ -133,7 +126,7 @@ export default function JourneyPage() {
                   <span>Visit Archive</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

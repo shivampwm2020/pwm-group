@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import HeroSection from "../components/ui/HeroSection";
 import CountUp from "react-countup";
 import {

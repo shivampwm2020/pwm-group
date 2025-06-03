@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { ArrowRight, Check } from "lucide-react";
-import Link from "next/link";
 import { PageProps } from "@/app/types";
+import { Link } from "next-view-transitions";
 
 const products = {
   explaingithub: {
