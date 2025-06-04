@@ -191,7 +191,7 @@ export default function Contact() {
         <SectionContainer>
           <Card variant="featured" className="overflow-hidden p-0">
             <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-12 text-white">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 px-6 py-10 sm:px-8 sm:py-12 text-white break-words">
                 <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
                 <p className="text-blue-100 mb-12 text-lg">
                   Fill out the form and our team will get back to you within 24
