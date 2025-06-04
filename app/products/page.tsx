@@ -2,6 +2,7 @@ import CTASection from "../components/ui/CTASection";
 import Image from "next/image";
 import HeroSection from "../components/ui/HeroSection";
 import { Link } from "next-view-transitions";
+import SlideIn from "../components/ui/SlideIn";
 
 const products = [
   {
@@ -78,121 +79,127 @@ const ProductsPage = () => {
         id="solutions"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
       >
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-extrabold font-sans text-gray-900">
-            Products by PWM Group
-          </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight mt-2">
-            From open-source tools to AI-powered SaaS platforms
-          </p>
-        </div>
+        <SlideIn>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-extrabold font-sans text-gray-900">
+              Products by PWM Group
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight mt-2">
+              From open-source tools to AI-powered SaaS platforms
+            </p>
+          </div>{" "}
+        </SlideIn>
 
         <div className="space-y-24">
           {products.map((product, index) => (
-            <div
-              key={product.name}
-              className={`flex flex-col-reverse lg:flex-row items-center gap-12 ${
-                index % 2 === 1 ? "lg:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Product Image Section */}
+            <SlideIn>
               <div
-                className={`lg:w-1/2 w-full rounded-3xl overflow-hidden shadow-xl ${
-                  index % 2 === 1
-                    ? "lg:border-l-4 border-blue-700"
-                    : "lg:border-r-4 border-blue-700"
+                key={product.name}
+                className={`flex flex-col-reverse lg:flex-row items-center gap-12 ${
+                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={600}
-                    height={450}
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-
-              {/* Product Content */}
-              <div className="lg:w-1/2 w-full">
-                <div className="mb-4">
-                  <span className="text-sm font-medium bg-blue-100 py-2 px-4 rounded-full text-blue-700 uppercase tracking-wide">
-                    {product.category}
-                  </span>
-                </div>
-
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                  {product.name}
-                </h3>
-
-                <p className="text-lg text-gray-700 mb-6 font-sans">
-                  {product.description}
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
-                  {product.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 mt-1">
-                        <svg
-                          className="w-5 h-5 text-blue-600"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-gray-700">{feature}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <Link
-                  href={product.path}
-                  className="inline-flex items-center px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
+                {/* Product Image Section */}
+                <div
+                  className={`lg:w-1/2 w-full rounded-3xl overflow-hidden shadow-xl ${
+                    index % 2 === 1
+                      ? "lg:border-l-4 border-blue-700"
+                      : "lg:border-r-4 border-blue-700"
+                  }`}
                 >
-                  {product.cta}
-                  <svg
-                    className="ml-2 w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      width={600}
+                      height={450}
+                      className="object-contain"
                     />
-                  </svg>
-                </Link>
+                  </div>
+                </div>
+
+                {/* Product Content */}
+                <div className="lg:w-1/2 w-full">
+                  <div className="mb-4">
+                    <span className="text-sm font-medium bg-blue-100 py-2 px-4 rounded-full text-blue-700 uppercase tracking-wide">
+                      {product.category}
+                    </span>
+                  </div>
+
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                    {product.name}
+                  </h3>
+
+                  <p className="text-lg text-gray-700 mb-6 font-sans">
+                    {product.description}
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-4 mb-8">
+                    {product.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-1">
+                          <svg
+                            className="w-5 h-5 text-blue-600"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-gray-700">{feature}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link
+                    href={product.path}
+                    className="inline-flex items-center px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
+                  >
+                    {product.cta}
+                    <svg
+                      className="ml-2 w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </Link>
+                </div>
               </div>
-            </div>
+            </SlideIn>
           ))}
         </div>
       </div>
 
       {/* Coming Soon Section */}
       <div className="relative my-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto text-center py-20 px-8 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 rounded-3xl shadow-2xl relative overflow-hidden">
-          {/* Glow background effect */}
-          <div className="absolute inset-0 bg-white opacity-10 blur-3xl pointer-events-none z-0" />
+        <SlideIn>
+          <div className="max-w-5xl mx-auto text-center py-20 px-8 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 rounded-3xl shadow-2xl relative overflow-hidden">
+            {/* Glow background effect */}
+            <div className="absolute inset-0 bg-white opacity-10 blur-3xl pointer-events-none z-0" />
 
-          <div className="relative z-10">
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
-              🚀 More Products Launching Soon
-            </h2>
-            <p className="text-lg sm:text-xl text-indigo-100 max-w-3xl mx-auto leading-relaxed font-medium">
-              Our team is crafting new experiences that push innovation forward.
-              Stay tuned for tools that empower developers, streamline
-              governance, and spark creativity.
-            </p>
+            <div className="relative z-10">
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
+                🚀 More Products Launching Soon
+              </h2>
+              <p className="text-lg sm:text-xl text-indigo-100 max-w-3xl mx-auto leading-relaxed font-medium">
+                Our team is crafting new experiences that push innovation
+                forward. Stay tuned for tools that empower developers,
+                streamline governance, and spark creativity.
+              </p>
+            </div>
           </div>
-        </div>
+        </SlideIn>
       </div>
 
       {/* Call to Action */}

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-// import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/pwm_logo.svg";
 import gsap from "gsap";
@@ -20,6 +19,38 @@ const navItems = [
   { name: "Journey", path: "/journey" },
   { name: "Contact", path: "/contact" },
 ];
+
+function NavLinksGroup({
+  layout = "horizontal",
+  onClick,
+}: {
+  layout?: "horizontal" | "vertical";
+  onClick?: () => void;
+}) {
+  const pathname = usePathname();
+  return (
+    <>
+      {navItems.map((item) => (
+        <Link
+          key={item.path}
+          href={item.path}
+          onClick={onClick}
+          className={clsx(
+            "uppercase font-semibold px-3 py-1 rounded-[10px] text-[1rem] transition-colors",
+            layout === "horizontal" &&
+              (pathname === item.path || pathname.startsWith(`${item.path}/`)
+                ? "bg-blue-700 text-white"
+                : "text-blue-700 hover:bg-blue-200"),
+            layout === "vertical" &&
+              "hover:text-blue-900 text-blue-700 text-xl font-semibold"
+          )}
+        >
+          {item.name}
+        </Link>
+      ))}
+    </>
+  );
+}
 
 export default function Navbar() {
   const direction = useScrollDirection();
@@ -42,14 +73,12 @@ export default function Navbar() {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 0);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     if (!condensedRef.current) return;
-
     if (direction === "down" && !isHovered && !isCondensedVisible) {
       gsap.to(condensedRef.current, {
         autoAlpha: 1,
@@ -71,7 +100,6 @@ export default function Navbar() {
 
   useEffect(() => {
     if (!fullNavRef.current) return;
-
     if (isHovered && !isFullNavVisible) {
       gsap.to(fullNavRef.current, {
         autoAlpha: 1,
@@ -97,38 +125,20 @@ export default function Navbar() {
     <>
       {/* DESKTOP NAVBAR */}
       <div className="hidden lg:block mb-6">
-        {/* Full navbar only at top */}
         {!hasScrolled && (
           <div className="fixed top-0 left-0 right-0 z-40">
             <div className="container mx-auto px-8 py-4 flex items-center justify-between">
-              {/* Logo */}
               <Link href="/" aria-label="Logo">
                 <Image src={logo} alt="Logo" width={85} height={85} priority />
               </Link>
-
-              {/* Nav links */}
-              <div className="bg-white bg-opacity-90 backdrop-blur-md px-2 py-1 rounded-[10px] shadow-lg flex gap-4 border border-gray-200">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    className={clsx(
-                      "uppercase font-semibold px-3 py-1 rounded-[10px] text-[1rem] transition-colors",
-                      pathname === item.path ||
-                        pathname.startsWith(`${item.path}/`)
-                        ? "bg-blue-700 text-white"
-                        : "text-blue-700 hover:bg-blue-200"
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+              <div className="bg-white bg-opacity-90 backdrop-blur-md px-2 py-1 rounded-[10px] shadow-lg flex gap-4">
+                <NavLinksGroup layout="horizontal" />
               </div>
             </div>
           </div>
         )}
 
-        {/* Condensed || Active text */}
+        {/* Condensed Trigger */}
         <div className="fixed top-0 left-0 right-0 z-40 pointer-events-none">
           <div className="container mx-auto px-8 py-4 flex justify-end">
             <div
@@ -137,7 +147,7 @@ export default function Navbar() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-[10px] shadow-md cursor-pointer hover:bg-gray-200 transition-all">
+              <div className="flex items-center gap-2 bg-white mt-2 px-4 py-2 rounded-[10px] shadow-md cursor-pointer hover:bg-gray-200 transition-all">
                 <span className="font-mono text-sm font-bold text-blue-700">
                   ||
                 </span>
@@ -149,7 +159,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Hover-expanded full nav from condensed */}
+        {/* Hover Full Menu */}
         <div className="fixed top-0 left-0 right-0 z-40 pointer-events-none">
           <div className="container mx-auto px-4 flex justify-end">
             <nav
@@ -159,21 +169,7 @@ export default function Navbar() {
               onMouseLeave={() => setIsHovered(false)}
             >
               <div className="bg-white bg-opacity-90 backdrop-blur-md mt-6 mx-8 px-2 py-1 rounded-[10px] shadow-lg flex gap-4 transition-all duration-300 border border-gray-200">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    className={clsx(
-                      "uppercase font-semibold px-3 py-1 rounded-[10px] text-[1rem] transition-colors",
-                      pathname === item.path ||
-                        pathname.startsWith(`${item.path}/`)
-                        ? "bg-blue-700 text-white"
-                        : "text-blue-700 hover:bg-blue-200"
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                <NavLinksGroup layout="horizontal" />
               </div>
             </nav>
           </div>
@@ -187,8 +183,7 @@ export default function Navbar() {
             <Image src={logo} alt="Logo" width={70} height={70} className="" />
           </Link>
         )}
-
-        <div className="flex items-center gap-4 bg-gray-300 px-4 py-2 rounded-lg shadow-md">
+        <div className="flex items-center gap-4 bg-white px-4 py-2 rounded-lg shadow-md">
           <Link href="/contact">
             <GoMail className="text-2xl text-blue-700" />
           </Link>
@@ -204,17 +199,8 @@ export default function Navbar() {
 
       {/* MOBILE MENU OVERLAY */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-6 text-blue-700 text-xl font-semibold lg:hidden">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              href={item.path}
-              onClick={() => setMenuOpen(false)}
-              className="hover:text-blue-900"
-            >
-              {item.name}
-            </Link>
-          ))}
+        <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-6 lg:hidden">
+          <NavLinksGroup layout="vertical" onClick={() => setMenuOpen(false)} />
         </div>
       )}
     </>

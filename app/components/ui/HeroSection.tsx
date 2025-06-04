@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "./Button";
+import SlideIn from "./SlideIn";
 
 interface HeroSectionProps {
   badgeText: string;
@@ -54,58 +55,60 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="absolute bottom-0 left-0 w-3/4 sm:w-1/2 h-1/2 bg-[url('/circles-pattern.svg')] bg-no-repeat bg-left-bottom opacity-5 z-0" />
 
       {/* Content */}
-      <div className="min-h-[80vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="w-full max-w-7xl mx-auto text-center">
-          {/* Badge */}
-          <span
-            className={`inline-block px-4 py-2 rounded-full font-medium text-sm mb-4 ${badgeBgColor} ${badgeTextColor}`}
-          >
-            {badgeText}
-          </span>
-
-          {/* Heading */}
-          <h1
-            className={`max-w-4xl mx-auto text-3xl sm:text-5xl lg:text-7xl font-black leading-none font-sans uppercase ${headingTextColor}`}
-          >
-            {headingBefore}{" "}
-            <span className={`${highlightTextColor}`}>{highlightText}</span>
-            {headingAfter && <> {headingAfter}</>}
-          </h1>
-
-          {/* Description */}
-          <p
-            className={`text-base sm:text-lg max-w-4xl mx-auto mt-4 font-sans leading-tight ${descriptionColor}`}
-          >
-            {description}
-          </p>
-
-          {/* CTA Buttons */}
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 sm:mt-10">
-            <Button
-              href={primaryBtnLink}
-              className={`w-full sm:w-auto ${
-                primaryBtnColor ||
-                "bg-blue-700 hover:bg-white hover:text-blue-700 text-white"
-              } rounded-full`}
+      <SlideIn>
+        <div className="min-h-[80vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="w-full max-w-7xl mx-auto text-center">
+            {/* Badge */}
+            <span
+              className={`inline-block px-4 py-2 rounded-full font-medium text-sm mb-4 ${badgeBgColor} ${badgeTextColor}`}
             >
-              {primaryBtnText}
-            </Button>
+              {badgeText}
+            </span>
 
-            {secondaryBtnText && secondaryBtnLink && (
+            {/* Heading */}
+            <h1
+              className={`max-w-4xl mx-auto text-3xl sm:text-5xl lg:text-7xl font-black leading-none font-sans uppercase ${headingTextColor}`}
+            >
+              {headingBefore}{" "}
+              <span className={`${highlightTextColor}`}>{highlightText}</span>
+              {headingAfter && <> {headingAfter}</>}
+            </h1>
+
+            {/* Description */}
+            <p
+              className={`text-base sm:text-lg max-w-4xl mx-auto mt-4 font-sans leading-tight ${descriptionColor}`}
+            >
+              {description}
+            </p>
+
+            {/* CTA Buttons */}
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 sm:mt-10">
               <Button
-                href={secondaryBtnLink}
+                href={primaryBtnLink}
                 className={`w-full sm:w-auto ${
-                  secondaryBtnColor ||
-                  "bg-white text-blue-700   hover:bg-blue-700 hover:text-white"
+                  primaryBtnColor ||
+                  "bg-blue-700 hover:bg-white hover:text-blue-700 text-white"
                 } rounded-full`}
               >
-                {secondaryBtnText}
+                {primaryBtnText}
               </Button>
-            )}
+
+              {secondaryBtnText && secondaryBtnLink && (
+                <Button
+                  href={secondaryBtnLink}
+                  className={`w-full sm:w-auto ${
+                    secondaryBtnColor ||
+                    "bg-white text-blue-700   hover:bg-blue-700 hover:text-white"
+                  } rounded-full`}
+                >
+                  {secondaryBtnText}
+                </Button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </SlideIn>
 
       {/* Bottom Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent z-0" />

@@ -33,7 +33,7 @@ const CTASection: React.FC<CTASectionProps> = ({
     <section
       className={`${
         bgGradient || "bg-gradient-to-r from-blue-600 to-indigo-700"
-      } py-20 sm:py-24 lg:py-32 relative overflow-hidden rounded-b-4xl`}
+      } py-14 sm:py-16 lg:py-20 relative overflow-hidden rounded-b-4xl`}
     >
       <div className="absolute inset-0 bg-[url('/wave-lines.svg')] opacity-10"></div>
       <div className="absolute -left-32 -bottom-32 w-80 h-80 sm:w-96 sm:h-96 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>

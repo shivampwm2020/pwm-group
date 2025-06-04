@@ -1,6 +1,7 @@
 import { ArrowRight, Bot, Globe, TrendingUp, Wrench } from "lucide-react";
 import CTASection from "../components/ui/CTASection";
 import { Link } from "next-view-transitions";
+import SlideIn from "../components/ui/SlideIn";
 
 const journeyMilestones = [
   {
@@ -46,30 +47,32 @@ export default function JourneyPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 z-0"></div>
 
         {/* Hero content */}
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:py-36 text-center">
-          <span className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium text-sm mb-6">
-            Journey by PWM Group
-          </span>
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-6xl uppercase font-extrabold font-sans text-gray-900">
-              Our Journey
-            </h1>
-            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight mt-2">
-              From a programming education platform to an AI innovation
-              powerhouse
-            </p>
+        <SlideIn>
+          <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:py-36 text-center">
+            <span className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium text-sm mb-6">
+              Journey by PWM Group
+            </span>
+            <div className="max-w-3xl mx-auto">
+              <h1 className="text-6xl uppercase font-extrabold font-sans text-gray-900">
+                Our Journey
+              </h1>
+              <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight mt-2">
+                From a programming education platform to an AI innovation
+                powerhouse
+              </p>
 
-            {/* CTA button */}
-            <div className="mt-10">
-              <Link
-                href="#archives"
-                className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-base sm:text-lg px-6 py-3 rounded-lg shadow-md transition"
-              >
-                Explore Our Story
-              </Link>
+              {/* CTA button */}
+              <div className="mt-10">
+                <Link
+                  href="#archives"
+                  className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-base sm:text-lg px-6 py-3 rounded-lg shadow-md transition"
+                >
+                  Explore Our Story
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </SlideIn>
 
         {/* Subtle bottom gradient */}
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-white"></div>
@@ -78,55 +81,59 @@ export default function JourneyPage() {
       {/* Previous Site Archives */}
       <section id="archives" className="bg-white py-20 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
-              Archives
-            </h2>
-            <p className="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900">
-              Our Digital Evolution
-            </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-              Explore our past iterations as we transformed from a simple blog
-              to an enterprise platform
-            </p>
-          </div>
+          <SlideIn>
+            <div className="text-center mb-12">
+              <h2 className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                Archives
+              </h2>
+              <p className="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900">
+                Our Digital Evolution
+              </p>
+              <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                Explore our past iterations as we transformed from a simple blog
+                to an enterprise platform
+              </p>
+            </div>
+          </SlideIn>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {journeyMilestones.map((milestone, index) => (
-              <Link
-                key={index}
-                href={milestone.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 p-6"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div>{milestone.icon}</div>
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {milestone.title}
-                    </h3>
+              <SlideIn>
+                <Link
+                  key={index}
+                  href={milestone.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 p-6"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <div>{milestone.icon}</div>
+                      <h3 className="text-lg font-semibold text-gray-800">
+                        {milestone.title}
+                      </h3>
+                    </div>
+                    <span className="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">
+                      {milestone.year}
+                    </span>
                   </div>
-                  <span className="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">
-                    {milestone.year}
-                  </span>
-                </div>
 
-                <p className="text-gray-600 text-sm mb-3">
-                  {milestone.description}
-                </p>
+                  <p className="text-gray-600 text-sm mb-3">
+                    {milestone.description}
+                  </p>
 
-                <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700">
-                  {milestone.achievements.map((point, idx) => (
-                    <li key={idx}>{point}</li>
-                  ))}
-                </ul>
+                  <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                    {milestone.achievements.map((point, idx) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
 
-                <div className="mt-4 flex items-center text-sm text-blue-600 font-medium">
-                  <span>Visit Archive</span>
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
-              </Link>
+                  <div className="mt-4 flex items-center text-sm text-blue-600 font-medium">
+                    <span>Visit Archive</span>
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </div>
+                </Link>
+              </SlideIn>
             ))}
           </div>
         </div>
@@ -256,35 +263,37 @@ export default function JourneyPage() {
                 ),
               },
             ].map((item, index) => (
-              <div key={index} className="relative mb-20">
-                <div className="flex flex-col md:flex-row items-center md:items-start">
-                  {/* Left side on md, full width center on mobile */}
-                  <div className="md:w-1/2 md:pr-16 text-center md:text-right mb-6 md:mb-0">
-                    <div
-                      className={`inline-block px-4 py-2 bg-gradient-to-r ${item.gradient} text-white text-sm font-medium rounded-full mb-3`}
-                    >
-                      {item.subtitle}
+              <SlideIn>
+                <div key={index} className="relative mb-20">
+                  <div className="flex flex-col md:flex-row items-center md:items-start">
+                    {/* Left side on md, full width center on mobile */}
+                    <div className="md:w-1/2 md:pr-16 text-center md:text-right mb-6 md:mb-0">
+                      <div
+                        className={`inline-block px-4 py-2 bg-gradient-to-r ${item.gradient} text-white text-sm font-medium rounded-full mb-3`}
+                      >
+                        {item.subtitle}
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        {item.title}
+                      </h3>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      {item.title}
-                    </h3>
-                  </div>
 
-                  {/* Dot */}
-                  <div className="absolute left-4 md:left-1/2 top-0 md:-ml-3.5 -ml-2 mt-3">
-                    <div
-                      className={`w-6 h-6 bg-gradient-to-r ${item.gradient} rounded-full border-4 border-white shadow-md`}
-                    ></div>
-                  </div>
+                    {/* Dot */}
+                    <div className="absolute left-4 md:left-1/2 top-0 md:-ml-3.5 -ml-2 mt-3">
+                      <div
+                        className={`w-6 h-6 bg-gradient-to-r ${item.gradient} rounded-full border-4 border-white shadow-md`}
+                      ></div>
+                    </div>
 
-                  {/* Right side on md, full width center on mobile */}
-                  <div className="md:w-1/2 md:pl-16 text-center md:text-left">
-                    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm inline-block max-w-full">
-                      {item.content}
+                    {/* Right side on md, full width center on mobile */}
+                    <div className="md:w-1/2 md:pl-16 text-center md:text-left">
+                      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm inline-block max-w-full">
+                        {item.content}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </SlideIn>
             ))}
           </div>
         </div>
@@ -293,30 +302,34 @@ export default function JourneyPage() {
       {/* Vision Section */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-sm font-semibold tracking-widest text-blue-600 uppercase">
-              Vision
-            </h2>
-            <p className="mt-2 text-4xl font-bold text-gray-900">
-              Looking Forward
-            </p>
-            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-              Our journey from coding education to AI innovation reflects our
-              dedication to evolving technology.
-            </p>
-          </div>
+          <SlideIn>
+            <div className="text-center mb-14">
+              <h2 className="text-sm font-semibold tracking-widest text-blue-600 uppercase">
+                Vision
+              </h2>
+              <p className="mt-2 text-4xl font-bold text-gray-900">
+                Looking Forward
+              </p>
+              <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                Our journey from coding education to AI innovation reflects our
+                dedication to evolving technology.
+              </p>
+            </div>
+          </SlideIn>
 
-          <div className="relative max-w-4xl mx-auto bg-white shadow-md rounded-2xl p-10 sm:p-12 text-gray-800 text-xl leading-relaxed">
-            <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-blue-600 rounded-tl-2xl"></div>
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-blue-600 rounded-br-2xl"></div>
-            <p>
-              From our humble beginnings as a programming education platform to
-              our current position as an AI innovation leader, we continue to
-              evolve and adapt to serve our users better. Our mission remains
-              constant: empowering individuals and organizations through
-              technology.
-            </p>
-          </div>
+          <SlideIn>
+            <div className="relative max-w-4xl mx-auto bg-white shadow-md rounded-2xl p-10 sm:p-12 text-gray-800 text-xl leading-relaxed">
+              <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-blue-600 rounded-tl-2xl"></div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-blue-600 rounded-br-2xl"></div>
+              <p>
+                From our humble beginnings as a programming education platform
+                to our current position as an AI innovation leader, we continue
+                to evolve and adapt to serve our users better. Our mission
+                remains constant: empowering individuals and organizations
+                through technology.
+              </p>
+            </div>
+          </SlideIn>
         </div>
       </section>
 

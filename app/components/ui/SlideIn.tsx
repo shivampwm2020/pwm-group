@@ -17,8 +17,8 @@ const variants = {
 
 export default function SlideIn({
   children,
-  direction = "up",
-  delay = 0.2,
+  direction = "down",
+  delay = 0.1,
 }: SlideInProps) {
   return (
     <motion.div
