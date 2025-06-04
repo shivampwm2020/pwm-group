@@ -41,7 +41,7 @@ const CTASection: React.FC<CTASectionProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center justify-center gap-12 text-center">
-          <SlideIn direction="right">
+          <SlideIn direction="down">
             <div className="text-white max-w-3xl">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-sans mb-4 leading-snug">
                 {heading}

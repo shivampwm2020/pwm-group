@@ -118,7 +118,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen mt-16 sm:mt-18 ">
       {/* Hero Section */}
-      <SlideIn direction="left">
+      <SlideIn direction="down">
         <HeroSection
           badgeText="Builder-First Tech Collective"
           badgeBgColor="bg-blue-100"
@@ -142,7 +142,7 @@ export default function HomePage() {
         <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-white opacity-5 rounded-full"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center py-8">
-            <SlideIn direction="right" delay={0.3}>
+            <SlideIn direction="down">
               <p className="text-2xl font-medium leading-tight tracking-tighter text-white font-sans">
                 From open-source tools to AI-powered SaaS platforms, PWM is now
                 a launchpad for products, ideas, and community-led innovation.
@@ -153,7 +153,7 @@ export default function HomePage() {
       </section>
 
       {/* Products Section */}
-      <SlideIn direction="left">
+      <SlideIn direction="down">
         <section className="py-24 bg-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/diagonal-lines.svg')] opacity-5"></div>
           <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50 to-transparent"></div>
@@ -229,7 +229,7 @@ export default function HomePage() {
       </SlideIn>
 
       {/* Services Section */}
-      <SlideIn direction="right">
+      <SlideIn direction="down">
         <section className="py-24 bg-gray-50 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/square-dots.svg')] opacity-5"></div>
           <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-indigo-100 to-transparent opacity-40"></div>
@@ -361,7 +361,7 @@ export default function HomePage() {
       </section> */}
 
       {/* Community Section */}
-      <SlideIn direction="left">
+      <SlideIn direction="down">
         <section className="py-24 bg-gray-50 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/polygon-mesh.svg')] opacity-5"></div>
           <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-green-100 to-transparent opacity-30"></div>
