@@ -144,8 +144,7 @@ export default function HomePage() {
           <div className="text-center py-8">
             <SlideIn direction="down">
               <p className="text-2xl font-medium leading-tight tracking-tighter text-white font-sans">
-                From open-source tools to AI-powered SaaS platforms, PWM is now
-                a launchpad for products, ideas, and community-led innovation.
+                Helping businesses transform their operations with practical AI solutions and reliable tools.
               </p>
             </SlideIn>
           </div>
@@ -166,8 +165,7 @@ export default function HomePage() {
                 Our Products
               </h2>
               <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight">
-                From open-source tools to AI-powered SaaS platforms, PWM is now
-                a launchpad for products, ideas, and community-led innovation.
+                Practical tools and platforms that help businesses automate tasks, improve efficiency, and achieve their goals.
               </p>
             </div>
 
@@ -439,8 +437,8 @@ export default function HomePage() {
       {/* CTA Section */}
 
       <CTASection
-        heading="Let’s deploy more than code"
-        subheading="Let’s deploy ideas, knowledge, and growth 🚀"
+        heading="Let's deploy more than code"
+        subheading="Let's deploy ideas, knowledge, and growth 🚀"
         buttonOneText="Get Started"
         buttonOneHref="/contact"
         buttonOneBg="bg-white"
