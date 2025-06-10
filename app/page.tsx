@@ -245,7 +245,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex justify-center items-center min-h-[60vh] px-4 py-12">
-              <div className="w-full max-w-xl bg-white border-t-4 border-blue-700 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="w-full max-w-xl bg-white border-t-4 border-blue-200 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
                 {/* Image */}
                 <div className="flex justify-center items-center px-8 py-8 pt-10 pb-6">
                   <img

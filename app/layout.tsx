@@ -22,6 +22,9 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en" className="h-full scroll-smooth">
+        <head>
+          <link rel="icon" href="/pwm_logo_no_bg.ico" sizes="any" />
+        </head>
         <body
           className={`${inter.className} h-full antialiased bg-gradient-to-br from-blue-50 to-indigo-50 overflow-x-hidden m-0 p-0`}
         >
