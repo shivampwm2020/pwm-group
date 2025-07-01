@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
+import clsx from "clsx";
+
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/app/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:pointer-events-none",
@@ -32,7 +33,7 @@ export interface ButtonProps extends VariantProps<typeof buttonVariants> {
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ href, children, className, variant, size, ...props }, ref) => {
-    const classes = cn(buttonVariants({ variant, size }), className);
+    const classes = clsx(buttonVariants({ variant, size }), className);
 
     const content =
       variant === "primary" ? (

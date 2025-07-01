@@ -131,6 +131,8 @@ export default function HomePage() {
           primaryBtnLink="/products"
           secondaryBtnText="Contact Us"
           secondaryBtnLink="/contact"
+          secondaryBtnColor="bg-white text-blue-700 hover:bg-blue-600 hover:text-white"
+          backgroundClassName="bg-gradient-to-br from-blue-50 to-indigo-50"
         />
       </SlideIn>
 
@@ -144,7 +146,8 @@ export default function HomePage() {
           <div className="text-center py-8">
             <SlideIn direction="down">
               <p className="text-2xl font-medium leading-tight tracking-tighter text-white font-sans">
-                Helping businesses transform their operations with practical AI solutions and reliable tools.
+                Helping businesses transform their operations with practical AI
+                solutions and reliable tools.
               </p>
             </SlideIn>
           </div>
@@ -165,7 +168,8 @@ export default function HomePage() {
                 Our Products
               </h2>
               <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto font-sans leading-tight">
-                Practical tools and platforms that help businesses automate tasks, improve efficiency, and achieve their goals.
+                Practical tools and platforms that help businesses automate
+                tasks, improve efficiency, and achieve their goals.
               </p>
             </div>
 

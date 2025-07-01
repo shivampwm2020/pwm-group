@@ -96,6 +96,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
               {secondaryBtnText && secondaryBtnLink && (
                 <Button
+                  variant="secondary"
                   href={secondaryBtnLink}
                   className={`w-full sm:w-auto ${
                     secondaryBtnColor ||
