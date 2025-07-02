@@ -26,5 +26,5 @@ export default {
       keyframes: animations.keyframes,
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 } satisfies Config;
