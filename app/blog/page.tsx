@@ -42,12 +42,12 @@ const BlogPage = () => {
           <span className="inline-block mb-5 px-5 py-1.5 rounded-full bg-white/80 backdrop-blur text-blue-700 font-medium text-sm shadow-md">
             PWM Blogs
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight drop-shadow-sm">
-            Industry Insights & Thought Leadership
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-none tracking-tight uppercase drop-shadow-sm">
+            Our latest industry perspectives and thought leadership
           </h1>
           <p className="mt-4 text-gray-700 text-base sm:text-lg max-w-2xl mx-auto">
-            Stay updated with trending ideas, investment strategies, and the
-            latest news from our experts.
+            Stay updated on what's driving the conversation at our asset
+            managers as well as our latest events, news and product updates
           </p>
           <button className="mt-8 px-6 py-3 bg-blue-700 text-white text-sm sm:text-base rounded-full hover:bg-blue-800 transition-all shadow-md">
             Subscribe to Newsletter
