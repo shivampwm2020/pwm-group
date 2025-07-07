@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+
 import { notFound } from "next/navigation";
 import { BlogPost } from "@/lib/types";
 import blogData from "@/data/blog.json";
@@ -12,10 +15,12 @@ export default async function BlogDetail({
   const post = (blogData as BlogPost[]).find((p) => p.slug === params.slug);
   if (!post) return notFound();
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const mdxContent = await fetch(`${siteUrl}${post.contentPath}`).then((res) =>
-    res.text()
-  );
+  if (!post?.contentPath) {
+    throw new Error("Content path is missing for this blog post.");
+  }
+
+  const contentPath = path.join(process.cwd(), "content", post.contentPath);
+  const mdxContent = fs.readFileSync(contentPath, "utf-8");
 
   return (
     <section className="bg-gradient-to-br from-blue-50 to-indigo-50 text-gray-900 min-h-screen">

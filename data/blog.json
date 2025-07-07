@@ -1,56 +1,55 @@
 [
   {
   "id": "1",
- 
-  "title": "Aiviq CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
+  "title": "PWM CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
   "slug": "pwm-ceo-letter",
   "category": "Company",
   "excerpt": "Annual CEO review on key trends, innovations, and the digital shifts redefining asset management, reflecting on the past and year ahead.",
-  "contentPath": "/content/ceo-letter.mdx",
+  "contentPath": "ceo-letter.mdx",
   "author": "Lee Griggs",
   "date": "2025-03-06",
   "image": "/img1.jpg"
 },
   {
   "id": "2",
-  "title": "Aiviq CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
-  "slug": "pwm-ceo-letter",
-  "category": "Company",
+  "title": "How is FinTech Reshaping Asset Management & Which Areas Hold the Most Potential for Disruption?",
+  "slug": "fintech-disruption",
+  "category": "Insights",
   "excerpt": "Annual CEO review on key trends, innovations, and the digital shifts redefining asset management, reflecting on the past and year ahead.",
-  "contentPath": "/content/ceo-letter.mdx",
+  "contentPath": "fintech-disruption.mdx",
   "author": "Lee Griggs",
-  "date": "2025-03-06",
+  "date": "2025-02-20",
   "image": "/img2.jpg"
 },
   {
   "id": "3",
-  "title": "Aiviq CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
-  "slug": "pwm-ceo-letter",
-  "category": "Company",
+  "title": "Hidden Data Roadblocks: Why Sales Teams Struggle to Decode Their Flow Drivers",
+  "slug": "hidden-data-roadblocks",
+  "category": "Product",
   "excerpt": "Annual CEO review on key trends, innovations, and the digital shifts redefining asset management, reflecting on the past and year ahead.",
-  "contentPath": "/content/ceo-letter.mdx",
-  "author": "Lee Griggs",
-  "date": "2025-03-06",
+  "contentPath": "hidden-data-roadblocks.mdx",
+  "author": "Kevin Phelan",
+  "date": "2025-01-28",
   "image": "/img3.jpg"
 },
   {
   "id": "4",
-  "title": "Aiviq CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
+  "title": "PWM CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
   "slug": "pwm-ceo-letter",
   "category": "Company",
   "excerpt": "Annual CEO review on key trends, innovations, and the digital shifts redefining asset management, reflecting on the past and year ahead.",
-  "contentPath": "/content/ceo-letter.mdx",
+  "contentPath": "ceo-letter.mdx",
   "author": "Lee Griggs",
   "date": "2025-03-06",
   "image": "/img4.jpg"
 },
 {
   "id": "5",
-  "title": "Aiviq CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
+  "title": "PWM CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
   "slug": "pwm-ceo-letter",
   "category": "Company",
   "excerpt": "Annual CEO review on key trends, innovations, and the digital shifts redefining asset management, reflecting on the past and year ahead.",
-  "contentPath": "/content/ceo-letter.mdx",
+  "contentPath": "ceo-letter.mdx",
   "author": "Lee Griggs",
   "date": "2025-03-06",
   "image": "/img1.jpg"
@@ -58,11 +57,11 @@
 
   {
   "id": "6",
-  "title": "Aiviq CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
+  "title": "PWM CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
   "slug": "pwm-ceo-letter",
   "category": "Company",
   "excerpt": "Annual CEO review on key trends, innovations, and the digital shifts redefining asset management, reflecting on the past and year ahead.",
-  "contentPath": "/content/ceo-letter.mdx",
+  "contentPath": "ceo-letter.mdx",
   "author": "Lee Griggs",
   "date": "2025-03-06",
   "image": "/img1.jpg"
@@ -70,11 +69,11 @@
 
   {
   "id": "7",
-  "title": "Aiviq CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
+  "title": "PWM CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
   "slug": "pwm-ceo-letter",
   "category": "Company",
   "excerpt": "Annual CEO review on key trends, innovations, and the digital shifts redefining asset management, reflecting on the past and year ahead.",
-  "contentPath": "/content/ceo-letter.mdx",
+  "contentPath": "ceo-letter.mdx",
   "author": "Lee Griggs",
   "date": "2025-03-06",
   "image": "/img1.jpg"
@@ -82,11 +81,11 @@
 
   {
   "id": "8",
-  "title": "Aiviq CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
+  "title": "PWM CEO Letter: Market Outlook & Aiviq's Innovation Focus in 2025/2026",
   "slug": "pwm-ceo-letter",
   "category": "Company",
   "excerpt": "Annual CEO review on key trends, innovations, and the digital shifts redefining asset management, reflecting on the past and year ahead.",
-  "contentPath": "/content/ceo-letter.mdx",
+  "contentPath": "ceo-letter.mdx",
   "author": "Lee Griggs",
   "date": "2025-03-06",
   "image": "/img1.jpg"
