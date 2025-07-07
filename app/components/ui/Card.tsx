@@ -1,7 +1,8 @@
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/blogs";
+
 import { components } from "@/app/styles/design-system";
+import { cn } from "@/lib/utils";
 
 const cardVariants = cva(
   "rounded-xl overflow-hidden transition-all duration-300",
