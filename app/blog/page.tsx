@@ -26,6 +26,10 @@ const BlogPage = () => {
       post.category.toLowerCase().includes(search.toLowerCase())
   );
 
+  const latestBlog = [...filteredBlogs].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  )[0];
+
   const totalPages = Math.ceil(filteredBlogs.length / BLOGS_PER_PAGE);
   const startIndex = (page - 1) * BLOGS_PER_PAGE;
   const paginatedBlogs = filteredBlogs.slice(
@@ -43,10 +47,11 @@ const BlogPage = () => {
 
   return (
     <>
-      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-50 min-h-[80vh] px-6 text-center mb-8 pt-20 lg:pt-32 font-sans">
-        <div className="container mx-auto max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-10">
-          <div className="w-full md:w-[50%] text-left space-y-6">
-            <span className="inline-block px-2 backdrop-blur text-blue-700 font-semibold text-md ">
+      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-50 min-h-[80vh] px-4 sm:px-6 lg:px-8 text-center mb-8 pt-20 lg:pt-32 font-sans">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
+          {/* Left Content */}
+          <div className="w-full md:w-[35%] text-left space-y-4">
+            <span className="inline-block px-2 backdrop-blur text-blue-700 font-semibold text-md">
               PWM Insights
             </span>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight uppercase">
@@ -58,15 +63,34 @@ const BlogPage = () => {
             </p>
           </div>
 
-          <div className="relative w-full h-[400px] md:h-[400px] rounded-xl overflow-hidden">
-            <Image
-              src="/img1.jpg"
-              alt="Blog Hero"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+          {/* Right Side Blog Card */}
+          {latestBlog && (
+            <Link
+              href={`/blog/${latestBlog.slug}`}
+              className="w-full md:w-[65%] flex flex-col gap-0 rounded-xl overflow-hidden group"
+            >
+              <div className="relative w-full h-[400px] rounded-t-xl overflow-hidden">
+                <Image
+                  src={latestBlog.image}
+                  alt={latestBlog.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  priority
+                />
+              </div>
+              <div className="bg-blue-700/90 text-white px-6 py-6 rounded-b-xl text-left">
+                <span className="text-sm uppercase tracking-wide font-semibold text-white/90">
+                  {latestBlog.category}
+                </span>
+                <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mt-2">
+                  {latestBlog.title}
+                </h2>
+                <p className="mt-4 text-lg text-white/90">
+                  {latestBlog.excerpt}
+                </p>
+              </div>
+            </Link>
+          )}
         </div>
       </section>
 
