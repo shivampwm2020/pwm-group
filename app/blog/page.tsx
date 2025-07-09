@@ -75,7 +75,7 @@ const BlogPage = () => {
         {/* Search Bar */}
         <section className="rounded-2xl px-6 py-10 mb-16 text-white ">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 max-w-7xl mx-auto">
-            <h2 className="text-5xl font-bold text-blue-700 ">
+            <h2 className="text-4xl font-bold text-gray-900 ">
               Latest articles
             </h2>
 
@@ -220,7 +220,7 @@ const BlogPage = () => {
           <div className="flex items-center gap-2 mt-4">
             <FiLinkedin size={24} className="text-white" />
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/programming-with-maurya/"
               className="font-medium hover:underline text-white"
               target="_blank"
               rel="noopener noreferrer"
