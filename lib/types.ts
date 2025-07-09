@@ -23,3 +23,11 @@ export type BlogPost =
       date: string;
       image: string;
     };
+
+interface FilloutEmbedGlobal {
+  refresh: () => void;
+}
+
+interface Window {
+  FilloutEmbed?: FilloutEmbedGlobal;
+}

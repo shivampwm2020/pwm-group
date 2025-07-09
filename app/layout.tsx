@@ -6,6 +6,7 @@ import { ViewTransitions } from "next-view-transitions";
 
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,11 @@ export default function RootLayout({
         <body
           className={`${inter.className} h-full antialiased bg-gradient-to-br from-blue-50 to-indigo-50 overflow-x-hidden m-0 p-0`}
         >
+          <Script
+            src="https://server.fillout.com/embed/v1/"
+            strategy="beforeInteractive"
+          />
+
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />

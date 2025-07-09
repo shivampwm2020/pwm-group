@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import blogData from "@/data/blog.json";
 import { BlogPost } from "@/lib/types";
 import Link from "next/link";
@@ -21,6 +21,12 @@ const BlogPage = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (isModalOpen && window.FilloutEmbed) {
+      window.FilloutEmbed.refresh();
+    }
+  }, [isModalOpen]);
 
   const blogs: BlogPost[] = blogData;
 
