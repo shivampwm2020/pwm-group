@@ -12,6 +12,7 @@ import {
 } from "react-icons/fi";
 import Image from "next/image";
 import FilloutButton from "../components/ui/FilloutButton";
+import SlideIn from "../components/ui/SlideIn";
 
 const BLOGS_PER_PAGE = 6;
 
@@ -48,146 +49,151 @@ const BlogPage = () => {
   return (
     <>
       <section className="relative bg-gradient-to-br from-blue-50 to-indigo-50 min-h-[80vh] px-4 sm:px-6 lg:px-8 text-center mb-8 pt-20 lg:pt-32 font-sans">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
-          {/* Left Content */}
-          <div className="w-full md:w-[35%] text-left space-y-4">
-            <span className="inline-block px-2 backdrop-blur text-blue-700 font-semibold text-md">
-              PWM Insights
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight uppercase">
-              Our latest industry perspectives and thought leadership
-            </h1>
-            <p className="text-gray-600 text-base sm:text-lg">
-              Stay updated on what's driving the conversation at our asset
-              managers as well as our latest events, news and product updates.
-            </p>
+        <SlideIn>
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
+            {/* Left Content */}
+            <div className="w-full md:w-[35%] text-left space-y-4">
+              <span className="inline-block px-2 backdrop-blur text-blue-700 font-semibold text-md">
+                PWM Insights
+              </span>
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight uppercase">
+                Our latest industry perspectives and thought leadership
+              </h1>
+              <p className="text-gray-600 text-base sm:text-lg">
+                Stay updated on what's driving the conversation at our asset
+                managers as well as our latest events, news and product updates.
+              </p>
+            </div>
+
+            {/* Right Side Blog Card */}
+            {latestBlog && (
+              <Link
+                href={`/blog/${latestBlog.slug}`}
+                className="w-full md:w-[65%] flex flex-col gap-0 rounded-xl overflow-hidden group"
+              >
+                <div className="relative w-full h-[400px] rounded-t-xl overflow-hidden">
+                  <Image
+                    src={latestBlog.image}
+                    alt={latestBlog.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    priority
+                  />
+                </div>
+                <div className="bg-blue-700/80 backdrop-opacity-10 text-white px-6 py-6 rounded-b-xl text-left">
+                  <span className="text-sm uppercase tracking-wide font-semibold text-white/90">
+                    {latestBlog.category}
+                  </span>
+                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mt-2">
+                    {latestBlog.title}
+                  </h2>
+                  <p className="mt-4 text-lg text-white/90">
+                    {latestBlog.excerpt}
+                  </p>
+                </div>
+              </Link>
+            )}
           </div>
-
-          {/* Right Side Blog Card */}
-          {latestBlog && (
-            <Link
-              href={`/blog/${latestBlog.slug}`}
-              className="w-full md:w-[65%] flex flex-col gap-0 rounded-xl overflow-hidden group"
-            >
-              <div className="relative w-full h-[400px] rounded-t-xl overflow-hidden">
-                <Image
-                  src={latestBlog.image}
-                  alt={latestBlog.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  priority
-                />
-              </div>
-              <div className="bg-blue-700/90 text-white px-6 py-6 rounded-b-xl text-left">
-                <span className="text-sm uppercase tracking-wide font-semibold text-white/90">
-                  {latestBlog.category}
-                </span>
-                <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mt-2">
-                  {latestBlog.title}
-                </h2>
-                <p className="mt-4 text-lg text-white/90">
-                  {latestBlog.excerpt}
-                </p>
-              </div>
-            </Link>
-          )}
-        </div>
+        </SlideIn>
       </section>
-
       {/* Blog Section */}
       <main className=" py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-8 font-sans">
         {/* Search Bar */}
         <section className="rounded-2xl px-6 py-10 mb-16 text-white ">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 ">
-              Latest articles
-            </h2>
+          <SlideIn>
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 max-w-7xl mx-auto">
+              <h2 className="text-4xl font-bold text-gray-900 ">
+                Latest articles
+              </h2>
 
-            <div className="relative w-full lg:max-w-xl">
-              <FiSearch
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60"
-                size={20}
-              />
-              <input
-                type="text"
-                placeholder="Search here"
-                value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                  setPage(1);
-                }}
-                className="w-full pl-12 pr-4 py-3 rounded-md bg-blue-800 text-white placeholder-white/60 border border-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              />
+              <div className="relative w-full lg:max-w-xl">
+                <FiSearch
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60"
+                  size={20}
+                />
+                <input
+                  type="text"
+                  placeholder="Search here"
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setPage(1);
+                  }}
+                  className="w-full pl-12 pr-4 py-3 rounded-md bg-blue-800 text-white placeholder-white/60 border border-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+              </div>
             </div>
-          </div>
 
-          {/* Keyword Filter Buttons */}
-          <div className="flex flex-wrap gap-4 mt-6 max-w-7xl mx-auto">
-            {/* All Blogs Button */}
-            <button
-              onClick={() => {
-                setSearch("");
-                setPage(1);
-              }}
-              className={`px-5 py-2 rounded-md font-medium shadow-sm transition ${
-                search === ""
-                  ? "bg-white text-blue-900 border border-blue-900"
-                  : "bg-blue-800 hover:bg-blue-700 text-white"
-              }`}
-            >
-              All Blogs
-            </button>
-
-            {/* Category Buttons */}
-            {["Insights", "Announcements", "Tech"].map((category) => (
+            {/* Keyword Filter Buttons */}
+            <div className="flex flex-wrap gap-4 mt-6 max-w-7xl mx-auto">
+              {/* All Blogs Button */}
               <button
-                key={category}
                 onClick={() => {
-                  setSearch(category);
+                  setSearch("");
                   setPage(1);
                 }}
                 className={`px-5 py-2 rounded-md font-medium shadow-sm transition ${
-                  search.toLowerCase() === category.toLowerCase()
+                  search === ""
                     ? "bg-white text-blue-900 border border-blue-900"
                     : "bg-blue-800 hover:bg-blue-700 text-white"
                 }`}
               >
-                {category}
+                All Blogs
               </button>
-            ))}
-          </div>
+
+              {/* Category Buttons */}
+              {["Insights", "Announcements", "Tech"].map((category) => (
+                <button
+                  key={category}
+                  onClick={() => {
+                    setSearch(category);
+                    setPage(1);
+                  }}
+                  className={`px-5 py-2 rounded-md font-medium shadow-sm transition ${
+                    search.toLowerCase() === category.toLowerCase()
+                      ? "bg-white text-blue-900 border border-blue-900"
+                      : "bg-blue-800 hover:bg-blue-700 text-white"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </SlideIn>
         </section>
 
         {/* Blog Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {paginatedBlogs.map((post) => (
-            <Link key={post.id} href={`/blog/${post.slug}`} className="group">
-              <article className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
-                <div className="overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-5">
-                  <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
-                    {post.category}
-                  </span>
-                  <h2 className="mt-2 text-xl font-bold text-gray-900 group-hover:text-blue-700 transition">
-                    {post.title}
-                  </h2>
-                  <p className="mt-3 text-sm text-gray-600 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-4 text-xs text-gray-500">
-                    {post.date} · {post.author}
+        <SlideIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {paginatedBlogs.map((post) => (
+              <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                <article className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                  <div className="overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                </div>
-              </article>
-            </Link>
-          ))}
-        </div>
+                  <div className="p-5">
+                    <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
+                      {post.category}
+                    </span>
+                    <h2 className="mt-2 text-xl font-bold text-gray-900 group-hover:text-blue-700 transition">
+                      {post.title}
+                    </h2>
+                    <p className="mt-3 text-sm text-gray-600 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-4 text-xs text-gray-500">
+                      {post.date} · {post.author}
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>{" "}
+        </SlideIn>
 
         {/* No Blogs Fallback */}
         {filteredBlogs.length === 0 && (
@@ -197,66 +203,72 @@ const BlogPage = () => {
         )}
 
         {/* Pagination Buttons */}
-        {filteredBlogs.length > BLOGS_PER_PAGE && (
-          <div className="flex justify-center gap-4 mt-16">
-            {/* Previous Button */}
-            {page > 1 && (
-              <button
-                onClick={handlePrev}
-                aria-label="Previous Page"
-                className="w-14 h-14 flex items-center justify-center rounded-md border border-white text-blue-900 bg-white hover:bg-white hover:text-blue-900 transition-all duration-300"
-              >
-                <FiChevronLeft size={26} />
-              </button>
-            )}
+        <SlideIn>
+          {filteredBlogs.length > BLOGS_PER_PAGE && (
+            <div className="flex justify-center gap-4 mt-16">
+              {/* Previous Button */}
+              {page > 1 && (
+                <button
+                  onClick={handlePrev}
+                  aria-label="Previous Page"
+                  className="w-14 h-14 flex items-center justify-center rounded-md border border-white text-blue-900 bg-white hover:bg-white hover:text-blue-900 transition-all duration-300"
+                >
+                  <FiChevronLeft size={26} />
+                </button>
+              )}
 
-            {/* Next Button */}
-            {page < totalPages && (
-              <button
-                onClick={handleNext}
-                aria-label="Next Page"
-                className="w-14 h-14 flex items-center justify-center rounded-md text-white bg-blue-700 hover:brightness-110 transition-all duration-300"
-              >
-                <FiChevronRight size={26} />
-              </button>
-            )}
-          </div>
-        )}
+              {/* Next Button */}
+              {page < totalPages && (
+                <button
+                  onClick={handleNext}
+                  aria-label="Next Page"
+                  className="w-14 h-14 flex items-center justify-center rounded-md text-white bg-blue-700 hover:brightness-110 transition-all duration-300"
+                >
+                  <FiChevronRight size={26} />
+                </button>
+              )}
+            </div>
+          )}
+        </SlideIn>
       </main>
+      {/* Newsletter CTA Section */}{" "}
+      <SlideIn>
+        <section className="w-full flex flex-col lg:flex-row overflow-hidden mt-24 font-sans">
+          {/* Left Half */}
 
-      {/* Newsletter CTA Section */}
-      <section className="w-full flex flex-col lg:flex-row overflow-hidden mt-24 font-sans">
-        {/* Left Half */}
-        <div className="bg-blue-700 text-white px-10 lg:px-24 py-16 lg:py-24 ml-12 mb-4 flex flex-col justify-center gap-6 w-full lg:w-1/2 rounded-l-[3rem]">
-          <h2 className="text-4xl font-bold">Join the conversation</h2>
-          <p className="text-lg leading-relaxed max-w-xl">
-            Hear from industry thought leaders in our interview series, explore
-            our latest market commentary and stay informed about emerging PWM
-            product use cases.
-          </p>
+          <div className="bg-blue-700 text-white px-10 lg:px-24 py-16 lg:py-24 ml-12 mb-4 flex flex-col justify-center gap-6 w-full lg:w-1/2 rounded-l-[3rem]">
+            <h2 className="text-4xl font-bold">Join the conversation</h2>
+            <p className="text-lg leading-relaxed max-w-xl">
+              Hear from industry thought leaders in our interview series,
+              explore our latest market commentary and stay informed about
+              emerging PWM product use cases.
+            </p>
 
-          <div className="mt-6">
-            <p className="text-lg font-semibold mb-4">Get in Touch with PWM</p>
+            <div className="mt-6">
+              <p className="text-lg font-semibold mb-4">
+                Get in Touch with PWM
+              </p>
 
-            <FilloutButton buttonText="Subscribe" />
+              <FilloutButton buttonText="Subscribe" />
+            </div>
+
+            <div className="flex items-center gap-2 mt-4">
+              <FiLinkedin size={24} className="text-white" />
+              <a
+                href="https://www.linkedin.com/company/programming-with-maurya/"
+                className="font-medium hover:underline text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Follow on LinkedIn
+              </a>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2 mt-4">
-            <FiLinkedin size={24} className="text-white" />
-            <a
-              href="https://www.linkedin.com/company/programming-with-maurya/"
-              className="font-medium hover:underline text-white"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Follow on LinkedIn
-            </a>
-          </div>
-        </div>
-
-        {/* Right Half */}
-        <div className="bg-blue-600 w-full lg:w-1/2 min-h-[400px] mb-4"></div>
-      </section>
+          {/* Right Half */}
+          <div className="bg-blue-600 w-full lg:w-1/2 min-h-[400px] mb-4"></div>
+        </section>
+      </SlideIn>
     </>
   );
 };
