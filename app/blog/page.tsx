@@ -230,10 +230,10 @@ const BlogPage = () => {
 
       {/* Newsletter CTA */}
       <SlideIn>
-        <section className="w-full flex flex-col lg:flex-row overflow-hidden mt-24 mb-8 font-sans">
-          <div className="bg-blue-700 text-white px-10 lg:px-24 py-16 lg:py-24 ml-12 mb-4 flex flex-col justify-center gap-6 w-full lg:w-1/2 rounded-l-[3rem]">
+        <section className="w-full overflow-hidden mt-18 mb-10 font-sans px-4">
+          <div className="bg-blue-700 text-white px-6 sm:px-10 lg:pl-28  py-16 lg:py-24 rounded-l-[4rem] max-w-7xl ml-auto">
             <h2 className="text-4xl font-bold">Join the conversation</h2>
-            <p className="text-lg leading-relaxed max-w-xl">
+            <p className="text-lg leading-relaxed max-w-3xl mt-4">
               Hear from industry thought leaders in our interview series,
               explore our latest market commentary and stay informed about
               emerging PWM product use cases.
@@ -241,7 +241,7 @@ const BlogPage = () => {
 
             <div className="mt-6">
               <p className="text-lg font-semibold mb-4">
-                Get in Touch with PWM
+                Get in Touch with PWM Group
               </p>
               <button
                 onClick={openModal}
@@ -262,8 +262,6 @@ const BlogPage = () => {
               </a>
             </div>
           </div>
-
-          <div className="hidden lg:block bg-blue-600 w-full lg:w-1/2 min-h-[400px] mb-4"></div>
         </section>
       </SlideIn>
 
