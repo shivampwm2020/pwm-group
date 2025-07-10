@@ -9,7 +9,6 @@ import {
   FiChevronLeft,
   FiChevronRight,
   FiLinkedin,
-  FiX,
 } from "react-icons/fi";
 import Image from "next/image";
 import Script from "next/script";
@@ -21,12 +20,6 @@ const BlogPage = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    if (isModalOpen && window.FilloutEmbed) {
-      window.FilloutEmbed.refresh();
-    }
-  }, [isModalOpen]);
 
   const blogs: BlogPost[] = blogData;
 
@@ -57,6 +50,12 @@ const BlogPage = () => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  useEffect(() => {
+    if (isModalOpen && window.FilloutEmbed) {
+      window.FilloutEmbed.refresh();
+    }
+  }, [isModalOpen]);
 
   return (
     <>
@@ -111,13 +110,12 @@ const BlogPage = () => {
       {/* Blog Section */}
       <main className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-8 font-sans">
         {/* Search + Filter */}
-        <section className="rounded-2xl px-6 py-10 mb-16 text-white ">
+        <section className="rounded-2xl px-6 py-10 mb-16 text-white">
           <SlideIn>
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
               <h2 className="text-4xl font-bold text-gray-900">
                 Latest articles
               </h2>
-
               <div className="relative w-full lg:max-w-xl">
                 <FiSearch
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60"
@@ -137,13 +135,13 @@ const BlogPage = () => {
             </div>
 
             {/* Filter Buttons */}
-            <div className="flex flex-wrap gap-4 mt-6 max-w-7xl mx-auto">
+            <div className="flex flex-wrap gap-4 mt-6">
               <button
                 onClick={() => {
                   setSearch("");
                   setPage(1);
                 }}
-                className={`px-5 py-2 rounded-md font-medium shadow-sm transition ${
+                className={`px-5 py-2 rounded-md font-medium transition ${
                   search === ""
                     ? "bg-white text-blue-900 border border-blue-900"
                     : "bg-blue-800 hover:bg-blue-700 text-white"
@@ -159,7 +157,7 @@ const BlogPage = () => {
                     setSearch(category);
                     setPage(1);
                   }}
-                  className={`px-5 py-2 rounded-md font-medium shadow-sm transition ${
+                  className={`px-5 py-2 rounded-md font-medium transition ${
                     search.toLowerCase() === category.toLowerCase()
                       ? "bg-white text-blue-900 border border-blue-900"
                       : "bg-blue-800 hover:bg-blue-700 text-white"
@@ -177,7 +175,7 @@ const BlogPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {paginatedBlogs.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="group">
-                <article className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                <article className="bg-white/80 border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
                   <div className="overflow-hidden">
                     <img
                       src={post.image}
@@ -206,8 +204,8 @@ const BlogPage = () => {
         </SlideIn>
 
         {/* Pagination */}
-        <SlideIn>
-          {filteredBlogs.length > BLOGS_PER_PAGE && (
+        {filteredBlogs.length > BLOGS_PER_PAGE && (
+          <SlideIn>
             <div className="flex justify-center gap-4 mt-16">
               {page > 1 && (
                 <button
@@ -226,11 +224,11 @@ const BlogPage = () => {
                 </button>
               )}
             </div>
-          )}
-        </SlideIn>
+          </SlideIn>
+        )}
       </main>
 
-      {/* Newsletter Section */}
+      {/* Newsletter CTA */}
       <SlideIn>
         <section className="w-full flex flex-col lg:flex-row overflow-hidden mt-24 mb-8 font-sans">
           <div className="bg-blue-700 text-white px-10 lg:px-24 py-16 lg:py-24 ml-12 mb-4 flex flex-col justify-center gap-6 w-full lg:w-1/2 rounded-l-[3rem]">
@@ -245,7 +243,6 @@ const BlogPage = () => {
               <p className="text-lg font-semibold mb-4">
                 Get in Touch with PWM
               </p>
-
               <button
                 onClick={openModal}
                 className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-md hover:bg-blue-900 hover:text-white transition"
@@ -272,35 +269,48 @@ const BlogPage = () => {
 
       {/* Fillout Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center px-4 sm:px-6 py-8 overflow-y-auto">
-          <div className="relative w-full max-w-3xl max-h-screen overflow-y-auto bg-white rounded-xl shadow-2xl p-4 sm:p-6 md:p-10">
-            {/* Close Button */}
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-gray-600 hover:text-black text-3xl font-bold z-10"
-              aria-label="Close"
-            >
-              &times;
-            </button>
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm overflow-y-auto transition-all duration-300">
+          <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 py-8">
+            <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 animate-fadeIn">
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+                aria-label="Close"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
 
-            {/* Fillout Form */}
-            <div className="w-full min-h-[500px]">
-              <div
-                data-fillout-id="vd7UA6UGvnus"
-                data-fillout-embed-type="standard"
-                data-fillout-inherit-parameters="true"
-                data-fillout-dynamic-resize="true"
-                style={{
-                  width: "100%",
-                  minHeight: "500px",
-                }}
-              ></div>
+              {/* Scrollable Form Area */}
+              <div className="overflow-y-auto max-h-[90vh]">
+                <div
+                  data-fillout-id="mbSxjjkQMpus"
+                  data-fillout-embed-type="standard"
+                  data-fillout-inherit-parameters="true"
+                  data-fillout-dynamic-resize="true"
+                  style={{ width: "100%", minHeight: "500px" }}
+                ></div>
+              </div>
+
+              {/* Embed script */}
+              <Script
+                src="https://server.fillout.com/embed/v1/"
+                strategy="afterInteractive"
+              />
             </div>
-
-            <Script
-              src="https://server.fillout.com/embed/v1/"
-              strategy="afterInteractive"
-            />
           </div>
         </div>
       )}
