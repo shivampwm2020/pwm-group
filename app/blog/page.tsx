@@ -210,7 +210,7 @@ const BlogPage = () => {
               {page > 1 && (
                 <button
                   onClick={handlePrev}
-                  className="w-14 h-14 flex items-center justify-center rounded-md border border-white text-blue-900 bg-white"
+                  className="w-14 h-14 flex items-center justify-center rounded-md border border-blue-700 text-blue-900 bg-white"
                 >
                   <FiChevronLeft size={26} />
                 </button>
@@ -241,13 +241,13 @@ const BlogPage = () => {
 
             <div className="mt-6">
               <p className="text-lg font-semibold mb-4">
-                Get in Touch with PWM Group
+                Subscribe to PWM Newsletter
               </p>
               <button
                 onClick={openModal}
                 className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-md hover:bg-blue-900 hover:text-white transition"
               >
-                Get in Touch
+                Subscribe Now
               </button>
             </div>
 
@@ -267,48 +267,35 @@ const BlogPage = () => {
 
       {/* Fillout Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm overflow-y-auto transition-all duration-300">
-          <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 py-8">
-            <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 animate-fadeIn">
-              {/* Close Button */}
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
-                aria-label="Close"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center px-4 sm:px-6 py-8">
+          <div className="relative w-full max-w-md sm:max-w-xl md:max-w-3xl bg-white rounded-xl shadow-2xl p-4 sm:p-6 md:p-8">
+            {/* ❌ Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-3 right-3 text-gray-700 hover:text-black text-3xl font-bold z-50"
+              aria-label="Close"
+            >
+              &times;
+            </button>
 
-              {/* Scrollable Form Area */}
-              <div className="overflow-y-auto max-h-[90vh]">
-                <div
-                  data-fillout-id="mbSxjjkQMpus"
-                  data-fillout-embed-type="standard"
-                  data-fillout-inherit-parameters="true"
-                  data-fillout-dynamic-resize="true"
-                  style={{ width: "100%", minHeight: "500px" }}
-                ></div>
-              </div>
-
-              {/* Embed script */}
-              <Script
-                src="https://server.fillout.com/embed/v1/"
-                strategy="afterInteractive"
-              />
+            {/* 🧩 Fillout Form */}
+            <div className="w-full">
+              <div
+                data-fillout-id="mbSxjjkQMpus"
+                data-fillout-embed-type="standard"
+                data-fillout-inherit-parameters="true"
+                data-fillout-dynamic-resize="true"
+                style={{
+                  width: "100%",
+                  minHeight: "400px",
+                }}
+              ></div>
             </div>
+
+            <Script
+              src="https://server.fillout.com/embed/v1/"
+              strategy="afterInteractive"
+            />
           </div>
         </div>
       )}
