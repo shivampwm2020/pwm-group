@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+<!-- for blogs -->
+
+When creating a new blog:
+
+- Save the `.mdx` file in your `/content` folder.
+- Update the JSON (`blog.json`) like this:
+
+```json
+{
+  "id": "14",
+  "title": "New Blog Title",
+  "slug": "new-blog-slug",
+  "category": "Insights",
+  "excerpt": "Short description that appears on blog cards.",
+  "contentPath": "new-blog-file.mdx",
+  "author": "Author Name",
+  "date": "2025-07-10",
+  "image": "/img-new.jpg"
+}
+```
