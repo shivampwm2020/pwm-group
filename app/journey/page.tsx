@@ -38,6 +38,120 @@ const journeyMilestones = [
   },
 ];
 
+const timelineData = [
+  {
+    year: "2025",
+    title: "The AI Renaissance",
+    subtitle: "Present • 2025",
+    gradient: "from-blue-600 to-indigo-600",
+    content: (
+      <>
+        <p className="text-gray-600 mb-6">
+          Transformed into a comprehensive AI ecosystem with three distinct
+          platforms: ExplainGithub, Aiution, and The Production Gurus.
+        </p>
+        <div className="space-y-4">
+          {[
+            {
+              name: "ExplainGithub",
+              desc: "AI-powered tool to interact with GitHub repositories and gain instant, professional insights into code, pull requests, and architecture.",
+              bg: "bg-orange-50",
+              text: "text-orange-800",
+            },
+            {
+              name: "Aiution",
+              desc: "AI-as-a-Service platform enabling businesses to automate workflows, deploy chatbots, and integrate AI systems with minimal setup.",
+              bg: "bg-blue-50",
+              text: "text-blue-800",
+            },
+            {
+              name: "The Production Gurus",
+              desc: "Tech community for builders, developers, and founders to share ideas, build products, and connect meaningfully.",
+              bg: "bg-green-50",
+              text: "text-green-800",
+            },
+          ].map((item, idx) => (
+            <div key={idx} className={`p-4 rounded-md ${item.bg}`}>
+              <h5 className={`font-semibold ${item.text}`}>{item.name}</h5>
+              <p className="text-sm text-gray-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </>
+    ),
+  },
+  {
+    year: "2024",
+    title: "Strategic Transformation",
+    subtitle: "Transition • 2024",
+    gradient: "from-blue-400 to-indigo-400",
+    content: (
+      <p className="text-gray-600">
+        A year of reflection and reinvention, focusing on AI technology and
+        innovation.
+      </p>
+    ),
+  },
+  {
+    year: "2023",
+    title: "Comprehensive Learning Hub",
+    subtitle: "2023 • Fourth Evolution",
+    gradient: "from-gray-300 to-gray-400",
+    content: (
+      <>
+        <p className="text-gray-600 mb-4">
+          Expanded into a full-fledged educational platform with multiple
+          courses and career guidance.
+        </p>
+        <ul className="list-disc ml-5 text-gray-600 text-sm space-y-1">
+          <li>Advanced programming courses</li>
+          <li>Career counseling services</li>
+          <li>Industry collaboration programs</li>
+          <li>Live mentoring sessions</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    year: "2022",
+    title: "Community-Focused Platform",
+    subtitle: "2022 • Third Evolution",
+    gradient: "from-gray-300 to-gray-400",
+    content: (
+      <>
+        <p className="text-gray-600 mb-4">
+          Enhanced the platform with community features and interactive learning
+          elements.
+        </p>
+        <ul className="list-disc ml-5 text-gray-600 text-sm space-y-1">
+          <li>Interactive coding challenges</li>
+          <li>Community forums</li>
+          <li>Project collaborations</li>
+          <li>Student showcase</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    year: "2021",
+    title: "Educational Content Platform",
+    subtitle: "2021 • Second Evolution",
+    gradient: "from-gray-300 to-gray-400",
+    content: (
+      <>
+        <p className="text-gray-600 mb-4">
+          Expanded the tutorial base and introduced structured learning paths.
+        </p>
+        <ul className="list-disc ml-5 text-gray-600 text-sm space-y-1">
+          <li>Curated learning journeys</li>
+          <li>Topic-wise video lectures</li>
+          <li>Quizzes and certification</li>
+        </ul>
+      </>
+    ),
+  },
+];
+
 export default function JourneyPage() {
   return (
     <div className="min-h-screen bg-white">
@@ -140,162 +254,42 @@ export default function JourneyPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-24 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative">
-            <div className="absolute left-4 md:left-1/2 top-0 h-full w-1 bg-gradient-to-b from-blue-500 to-indigo-500 transform md:-translate-x-1/2"></div>
+      <section className="py-20 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Timeline Line */}
+          <div className="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 to-indigo-500 h-full z-0 rounded-full" />
+          <div className="block md:hidden absolute top-0 left-6 w-1 bg-gradient-to-b from-blue-500 to-indigo-500 h-full z-0 rounded-full" />
 
-            {/* Timeline Items */}
-            {[
-              {
-                year: "2025",
-                title: "The AI Renaissance",
-                subtitle: "Present • 2025",
-                gradient: "from-blue-600 to-indigo-600",
-                content: (
-                  <>
-                    <p className="text-gray-600 mb-6">
-                      Transformed into a comprehensive AI ecosystem with three
-                      distinct platforms: ExplainGithub, Aiution, and The
-                      Production Gurus.
-                    </p>
-                    <div className="space-y-4">
-                      {[
-                        {
-                          name: "ExplainGithub",
-                          desc: "AI-powered tool to interact with GitHub repositories and gain instant, professional insights into code, pull requests, and architecture,",
-                          bg: "bg-orange-50",
-                          text: "text-orange-800",
-                        },
-                        {
-                          name: "Aiution",
-                          desc: "Aiution is an AI-as-a-Service platform enabling businesses to automate workflows, deploy chatbots, and integrate AI systems with minimal setup.",
-                          bg: "bg-blue-50",
-                          text: "text-blue-800",
-                        },
-                        {
-                          name: "The Production Gurus",
-                          desc: "The Production Gurus is a tech community for builders, developers, and founders to share ideas, build products, and connect meaningfully.",
-                          bg: "bg-green-50",
-                          text: "text-green-800",
-                        },
-                      ].map((item, idx) => (
-                        <div key={idx} className={`p-4 rounded-md ${item.bg}`}>
-                          <h5 className={`font-semibold ${item.text}`}>
-                            {item.name}
-                          </h5>
-                          <p className="text-sm text-gray-600">{item.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                ),
-              },
-              {
-                year: "2024",
-                title: "Strategic Transformation",
-                subtitle: "Transition • 2024",
-                gradient: "from-blue-400 to-indigo-400",
-                content: (
-                  <p className="text-gray-600">
-                    A year of reflection and reinvention, focusing on AI
-                    technology and innovation.
-                  </p>
-                ),
-              },
-              {
-                year: "2023",
-                title: "Comprehensive Learning Hub",
-                subtitle: "2023 • Fourth Evolution",
-                gradient: "from-gray-300 to-gray-400",
-                content: (
-                  <>
-                    <p className="text-gray-600 mb-4">
-                      Expanded into a full-fledged educational platform with
-                      multiple courses and career guidance.
-                    </p>
-                    <ul className="list-disc ml-5 text-gray-600 text-sm space-y-1">
-                      <li>Advanced programming courses</li>
-                      <li>Career counseling services</li>
-                      <li>Industry collaboration programs</li>
-                      <li>Live mentoring sessions</li>
-                    </ul>
-                  </>
-                ),
-              },
-              {
-                year: "2022",
-                title: "Community-Focused Platform",
-                subtitle: "2022 • Third Evolution",
-                gradient: "from-gray-300 to-gray-400",
-                content: (
-                  <>
-                    <p className="text-gray-600 mb-4">
-                      Enhanced the platform with community features and
-                      interactive learning elements.
-                    </p>
-                    <ul className="list-disc ml-5 text-gray-600 text-sm space-y-1">
-                      <li>Interactive coding challenges</li>
-                      <li>Community forums</li>
-                      <li>Project collaborations</li>
-                      <li>Student showcase</li>
-                    </ul>
-                  </>
-                ),
-              },
-              {
-                year: "2021",
-                title: "Educational Content Platform",
-                subtitle: "2021 • Second Evolution",
-                gradient: "from-gray-300 to-gray-400",
-                content: (
-                  <>
-                    <p className="text-gray-600 mb-4">
-                      Expanded the tutorial base and introduced structured
-                      learning paths.
-                    </p>
-                    <ul className="list-disc ml-5 text-gray-600 text-sm space-y-1">
-                      <li>Curated learning journeys</li>
-                      <li>Topic-wise video lectures</li>
-                      <li>Quizzes and certification</li>
-                    </ul>
-                  </>
-                ),
-              },
-            ].map((item, index) => (
-              <SlideIn>
-                <div key={index} className="relative mb-20">
-                  <div className="flex flex-col md:flex-row items-center md:items-start">
-                    {/* Left side on md, full width center on mobile */}
-                    <div className="md:w-1/2 md:pr-16 text-center md:text-right mb-6 md:mb-0">
-                      <div
-                        className={`inline-block px-4 py-2 bg-gradient-to-r ${item.gradient} text-white text-sm font-medium rounded-full mb-3`}
-                      >
-                        {item.subtitle}
-                      </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {item.title}
-                      </h3>
-                    </div>
+          {timelineData.map((item, index) => (
+            <div
+              key={index}
+              className="relative z-10 flex flex-col md:flex-row items-start md:items-stretch mb-16"
+            >
+              {/* Dot */}
+              <div className="absolute top-4 left-[2px] sm:left-[22px] md:left-1/2 transform md:-translate-x-1/2 z-10">
+                <div className="w-5 h-5 rounded-full border-4 border-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-md"></div>
+              </div>
 
-                    {/* Dot */}
-                    <div className="absolute left-4 md:left-1/2 top-0 md:-ml-3.5 -ml-2 mt-3">
-                      <div
-                        className={`w-6 h-6 bg-gradient-to-r ${item.gradient} rounded-full border-4 border-white shadow-md`}
-                      ></div>
-                    </div>
-
-                    {/* Right side on md, full width center on mobile */}
-                    <div className="md:w-1/2 md:pl-16 text-center md:text-left">
-                      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm inline-block max-w-full">
-                        {item.content}
-                      </div>
-                    </div>
-                  </div>
+              {/* Left Side (Title/Subheading) */}
+              <div className="md:w-1/2 w-full pl-10 sm:pl-14 md:pl-0 md:pr-10 mb-4 md:mb-0 flex flex-col items-start md:items-end">
+                <div
+                  className={`inline-block px-3 py-1 mb-2 text-xs font-semibold text-white rounded-full bg-gradient-to-r ${item.gradient}`}
+                >
+                  {item.subtitle}
                 </div>
-              </SlideIn>
-            ))}
-          </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {item.title}
+                </h3>
+              </div>
+
+              {/* Right Side (Content) */}
+              <div className="md:w-1/2 w-full pl-10 sm:pl-14 md:pl-10">
+                <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                  {item.content}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
